@@ -1,10 +1,10 @@
 /* --- CONFIGURAÇÕES GLOBAIS E PALETA DE CORES --- */
 :root {
-    --background-color: #121212; /* Preto um pouco mais suave que #000 */
-    --primary-color: #9D4EDD; /* Roxo vibrante para destaque */
-    --text-color: #F5F5F5; /* Branco suave para legibilidade */
-    --card-background: #1E1E1E; /* Fundo para cards e elementos */
-    --border-color: #333; /* Cor para bordas sutis */
+    --background-color: #121212;
+    --primary-color: #9D4EDD;
+    --text-color: #F5F5F5;
+    --card-background: #1E1E1E;
+    --border-color: #333;
 }
 
 /* --- RESET BÁSICO E ESTILOS GERAIS --- */
@@ -123,23 +123,44 @@ section {
     color: var(--primary-color);
 }
 
-/* --- 3. SEÇÃO "O QUE ESTÁ INCLUSO" --- */
+/* --- 3. O QUE ESTÁ INCLUSO (NOVO DESIGN) --- */
 #incluso {
     background-color: var(--card-background);
 }
-.included-list {
-    list-style: none;
+
+.included-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    font-size: 1.1rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
 }
-.included-list li {
-    padding: 10px;
+
+.included-card {
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
 }
-.included-list li::before {
-    content: '✅';
-    margin-right: 15px;
+
+.included-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 5px 25px rgba(157, 78, 221, 0.2);
+}
+
+.included-card svg {
+    width: 28px;
+    height: 28px;
+    fill: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.included-card span {
+    font-size: 1.05rem;
+    font-weight: 500;
 }
 
 /* --- 4. GALERIA/PORTFÓLIO --- */
@@ -173,20 +194,26 @@ section {
     font-weight: 600;
 }
 
-/* --- 5. DEPOIMENTOS --- */
+/* --- 5. DEPOIMENTOS (NOVO CARROSSEL) --- */
 #depoimentos {
      background-color: var(--card-background);
 }
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+.testimonial-slider {
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.testimonial-wrapper {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
 }
 .testimonial-card {
     background-color: var(--background-color);
-    padding: 30px;
+    padding: 40px;
     border-radius: 10px;
     border-top: 4px solid var(--primary-color);
+    min-width: 100%;
+    box-sizing: border-box;
 }
 .testimonial-card blockquote {
     font-size: 1.1rem;
@@ -204,6 +231,7 @@ section {
     font-size: 0.9rem;
     color: #aaa;
 }
+
 
 /* --- 6. TABELA DE PLANOS --- */
 .pricing-grid {
@@ -228,13 +256,13 @@ section {
 .pricing-plan p {
     margin: 15px 0 30px 0;
     font-size: 1rem;
-    min-height: 48px; /* Altura mínima para alinhar */
+    min-height: 48px;
 }
 .pricing-plan ul {
     list-style: none;
     margin-bottom: 40px;
     text-align: left;
-    flex-grow: 1; /* Faz a lista crescer para empurrar o botão para baixo */
+    flex-grow: 1;
 }
 .pricing-plan ul li {
     margin-bottom: 15px;
@@ -270,7 +298,7 @@ section {
     font-weight: 600;
     cursor: pointer;
     position: relative;
-    padding-right: 40px; /* Espaço para o ícone */
+    padding-right: 40px;
 }
 .faq-question::after {
     content: '+';
@@ -292,7 +320,7 @@ section {
     transition: max-height 0.5s ease, padding 0.5s ease;
 }
 .faq-item.active .faq-answer {
-    max-height: 300px; /* Altura suficiente para a resposta */
+    max-height: 300px;
     padding-top: 15px;
 }
 
@@ -321,7 +349,7 @@ footer {
         margin: 0 auto;
     }
     .pricing-plan.popular {
-        transform: scale(1); /* Reset no mobile para evitar overflow */
+        transform: scale(1);
     }
 }
 @media (max-width: 768px) {
@@ -330,7 +358,7 @@ footer {
     #hero h1 { font-size: 2.8rem; }
     #hero h2 { font-size: 1.2rem; }
     #cta-final h2 { font-size: 2.2rem; }
-    .benefits-grid, .portfolio-grid, .testimonials-grid, .included-list {
+    .benefits-grid, .portfolio-grid, .testimonials-grid, .included-grid {
         grid-template-columns: 1fr;
     }
 }

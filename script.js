@@ -1,25 +1,36 @@
-// --- SCRIPT PARA O ACORDEÃO DO FAQ ---
+document.addEventListener('DOMContentLoaded', () => {
 
-// 1. Seleciona todos os itens do FAQ
-const faqItems = document.querySelectorAll('.faq-item');
-
-// 2. Adiciona um "ouvinte de clique" a cada item
-faqItems.forEach(item => {
-    // Seleciona a parte da pergunta dentro do item
-    const question = item.querySelector('.faq-question');
-
-    question.addEventListener('click', () => {
-        // Verifica se o item clicado já está ativo
-        const isActive = item.classList.contains('active');
-
-        // Opcional: Fecha todos os outros itens abertos para ter apenas um aberto por vez
-        faqItems.forEach(otherItem => {
-            otherItem.classList.remove('active');
+    // --- SCRIPT PARA O ACORDEÃO DO FAQ ---
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            faqItems.forEach(otherItem => {
+                otherItem.classList.remove('active');
+            });
+            if (!isActive) {
+                item.classList.add('active');
+            }
         });
-
-        // Se o item não estava ativo, abre ele. Se estava, ele permanecerá fechado (pelo passo anterior).
-        if (!isActive) {
-            item.classList.add('active');
-        }
     });
+
+    // --- SCRIPT PARA O CARROSSEL AUTOMÁTICO DE DEPOIMENTOS ---
+    const slider = document.querySelector('.testimonial-wrapper');
+    const slides = document.querySelectorAll('.testimonial-card');
+    
+    // Verifica se o slider existe na página antes de continuar
+    if (slider && slides.length > 0) {
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+
+        function showNextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            const offset = -currentIndex * 100;
+            slider.style.transform = `translateX(${offset}%)`;
+        }
+
+        // Muda de slide a cada 5 segundos (5000 milissegundos)
+        setInterval(showNextSlide, 5000);
+    }
 });
