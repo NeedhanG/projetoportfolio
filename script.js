@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const slider = document.querySelector('.testimonial-wrapper');
     const slides = document.querySelectorAll('.testimonial-card');
     
-    // Verifica se o slider existe na página antes de continuar
     if (slider && slides.length > 0) {
         let currentIndex = 0;
         const totalSlides = slides.length;
@@ -30,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
             slider.style.transform = `translateX(${offset}%)`;
         }
 
-        // Muda de slide a cada 5 segundos (5000 milissegundos)
-        setInterval(showNextSlide, 5000);
+        setInterval(showNextSlide, 5000); // Muda de slide a cada 5 segundos
     }
 });

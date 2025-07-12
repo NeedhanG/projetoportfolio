@@ -4,11 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sua Agência Criativa - Design que Vende</title>
-    
-    <!-- Link para a Folha de Estilos (CSS) -->
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Link para as Fontes do Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -48,7 +44,7 @@
             </div>
         </section>
 
-        <!-- 3. O QUE ESTÁ INCLUSO (NOVO DESIGN) -->
+        <!-- 3. O QUE ESTÁ INCLUSO -->
         <section id="incluso">
             <div class="container">
                 <h2 class="section-title">Tudo o que Você <span>Precisa para Decolar</span></h2>
@@ -89,52 +85,55 @@
             </div>
         </section>
 
-        <!-- 4. GALERIA/PORTFÓLIO -->
+        <!-- 4. GALERIA/PORTFÓLIO (ESTRUTURA CORRIGIDA) -->
         <section id="portfolio" class="container">
             <h2 class="section-title">Projetos que <span>Falam por Si</span></h2>
             <p class="section-subtitle">Navegue por alguns dos nossos trabalhos e veja na prática como transformamos ideias em resultados digitais.</p>
             <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="https://placehold.co/600x400/121212/9D4EDD?text=Projeto+1" alt="Mockup do Projeto 1">
-                    <div class="portfolio-info">
+                <!-- Card 1 -->
+                <div class="portfolio-card">
+                    <img src="https://placehold.co/600x400/1e1e1e/9b59b6?text=Projeto+A" alt="Imagem do Projeto A">
+                    <div class="card-content">
                         <h3>StartTech Soluções</h3>
-                        <p>Landing Page de Vendas</p>
+                        <p>Landing Page moderna e focada em conversão para uma empresa de tecnologia em ascensão.</p>
+                        <a href="#" class="project-link">Ver Projeto →</a>
                     </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://placehold.co/600x400/121212/9D4EDD?text=Projeto+2" alt="Mockup do Projeto 2">
-                    <div class="portfolio-info">
+                <!-- Card 2 -->
+                <div class="portfolio-card">
+                    <img src="https://placehold.co/600x400/1e1e1e/9b59b6?text=Projeto+B" alt="Imagem do Projeto B">
+                    <div class="card-content">
                         <h3>Ana Clara Fotografia</h3>
-                        <p>Portfólio Profissional</p>
+                        <p>Portfólio minimalista e visual para destacar o trabalho incrível de uma fotógrafa profissional.</p>
+                        <a href="#" class="project-link">Ver Projeto →</a>
                     </div>
                 </div>
-                <div class="portfolio-item">
-                    <img src="https://placehold.co/600x400/121212/9D4EDD?text=Projeto+3" alt="Mockup do Projeto 3">
-                    <div class="portfolio-info">
+                <!-- Card 3 -->
+                <div class="portfolio-card">
+                    <img src="https://placehold.co/600x400/1e1e1e/9b59b6?text=Projeto+C" alt="Imagem do Projeto C">
+                    <div class="card-content">
                         <h3>Loja Florescer</h3>
-                        <p>Loja Virtual (E-commerce)</p>
+                        <p>Loja virtual completa com experiência de usuário fluida e design atraente.</p>
+                        <a href="#" class="project-link">Ver Projeto →</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 5. DEPOIMENTOS (NOVO CARROSSEL AUTOMÁTICO) -->
+        <!-- 5. DEPOIMENTOS -->
         <section id="depoimentos">
             <div class="container">
                 <h2 class="section-title">Quem Faz, <span>Confia.</span></h2>
                 <div class="testimonial-slider">
                     <div class="testimonial-wrapper">
-                        <!-- Slide 1 -->
                         <div class="testimonial-card">
                             <blockquote>"O portfólio que criaram foi um divisor de águas. Profissional, rápido e exatamente como eu sonhava. Meus pedidos de orçamento triplicaram!"</blockquote>
                             <p class="testimonial-author">Ana Clara <span>Fotógrafa - Portfólio Profissional</span></p>
                         </div>
-                        <!-- Slide 2 -->
                         <div class="testimonial-card">
                             <blockquote>"Finalmente temos uma landing page que converte! O design ficou incrível e o processo foi super transparente. Recomendo de olhos fechados."</blockquote>
                             <p class="testimonial-author">Bruno Mendes <span>CEO da StartTech - Landing Page</span></p>
                         </div>
-                        <!-- Slide 3 -->
                         <div class="testimonial-card">
                             <blockquote>"Nossa loja virtual ficou linda e super funcional. As vendas aumentaram 40% no primeiro mês. A equipe é muito atenciosa e profissional."</blockquote>
                             <p class="testimonial-author">Juliana Costa <span>Loja Florescer - Loja Virtual</span></p>
@@ -237,7 +236,6 @@
         </div>
     </footer>
     
-    <!-- Link para o arquivo JavaScript -->
     <script src="script.js"></script>
 
 </body>

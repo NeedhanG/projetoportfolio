@@ -1,17 +1,18 @@
-/* --- CONFIGURAÇÕES GLOBAIS E PALETA DE CORES --- */
+/* --- CONFIGURAÇÕES GLOBAIS E VARIÁVEIS DE COR --- */
 :root {
     --background-color: #121212;
-    --primary-color: #9D4EDD;
+    --primary-color: #9b59b6; /* Cor roxa ajustada */
     --text-color: #F5F5F5;
     --card-background: #1E1E1E;
     --border-color: #333;
+    --text-muted: #aaaaaa;
 }
 
-/* --- RESET BÁSICO E ESTILOS GERAIS --- */
+/* Dica Essencial: Garante que padding e border não quebrem o layout */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
@@ -41,7 +42,6 @@ section {
     font-weight: 700;
     text-align: center;
     margin-bottom: 20px;
-    color: var(--text-color);
 }
 
 .section-title span {
@@ -69,10 +69,11 @@ section {
 
 .cta-button:hover {
     transform: scale(1.05);
-    background-color: #b166f1;
 }
 
-/* --- 1. SEÇÃO DE CAPA (HERO) --- */
+/* --- SEÇÕES DA PÁGINA --- */
+
+/* 1. HERO */
 #hero {
     height: 100vh;
     min-height: 600px;
@@ -80,277 +81,117 @@ section {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(180deg, rgba(18, 18, 18, 0.8) 0%, #121212 100%);
 }
+#hero h1 { font-size: 4rem; line-height: 1.2; margin-bottom: 20px; }
+#hero h2 { font-size: 1.5rem; font-weight: 400; max-width: 700px; margin: 0 auto 40px auto; opacity: 0.9; }
 
-#hero h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
+/* 2. BENEFÍCIOS */
+.benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.benefit-card { background-color: var(--card-background); padding: 30px; border-radius: 10px; border-left: 4px solid var(--primary-color); transition: transform 0.3s ease; }
+.benefit-card:hover { transform: translateY(-10px); }
+.benefit-card h3 { font-size: 1.4rem; margin-bottom: 10px; color: var(--primary-color); }
 
-#hero h2 {
-    font-size: 1.5rem;
-    font-weight: 400;
-    max-width: 700px;
-    margin: 0 auto 40px auto;
-    opacity: 0.9;
-}
+/* 3. INCLUSO */
+#incluso { background-color: var(--card-background); }
+.included-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+.included-card { background-color: var(--background-color); padding: 20px; border-radius: 8px; display: flex; align-items: center; gap: 15px; transition: all 0.3s ease; border: 1px solid transparent; }
+.included-card:hover { transform: translateY(-5px); border-color: var(--primary-color); box-shadow: 0 5px 25px rgba(155, 89, 182, 0.2); }
+.included-card svg { width: 28px; height: 28px; fill: var(--primary-color); flex-shrink: 0; }
+.included-card span { font-size: 1.05rem; font-weight: 500; }
 
-/* --- 2. SEÇÃO DE BENEFÍCIOS --- */
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.benefit-card {
-    background-color: var(--card-background);
-    padding: 30px;
-    border-radius: 10px;
-    border-left: 4px solid var(--primary-color);
-    transition: transform 0.3s ease;
-}
-
-.benefit-card:hover {
-    transform: translateY(-10px);
-}
-
-.benefit-card h3 {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-    color: var(--primary-color);
-}
-
-/* --- 3. O QUE ESTÁ INCLUSO (NOVO DESIGN) --- */
-#incluso {
-    background-color: var(--card-background);
-}
-
-.included-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
-}
-
-.included-card {
-    background-color: var(--background-color);
-    padding: 20px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
-}
-
-.included-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-color);
-    box-shadow: 0 5px 25px rgba(157, 78, 221, 0.2);
-}
-
-.included-card svg {
-    width: 28px;
-    height: 28px;
-    fill: var(--primary-color);
-    flex-shrink: 0;
-}
-
-.included-card span {
-    font-size: 1.05rem;
-    font-weight: 500;
-}
-
-/* --- 4. GALERIA/PORTFÓLIO --- */
+/* 4. PORTFÓLIO (CÓDIGO CORRIGIDO) */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    /* Cria colunas responsivas: mínimo de 300px, máximo de 1 fração do espaço */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Espaçamento consistente entre os cards */
     gap: 30px;
 }
-.portfolio-item {
+
+.portfolio-card {
     background-color: var(--card-background);
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
-    transition: transform 0.3s ease;
-}
-.portfolio-item:hover {
-    transform: scale(1.03);
-}
-.portfolio-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-.portfolio-info {
-    padding: 20px;
-}
-.portfolio-info h3 {
-    font-size: 1.3rem;
-}
-.portfolio-info p {
-    color: var(--primary-color);
-    font-weight: 600;
-}
-
-/* --- 5. DEPOIMENTOS (NOVO CARROSSEL) --- */
-#depoimentos {
-     background-color: var(--card-background);
-}
-.testimonial-slider {
-    max-width: 800px;
-    margin: 0 auto;
-    overflow: hidden;
-}
-.testimonial-wrapper {
-    display: flex;
-    transition: transform 0.8s ease-in-out;
-}
-.testimonial-card {
-    background-color: var(--background-color);
-    padding: 40px;
-    border-radius: 10px;
-    border-top: 4px solid var(--primary-color);
-    min-width: 100%;
-    box-sizing: border-box;
-}
-.testimonial-card blockquote {
-    font-size: 1.1rem;
-    font-style: italic;
-    border-left: 3px solid var(--primary-color);
-    padding-left: 15px;
-    margin-bottom: 20px;
-}
-.testimonial-author {
-    font-weight: 600;
-}
-.testimonial-author span {
-    display: block;
-    font-weight: 400;
-    font-size: 0.9rem;
-    color: #aaa;
-}
-
-
-/* --- 6. TABELA DE PLANOS --- */
-.pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    align-items: stretch;
-}
-.pricing-plan {
-    background: var(--card-background);
-    padding: 40px;
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Usa flexbox para alinhar o conteúdo interno verticalmente */
     display: flex;
     flex-direction: column;
 }
-.pricing-plan h3 {
-    font-size: 1.5rem;
-    color: var(--primary-color);
+
+.portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(155, 89, 182, 0.2);
 }
-.pricing-plan p {
-    margin: 15px 0 30px 0;
-    font-size: 1rem;
-    min-height: 48px;
-}
-.pricing-plan ul {
-    list-style: none;
-    margin-bottom: 40px;
-    text-align: left;
-    flex-grow: 1;
-}
-.pricing-plan ul li {
-    margin-bottom: 15px;
-}
-.pricing-plan ul li::before {
-    content: '✓';
-    color: var(--primary-color);
-    font-weight: bold;
-    margin-right: 10px;
-}
-.pricing-plan.popular {
-    border: 2px solid var(--primary-color);
-    transform: scale(1.05);
-}
-.pricing-plan .cta-button {
+
+.portfolio-card img {
     width: 100%;
+    height: 200px;
+    object-fit: cover; /* Evita que a imagem distorça */
+    display: block;
 }
 
-/* --- 7. FAQ --- */
-#faq {
-    background-color: var(--card-background);
+.card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Faz este container ocupar o espaço vertical disponível */
 }
-.faq-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-.faq-item {
-    border-bottom: 1px solid var(--border-color);
-    padding: 20px 0;
-}
-.faq-question {
-    font-size: 1.2rem;
-    font-weight: 600;
-    cursor: pointer;
-    position: relative;
-    padding-right: 40px;
-}
-.faq-question::after {
-    content: '+';
+
+.card-content h3 { font-size: 1.4rem; margin-bottom: 10px; }
+.card-content p { color: var(--text-muted); line-height: 1.6; }
+
+.project-link {
+    margin-top: auto; /* Empurra o link para o final do card */
+    padding-top: 20px;
     color: var(--primary-color);
-    font-size: 2rem;
-    font-weight: 400;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: transform 0.3s ease;
+    text-decoration: none;
+    font-weight: 600;
+    transition: letter-spacing 0.3s ease;
 }
-.faq-item.active .faq-question::after {
-    transform: translateY(-50%) rotate(45deg);
-}
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease, padding 0.5s ease;
-}
-.faq-item.active .faq-answer {
-    max-height: 300px;
-    padding-top: 15px;
-}
+.project-link:hover { letter-spacing: 1px; }
 
-/* --- 8. CTA FINAL --- */
-#cta-final {
-    text-align: center;
-}
-#cta-final h2 {
-    font-size: 2.8rem;
-}
+/* 5. DEPOIMENTOS */
+#depoimentos { background-color: var(--card-background); }
+.testimonial-slider { max-width: 800px; margin: 0 auto; overflow: hidden; }
+.testimonial-wrapper { display: flex; transition: transform 0.8s ease-in-out; }
+.testimonial-card { background-color: var(--background-color); padding: 40px; border-radius: 10px; border-top: 4px solid var(--primary-color); min-width: 100%; box-sizing: border-box; }
+.testimonial-card blockquote { font-size: 1.1rem; font-style: italic; border-left: 3px solid var(--primary-color); padding-left: 15px; margin-bottom: 20px; }
+.testimonial-author { font-weight: 600; }
+.testimonial-author span { display: block; font-weight: 400; font-size: 0.9rem; color: #aaa; }
 
-/* --- FOOTER --- */
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    border-top: 1px solid var(--border-color);
-}
+/* 6. PLANOS */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; align-items: stretch; }
+.pricing-plan { background: var(--card-background); padding: 40px; border-radius: 10px; text-align: center; transition: transform 0.3s ease; display: flex; flex-direction: column; }
+.pricing-plan h3 { font-size: 1.5rem; color: var(--primary-color); }
+.pricing-plan p { margin: 15px 0 30px 0; min-height: 48px; }
+.pricing-plan ul { list-style: none; margin-bottom: 40px; text-align: left; flex-grow: 1; }
+.pricing-plan ul li { margin-bottom: 15px; }
+.pricing-plan ul li::before { content: '✓'; color: var(--primary-color); font-weight: bold; margin-right: 10px; }
+.pricing-plan.popular { border: 2px solid var(--primary-color); transform: scale(1.05); }
+.pricing-plan .cta-button { width: 100%; }
 
-/* --- RESPONSIVIDADE --- */
+/* 7. FAQ */
+#faq { background-color: var(--card-background); }
+.faq-container { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--border-color); padding: 20px 0; }
+.faq-question { font-size: 1.2rem; font-weight: 600; cursor: pointer; position: relative; padding-right: 40px; }
+.faq-question::after { content: '+'; color: var(--primary-color); font-size: 2rem; font-weight: 400; position: absolute; right: 0; top: 50%; transform: translateY(-50%); transition: transform 0.3s ease; }
+.faq-item.active .faq-question::after { transform: translateY(-50%) rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding 0.5s ease; }
+.faq-item.active .faq-answer { max-height: 300px; padding-top: 15px; }
+
+/* 8. CTA FINAL */
+#cta-final { text-align: center; }
+#cta-final h2 { font-size: 2.8rem; }
+
+/* FOOTER */
+footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border-color); }
+
+/* RESPONSIVIDADE */
 @media (max-width: 992px) {
-    .pricing-grid {
-        grid-template-columns: 1fr;
-    }
-    .pricing-plan {
-        max-width: 500px;
-        margin: 0 auto;
-    }
-    .pricing-plan.popular {
-        transform: scale(1);
-    }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-plan { max-width: 500px; margin: 0 auto; }
+    .pricing-plan.popular { transform: scale(1); }
 }
 @media (max-width: 768px) {
     section { padding: 80px 0; }
@@ -358,7 +199,4 @@ footer {
     #hero h1 { font-size: 2.8rem; }
     #hero h2 { font-size: 1.2rem; }
     #cta-final h2 { font-size: 2.2rem; }
-    .benefits-grid, .portfolio-grid, .testimonials-grid, .included-grid {
-        grid-template-columns: 1fr;
-    }
 }
