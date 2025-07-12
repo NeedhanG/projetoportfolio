@@ -434,11 +434,18 @@ footer {
 .portfolio-card:hover,
 .portfolio-card:focus,
 .portfolio-card:active {
-    transform: scale(1.03);
+    transform: translateY(-5px); /* Alterado de scale para translateY para consistência */
 }
 
 .pricing-plan:hover,
 .pricing-plan:focus,
 .pricing-plan:active {
-    transform: scale(1.03);
+    transform: scale(1.03); /* Mantido scale para os planos */
+}
+
+/* Adicionando efeito ao plano popular no mobile */
+@media (max-width: 992px) {
+    .pricing-plan.popular:active {
+        transform: scale(1.05);
+    }
 }
