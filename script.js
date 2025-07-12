@@ -31,4 +31,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setInterval(showNextSlide, 5000); // Muda de slide a cada 5 segundos
     }
+
+    // --- CÓDIGO NOVO PARA ATIVAR O TOQUE NO MOBILE ---
+    // Esta função adiciona um "ouvinte de toque" vazio. A simples existência
+    // dele já é suficiente para o iOS entender que o elemento é clicável
+    // e, assim, aplicar o efeito :active do CSS.
+    function enableActiveStateOnMobile(selector) {
+        document.querySelectorAll(selector).forEach(element => {
+            element.addEventListener('touchstart', () => {}, { passive: true });
+        });
+    }
+
+    enableActiveStateOnMobile('.benefit-card');
+    enableActiveStateOnMobile('.included-card');
+    enableActiveStateOnMobile('.portfolio-card');
+    enableActiveStateOnMobile('.pricing-plan');
+    enableActiveStateOnMobile('.cta-button');
+
 });
