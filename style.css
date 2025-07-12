@@ -1,4 +1,3 @@
-
 /* --- CONFIGURAÇÕES GLOBAIS E PALETA DE CORES --- */
 :root {
     --background-color: #121212;
@@ -199,7 +198,7 @@ section {
 
 /* --- 5. DEPOIMENTOS --- */
 #depoimentos {
-     background-color: var(--card-background);
+    background-color: var(--card-background);
 }
 
 .testimonial-slider {
@@ -407,4 +406,39 @@ footer {
     .included-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* --- EFEITOS PARA MOBILE (TOQUE) E DESKTOP --- */
+.included-card:hover,
+.included-card:focus,
+.included-card:active {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 5px 25px rgba(157, 78, 221, 0.2);
+    cursor: pointer;
+}
+
+.cta-button:hover,
+.cta-button:focus,
+.cta-button:active {
+    transform: scale(1.05);
+    background-color: #b166f1;
+}
+
+.benefit-card:hover,
+.benefit-card:focus,
+.benefit-card:active {
+    transform: translateY(-10px);
+}
+
+.portfolio-card:hover,
+.portfolio-card:focus,
+.portfolio-card:active {
+    transform: scale(1.03);
+}
+
+.pricing-plan:hover,
+.pricing-plan:focus,
+.pricing-plan:active {
+    transform: scale(1.03);
 }
