@@ -38,7 +38,9 @@ section { padding: 100px 0; }
 
 
 /* --- 2. SEÇÃO DE BENEFÍCIOS --- */
-#beneficios { background-color: #1e1e1e; }
+#beneficios {
+    background-color: #1e1e1e;
+}
 #beneficios .section-title { text-align: center; }
 .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
 .benefit-card { background-color: #080808; padding: 30px; border-radius: 10px; border-left: 4px solid var(--primary-color); transition: transform 0.3s ease; min-height: 220px; box-shadow: 0 0 12px rgba(0, 0, 0, 0.15); cursor: pointer; }
@@ -48,7 +50,9 @@ section { padding: 100px 0; }
 
 
 /* --- 3. SEÇÃO DE SERVIÇOS (CARROSSÉIS) --- */
-#nossos-servicos { background-color: #080808; }
+#nossos-servicos {
+    background-color: #080808;
+}
 #nossos-servicos .section-title { text-align: center; }
 .service-category { margin-bottom: 80px; }
 .service-category:last-child { margin-bottom: 0; }
@@ -61,9 +65,26 @@ section { padding: 100px 0; }
 .swiper-pagination-bullet-active { background: var(--swiper-theme-color); }
 
 /* --- 4. SEÇÃO DE PLANOS FOCADA NOS SERVIÇOS --- */
-#planos { background-color: var(--card-background); }
-.service-pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-.service-plan-card { background-color: var(--background-color); border: 1px solid var(--border-color); padding: 40px 30px; border-radius: 12px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; display: flex; flex-direction: column; }
+#planos { 
+    background-color: var(--card-background); 
+}
+.service-pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1200px; /* Ajustado para 3 cards */
+    margin: 0 auto;
+}
+.service-plan-card {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
 .service-plan-card:hover, .service-plan-card:active { transform: translateY(-10px); border-color: var(--primary-color); box-shadow: 0 10px 30px rgba(157, 78, 221, 0.2); }
 .service-icon { width: 70px; height: 70px; margin: 0 auto 30px auto; background-color: var(--primary-color); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; font-weight: 700; }
 .service-plan-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: var(--text-color); }
@@ -71,7 +92,9 @@ section { padding: 100px 0; }
 .service-plan-card .cta-button { margin-top: auto; width: 100%; }
 
 /* --- 5. SEÇÃO DE DEPOIMENTOS --- */
-#depoimentos { background-color: #1e1e1e; }
+#depoimentos { 
+    background-color: #1e1e1e;
+}
 .testimonial-carousel { max-width: 850px; margin: 0 auto; padding-bottom: 50px !important; overflow: hidden; }
 .testimonial-carousel .swiper-slide { display: flex; justify-content: center; align-items: center; padding: 10px; }
 .testimonial-card { background-color: #080808; padding: 40px; border-radius: 12px; border-top: 4px solid var(--primary-color); width: 100%; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); text-align: left; }
@@ -80,12 +103,8 @@ section { padding: 100px 0; }
 .testimonial-author { font-weight: 600; font-size: 1.1rem; color: var(--text-color); }
 .testimonial-author span { display: block; font-weight: 400; font-size: 0.9rem; color: #aaa; margin-top: 5px; }
 
-/* --- SEÇÃO DE FAQ (ESTILO CORRIGIDO) --- */
+/* --- SEÇÃO DE FAQ --- */
 #faq { background-color: var(--background-color); }
-#faq .section-title { text-align: left; } /* Alinha o título do FAQ à esquerda */
-#faq .section-title span {
-    color: var(--primary-color); /* Garante que a parte "A gente responde" fique roxa */
-}
 .faq-container { max-width: 800px; margin: 0 auto; }
 .faq-item { border-bottom: 1px solid var(--border-color); padding: 20px 0; }
 .faq-question { font-size: 1.2rem; font-weight: 600; cursor: pointer; position: relative; padding-right: 40px; }
@@ -112,7 +131,7 @@ section { padding: 100px 0; }
 
 /* --- RESPONSIVIDADE --- */
 @media (min-width: 992px) {
-    .service-pricing-grid { grid-template-columns: repeat(3, 1fr); }
+    .service-pricing-grid { grid-template-columns: repeat(3, 1fr); } /* <<< AJUSTADO PARA 3 COLUNAS */
 }
 @media (min-width: 768px) and (max-width: 991px) {
     .service-pricing-grid { grid-template-columns: repeat(2, 1fr); }
@@ -123,5 +142,4 @@ section { padding: 100px 0; }
     #hero h1 { font-size: 2.8rem; }
     #hero h2 { font-size: 1.2rem; }
     .section-title, .category-title { font-size: 1.8rem; }
-    #faq .section-title { text-align: center; } /* Centraliza o título do FAQ no mobile */
 }
