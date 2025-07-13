@@ -49,81 +49,83 @@ section { padding: 100px 0; }
 .benefit-card p { color: #b3b3b3; }
 
 
-/* --- 3. SEÇÃO DE SERVIÇOS (CARROSSÉIS) --- */
-#nossos-servicos { background-color: #080808; }
+/* --- 3. SEÇÃO DE SERVIÇOS (CARROSSÉIS) - NOVO DESIGN --- */
+#nossos-servicos {
+    background-color: #080808;
+}
 #nossos-servicos .section-title { text-align: center; }
 .service-category { margin-bottom: 80px; }
 .service-category:last-child { margin-bottom: 0; }
 .category-title { font-size: 2rem; color: var(--primary-color); text-align: center; margin-bottom: 40px; font-weight: 600; }
-.service-slider { width: 100%; padding-bottom: 50px !important; }
-.service-slider .swiper-slide { display: flex; justify-content: center; align-items: center; }
 
-/* ESTILOS DO CARD DE PORTFÓLIO E SEUS EFEITOS */
-.portfolio-card {
-    position: relative; /* Essencial para o posicionamento do overlay */
+.service-slider {
     width: 100%;
-    background-color: var(--card-background);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    cursor: pointer;
+    padding-bottom: 70px !important; /* Mais espaço para o botão e paginação */
 }
 
-.portfolio-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    transition: transform 0.4s ease; /* Transição suave para o efeito de zoom */
-}
-
-/* Efeito de zoom na imagem ao interagir com o card */
-.portfolio-card:hover img,
-.portfolio-card:active img {
-    transform: scale(1.05);
-}
-
-/* ESTILOS PARA O OVERLAY E BOTÃO */
-.card-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(18, 18, 18, 0.7); /* Fundo preto semitransparente */
+/* Container de cada slide */
+.project-slide-content {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    opacity: 0; /* Começa invisível */
-    transition: opacity 0.4s ease;
+    gap: 25px; /* Espaço entre título, imagem e botão */
+    width: 100%;
+    max-width: 500px; /* Limita a largura máxima do conteúdo do slide */
 }
 
-/* Efeito de aparição do overlay */
-.portfolio-card:hover .card-overlay,
-.portfolio-card:active .card-overlay {
-    opacity: 1; /* Fica visível na interação */
+/* Estilos para o título e categoria do projeto */
+.project-info {
+    text-align: center;
+}
+.project-category-tag {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #888;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.project-name {
+    font-size: 1.6rem;
+    color: var(--text-color);
 }
 
-.project-button {
+/* Estilos para o mockup da imagem */
+.project-mockup {
+    width: 100%;
+    border: 1px solid #333; /* Borda sutil */
+    border-radius: 8px;
+    background-color: #000;
+    padding: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.project-mockup img {
+    width: 100%;
+    display: block;
+    border-radius: 4px; /* Borda interna levemente arredondada */
+}
+
+/* Estilos para o botão "VER PROJETO" */
+.project-view-button {
     background-color: var(--primary-color);
     color: white;
-    padding: 12px 28px;
+    padding: 12px 35px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1rem;
-    transform: translateY(20px); /* Começa um pouco para baixo */
-    opacity: 0;
-    transition: transform 0.4s ease, opacity 0.4s ease;
+    transition: all 0.3s ease;
+}
+.project-view-button:hover {
+    transform: scale(1.05);
+    background-color: #b166f1; /* Cor um pouco mais clara no hover */
 }
 
-/* Efeito de aparição do botão */
-.portfolio-card:hover .project-button,
-.portfolio-card:active .project-button {
-    transform: translateY(0); /* Sobe para a posição final */
-    opacity: 1; /* Fica visível */
+/* Customização da Paginação do Swiper */
+.swiper-pagination {
+    position: relative !important;
+    bottom: -15px !important; /* Posiciona as bolinhas abaixo do botão */
 }
+.swiper-pagination-bullet { background: var(--swiper-pagination-bullet-inactive-color); width: 10px; height: 10px; opacity: 0.8; }
+.swiper-pagination-bullet-active { background: var(--swiper-theme-color); }
 /* --- 4. SEÇÃO DE PLANOS FOCADA NOS SERVIÇOS --- */
 #planos { 
     background-color: var(--card-background); 
