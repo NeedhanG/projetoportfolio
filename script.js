@@ -75,3 +75,25 @@ if (faqItems.length > 0) {
     enableActiveStateOnMobile('.benefit-card, .included-card, .pricing-plan, .cta-button, .service-plan-card'); // Adicionado .service-plan-card
 
 });
+
+// --- SCRIPT PARA ROLAGEM SUAVE SEM ALTERAR A URL ---
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        // 1. Impede o comportamento padrão do link
+        e.preventDefault();
+
+        // 2. Pega o ID do alvo (ex: '#planos')
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        // 3. Verifica se o elemento de destino existe na página
+        if (targetElement) {
+            // 4. Faz a rolagem suave até o elemento
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
