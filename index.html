@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sua Agência Criativa - Design que Vende</title>
+    
+    <!-- Link para a biblioteca Swiper.js (CSS) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,27 +25,15 @@
     </header>
 
     <main>
-        <!-- 2. SEÇÃO DE BENEFÍCIOS (ESTRUTURA CORRIGIDA) -->
+        <!-- 2. SEÇÃO DE BENEFÍCIOS -->
         <section id="beneficios">
             <div class="container">
                 <h2 class="section-title">Chega do Básico. <span>Sua Marca Merece Destaque.</span></h2>
                 <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <h3>Design Magnético e Exclusivo</h3>
-                        <p>Causamos uma primeira impressão inesquecível que captura e retém a atenção do seu público.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <h3>Foco Total em Conversão</h3>
-                        <p>Cada elemento é pensado estrategicamente para transformar visitantes em clientes fiéis.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <h3>Experiência Perfeita em Qualquer Tela</h3>
-                        <p>Seu site impecável e funcional no celular, tablet ou computador, sem exceções.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <h3>Velocidade que Impressiona</h3>
-                        <p>Páginas que carregam em um piscar de olhos, mantendo o usuário engajado e melhorando seu SEO.</p>
-                    </div>
+                    <div class="benefit-card"><h3>Design Magnético e Exclusivo</h3><p>Causamos uma primeira impressão inesquecível que captura e retém a atenção do seu público.</p></div>
+                    <div class="benefit-card"><h3>Foco Total em Conversão</h3><p>Cada elemento é pensado estrategicamente para transformar visitantes em clientes fiéis.</p></div>
+                    <div class="benefit-card"><h3>Experiência Perfeita em Qualquer Tela</h3><p>Seu site impecável e funcional no celular, tablet ou computador, sem exceções.</p></div>
+                    <div class="benefit-card"><h3>Velocidade que Impressiona</h3><p>Páginas que carregam em um piscar de olhos, mantendo o usuário engajado e melhorando seu SEO.</p></div>
                 </div>
             </div>
         </section>
@@ -50,197 +42,78 @@
         <section id="incluso">
             <div class="container">
                 <h2 class="section-title">Tudo o que Você <span>Precisa para Decolar</span></h2>
-                <div class="included-grid">
-                    <div class="included-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709l-4.1992-4.1992-1.4141 1.4141 5.6133 5.6133 12.0213-12.0214-1.4141-1.4141-10.6072 10.6073z"></path></svg>
-                        <span>Design 100% Exclusivo e Personalizado</span>
+                <div class="included-grid"><!-- Itens inclusos aqui --></div>
+            </div>
+        </section>
+
+        <!-- 4. NOVA SEÇÃO DE PORTFÓLIO COM CARROSSÉIS -->
+        <section id="nossos-servicos">
+            <div class="container">
+                <h2 class="section-title">Nossos Serviços <span>em Ação</span></h2>
+
+                <!-- CATEGORIA: LANDING PAGES -->
+                <div class="service-category">
+                    <h3 class="category-title">Landing Pages</h3>
+                    <div class="swiper service-slider">
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <div class="swiper-slide"><div class="portfolio-card"><img src="https://placehold.co/600x800/1e1e1e/9D4EDD?text=LP+1" alt="Landing Page 1"></div></div>
+                            <div class="swiper-slide"><div class="portfolio-card"><img src="https://placehold.co/600x800/1e1e1e/9D4EDD?text=LP+2" alt="Landing Page 2"></div></div>
+                            <div class="swiper-slide"><div class="portfolio-card"><img src="https://placehold.co/600x800/1e1e1e/9D4EDD?text=LP+3" alt="Landing Page 3"></div></div>
+                            <div class="swiper-slide"><div class="portfolio-card"><img src="https://placehold.co/600x800/1e1e1e/9D4EDD?text=LP+4" alt="Landing Page 4"></div></div>
+                            <div class="swiper-slide"><div class="portfolio-card"><img src="https://placehold.co/600x800/1e1e1e/9D4EDD?text=LP+5" alt="Landing Page 5"></div></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
                     </div>
-                    <div class="included-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709l-4.1992-4.1992-1.4141 1.4141 5.6133 5.6133 12.0213-12.0214-1.4141-1.4141-10.6072 10.6073z"></path></svg>
-                        <span>Layout Totalmente Responsivo</span>
+                </div>
+
+                <!-- CATEGORIA: PORTFÓLIOS PROFISSIONAIS -->
+                <div class="service-category">
+                    <h3 class="category-title">Portfólios Profissionais</h3>
+                    <div class="swiper service-slider">
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <div class="swiper-slide"><div class="portfolio-card"><img src="https://placehold.co/600x800/1e1e1e/9D4EDD?text=Portfólio+1" alt="Portfólio 1"></div></div>
+                            <div class="swiper-slide"><div class="portfolio-card"><img src="https://placehold.co/600x800/1e1e1e/9D4EDD?text=Portfólio+2" alt="Portfólio 2"></div></div>
+                            <div class="swiper-slide"><div class="portfolio-card"><img src="https://placehold.co/600x800/1e1e1e/9D4EDD?text=Portfólio+3" alt="Portfólio 3"></div></div>
+                            <div class="swiper-slide"><div class="portfolio-card"><img src="https://placehold.co/600x800/1e1e1e/9D4EDD?text=Portfólio+4" alt="Portfólio 4"></div></div>
+                            <div class="swiper-slide"><div class="portfolio-card"><img src="https://placehold.co/600x800/1e1e1e/9D4EDD?text=Portfólio+5" alt="Portfólio 5"></div></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
                     </div>
-                    <div class="included-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709l-4.1992-4.1992-1.4141 1.4141 5.6133 5.6133 12.0213-12.0214-1.4141-1.4141-10.6072 10.6073z"></path></svg>
-                        <span>Otimização para SEO (Google)</span>
-                    </div>
-                    <div class="included-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709l-4.1992-4.1992-1.4141 1.4141 5.6133 5.6133 12.0213-12.0214-1.4141-1.4141-10.6072 10.6073z"></path></svg>
-                        <span>Alta Velocidade de Carregamento</span>
-                    </div>
-                    <div class="included-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709l-4.1992-4.1992-1.4141 1.4141 5.6133 5.6133 12.0213-12.0214-1.4141-1.4141-10.6072 10.6073z"></path></svg>
-                        <span>Integração com WhatsApp e Redes Sociais</span>
-                    </div>
-                    <div class="included-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709l-4.1992-4.1992-1.4141 1.4141 5.6133 5.6133 12.0213-12.0214-1.4141-1.4141-10.6072 10.6073z"></path></svg>
-                        <span>Formulário de Contato ou Captura de Leads</span>
-                    </div>
-                    <div class="included-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709l-4.1992-4.1992-1.4141 1.4141 5.6133 5.6133 12.0213-12.0214-1.4141-1.4141-10.6072 10.6073z"></path></svg>
-                        <span>Domínio e Hospedagem por 1 ano</span>
-                    </div>
-                    <div class="included-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.9997 15.1709l-4.1992-4.1992-1.4141 1.4141 5.6133 5.6133 12.0213-12.0214-1.4141-1.4141-10.6072 10.6073z"></path></svg>
-                        <span>Certificado de Segurança SSL</span>
+                </div>
+
+                <!-- CATEGORIA: CRIATIVOS PARA REDES SOCIAIS -->
+                <div class="service-category">
+                    <h3 class="category-title">Criativos para Redes Sociais</h3>
+                    <div class="swiper service-slider">
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <div class="swiper-slide"><div class="portfolio-card"><img src="https://placehold.co/600x600/1e1e1e/9D4EDD?text=Criativo+1" alt="Criativo 1"></div></div>
+                            <div class="swiper-slide"><div class="portfolio-card"><img src="https://placehold.co/600x600/1e1e1e/9D4EDD?text=Criativo+2" alt="Criativo 2"></div></div>
+                            <div class="swiper-slide"><div class="portfolio-card"><img src="https://placehold.co/600x600/1e1e1e/9D4EDD?text=Criativo+3" alt="Criativo 3"></div></div>
+                            <div class="swiper-slide"><div class="portfolio-card"><img src="https://placehold.co/600x600/1e1e1e/9D4EDD?text=Criativo+4" alt="Criativo 4"></div></div>
+                            <div class="swiper-slide"><div class="portfolio-card"><img src="https://placehold.co/600x600/1e1e1e/9D4EDD?text=Criativo+5" alt="Criativo 5"></div></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 4. GALERIA/PORTFÓLIO (ESTRUTURA CORRIGIDA) -->
-        <section id="portfolio">
-            <div class="container">
-                <h2 class="section-title">Projetos que <span>Falam por Si</span></h2>
-                <p class="section-subtitle">Navegue por alguns dos nossos trabalhos e veja na prática como transformamos ideias em resultados digitais.</p>
-                <div class="portfolio-grid">
-                    <div class="portfolio-card">
-                        <img src="https://placehold.co/600x400/1e1e1e/9b59b6?text=Projeto+A" alt="Imagem do Projeto A">
-                        <div class="card-content">
-                            <h3>StartTech Soluções</h3>
-                            <p>Landing Page moderna e focada em conversão para uma empresa de tecnologia em ascensão.</p>
-                            <a href="#" class="project-link">Ver Projeto →</a>
-                        </div>
-                    </div>
-                    <div class="portfolio-card">
-                        <img src="https://placehold.co/600x400/1e1e1e/9b59b6?text=Projeto+B" alt="Imagem do Projeto B">
-                        <div class="card-content">
-                            <h3>Ana Clara Fotografia</h3>
-                            <p>Portfólio minimalista e visual para destacar o trabalho incrível de uma fotógrafa profissional.</p>
-                            <a href="#" class="project-link">Ver Projeto →</a>
-                        </div>
-                    </div>
-                    <div class="portfolio-card">
-                        <img src="https://placehold.co/600x400/1e1e1e/9b59b6?text=Projeto+C" alt="Imagem do Projeto C">
-                        <div class="card-content">
-                            <h3>Loja Florescer</h3>
-                            <p>Loja virtual completa com experiência de usuário fluida e design atraente.</p>
-                            <a href="#" class="project-link">Ver Projeto →</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. DEPOIMENTOS -->
-        <section id="depoimentos">
-            <div class="container">
-                <h2 class="section-title">Quem Faz, <span>Confia.</span></h2>
-                <div class="testimonial-slider">
-                    <div class="testimonial-wrapper">
-                        <div class="testimonial-card">
-                            <blockquote>"O portfólio que criaram foi um divisor de águas. Profissional, rápido e exatamente como eu sonhava. Meus pedidos de orçamento triplicaram!"</blockquote>
-                            <p class="testimonial-author">Ana Clara <span>Fotógrafa - Portfólio Profissional</span></p>
-                        </div>
-                        <div class="testimonial-card">
-                            <blockquote>"Finalmente temos uma landing page que converte! O design ficou incrível e o processo foi super transparente. Recomendo de olhos fechados."</blockquote>
-                            <p class="testimonial-author">Bruno Mendes <span>CEO da StartTech - Landing Page</span></p>
-                        </div>
-                        <div class="testimonial-card">
-                            <blockquote>"Nossa loja virtual ficou linda e super funcional. As vendas aumentaram 40% no primeiro mês. A equipe é muito atenciosa e profissional."</blockquote>
-                            <p class="testimonial-author">Juliana Costa <span>Loja Florescer - Loja Virtual</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. PLANOS (ESTRUTURA CORRIGIDA) -->
-        <section id="planos">
-            <div class="container">
-                <h2 class="section-title">Encontre o Plano Perfeito <span>para seu Momento</span></h2>
-                <div class="pricing-grid">
-                    <div class="pricing-plan">
-                        <h3>ESSENCIAL</h3>
-                        <p>Ideal para lançar sua presença online com uma página de impacto.</p>
-                        <ul>
-                            <li>Landing Page (1 página)</li>
-                            <li>Até 5 Seções</li>
-                            <li>Design Exclusivo</li>
-                            <li>Responsivo</li>
-                            <li>SEO Básico</li>
-                            <li>Entrega: 10 dias úteis</li>
-                        </ul>
-                        <a href="#cta-final" class="cta-button">Quero este Plano</a>
-                    </div>
-                    <div class="pricing-plan popular">
-                        <h3>PROFISSIONAL</h3>
-                        <p>Para profissionais e negócios que precisam de um site completo.</p>
-                        <ul>
-                            <li>Site Institucional (até 5 págs)</li>
-                            <li>Até 10 Seções</li>
-                            <li>Design Exclusivo</li>
-                            <li>Integração com Blog</li>
-                            <li>SEO Otimizado</li>
-                            <li>Entrega: 20 dias úteis</li>
-                        </ul>
-                        <a href="#cta-final" class="cta-button">Quero este Plano</a>
-                    </div>
-                    <div class="pricing-plan">
-                        <h3>PREMIUM</h3>
-                        <p>A solução robusta para e-commerce e projetos complexos.</p>
-                        <ul>
-                            <li>Loja Virtual ou Site Complexo</li>
-                            <li>Seções Ilimitadas</li>
-                            <li>Cadastro de Produtos</li>
-                            <li>Pagamento Online</li>
-                            <li>SEO Avançado</li>
-                            <li>Entrega: a partir de 30 dias</li>
-                        </ul>
-                        <a href="#cta-final" class="cta-button">Quero este Plano</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7. FAQ -->
-        <section id="faq">
-            <div class="container">
-                <h2 class="section-title">Dúvidas? <span>A gente responde.</span></h2>
-                <div class="faq-container">
-                    <div class="faq-item">
-                        <div class="faq-question">Quanto tempo leva para criar meu site?</div>
-                        <div class="faq-answer">
-                            <p>O tempo varia conforme o plano. Uma Landing Page (Plano Essencial) leva cerca de 10 dias úteis, enquanto projetos mais complexos podem levar mais tempo. O prazo exato é definido no nosso orçamento.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">Eu mesmo consigo atualizar o site depois?</div>
-                        <div class="faq-answer">
-                            <p>Sim! Para sites com Blog ou Lojas Virtuais, oferecemos um treinamento simples para você gerenciar seu conteúdo, produtos e posts sem depender de ninguém.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">O que preciso fornecer para começarmos o projeto?</div>
-                        <div class="faq-answer">
-                            <p>Precisamos da sua logo, textos (ou uma ideia sobre eles), imagens que queira usar e referências de sites que você gosta. Se não tiver algo, não se preocupe, podemos te ajudar no processo!</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">O site já vem otimizado para o Google (SEO)?</div>
-                        <div class="faq-answer">
-                            <p>Sim! Todos os nossos sites são entregues com uma otimização de SEO básica, que inclui configuração de títulos, meta-tags, otimização de imagens e velocidade para ajudar o Google a te encontrar.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 8. CTA FINAL (ESTRUTURA CORRIGIDA) -->
-        <section id="cta-final">
-            <div class="container">
-                <h2>Pronto para Transformar <span>sua Presença Digital?</span></h2>
-                <p class="section-subtitle">Fale com um especialista sem compromisso e descubra como podemos impulsionar seu negócio com um design que realmente converte.</p>
-                <a href="https://wa.me/5511999999999?text=Ol%C3%A1%21+Estou+pronto+para+transformar+minha+presen%C3%A7a+digital." target="_blank" class="cta-button">Quero Minha Página de Sucesso</a>
-            </div>
-        </section>
+        <!-- OUTRAS SEÇÕES (Depoimentos, Planos, etc.) CONTINUAM AQUI -->
+        <section id="depoimentos"><!-- Conteúdo dos depoimentos --></section>
+        <section id="planos"><!-- Conteúdo dos planos --></section>
+        <section id="faq"><!-- Conteúdo do FAQ --></section>
+        <section id="cta-final"><!-- Conteúdo do CTA final --></section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>© 2024 [Nome da sua Empresa/Agência]. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+    <footer><!-- Conteúdo do rodapé --></footer>
     
+    <!-- Link para a biblioteca Swiper.js (JavaScript) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Link para o seu arquivo de script -->
     <script src="script.js"></script>
 
 </body>

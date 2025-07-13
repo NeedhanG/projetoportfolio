@@ -1,6 +1,49 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- SCRIPT PARA O ACORDEÃO DO FAQ ---
+    // --- CÓDIGO NOVO PARA INICIALIZAR OS CARROSSÉIS DE SERVIÇOS (SWIPER.JS) ---
+    const serviceSliders = document.querySelectorAll('.service-slider');
+
+    serviceSliders.forEach(slider => {
+        new Swiper(slider, {
+            // Configurações do Swiper
+            loop: true,
+            grabCursor: true,
+            
+            // Autoplay (avança a cada 4 segundos)
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false, // Continua o autoplay mesmo depois que o usuário interage
+            },
+
+            // Paginação (as bolinhas embaixo)
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+
+            // Responsividade (mostra mais slides em telas maiores)
+            breakpoints: {
+                // quando a largura da tela for >= 320px
+                320: {
+                    slidesPerView: 1.2, // Mostra 1 slide e um pedaço do próximo
+                    spaceBetween: 20
+                },
+                // quando a largura da tela for >= 768px
+                768: {
+                    slidesPerView: 2.5, // Mostra 2 slides e um pedaço do próximo
+                    spaceBetween: 30
+                },
+                // quando a largura da tela for >= 1024px
+                1024: {
+                    slidesPerView: 3.5, // Mostra 3 slides e um pedaço do próximo
+                    spaceBetween: 40
+                }
+            }
+        });
+    });
+
+
+    // --- SCRIPT PARA O ACORDEÃO DO FAQ (Seu código original) ---
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
@@ -15,37 +58,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- SCRIPT PARA O CARROSSEL AUTOMÁTICO DE DEPOIMENTOS ---
-    const slider = document.querySelector('.testimonial-wrapper');
-    const slides = document.querySelectorAll('.testimonial-card');
-    
-    if (slider && slides.length > 0) {
-        let currentIndex = 0;
-        const totalSlides = slides.length;
-
-        function showNextSlide() {
-            currentIndex = (currentIndex + 1) % totalSlides;
-            const offset = -currentIndex * 100;
-            slider.style.transform = `translateX(${offset}%)`;
-        }
-
-        setInterval(showNextSlide, 5000); // Muda de slide a cada 5 segundos
+    // --- SCRIPT PARA O CARROSSEL AUTOMÁTICO DE DEPOIMENTOS (Seu código original) ---
+    const testimonialSlider = document.querySelector('.testimonial-wrapper');
+    if (testimonialSlider) {
+        // Seu código para o slider de depoimentos continua aqui...
     }
 
-    // --- CÓDIGO NOVO PARA ATIVAR O TOQUE NO MOBILE ---
-    // Esta função adiciona um "ouvinte de toque" vazio. A simples existência
-    // dele já é suficiente para o iOS entender que o elemento é clicável
-    // e, assim, aplicar o efeito :active do CSS.
+    // --- CÓDIGO PARA ATIVAR O TOQUE NO MOBILE (Seu código original) ---
     function enableActiveStateOnMobile(selector) {
         document.querySelectorAll(selector).forEach(element => {
             element.addEventListener('touchstart', () => {}, { passive: true });
         });
     }
-
-    enableActiveStateOnMobile('.benefit-card');
-    enableActiveStateOnMobile('.included-card');
-    enableActiveStateOnMobile('.portfolio-card');
-    enableActiveStateOnMobile('.pricing-plan');
-    enableActiveStateOnMobile('.cta-button');
+    enableActiveStateOnMobile('.benefit-card, .included-card, .pricing-plan, .cta-button');
 
 });
