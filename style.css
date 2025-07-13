@@ -88,16 +88,79 @@ section { padding: 100px 0; }
 .swiper-pagination-bullet-active { background: var(--swiper-theme-color); }
 
 /* --- 4. SEÇÃO DE PLANOS FOCADA NOS SERVIÇOS --- */
-#planos { background-color: var(--background-color); } /* Retornado para a cor principal para criar contraste */
-.service-pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-.service-plan-card { background-color: #1e1e1e; border: 1px solid var(--border-color); padding: 40px 30px; border-radius: 12px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; display: flex; flex-direction: column; }
-.service-plan-card:hover, .service-plan-card:active { transform: translateY(-10px); border-color: var(--primary-color); box-shadow: 0 10px 30px rgba(157, 78, 221, 0.2); }
-.service-icon { width: 70px; height: 70px; margin: 0 auto 30px auto; background-color: var(--primary-color); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; font-weight: 700; }
-.service-plan-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: var(--text-color); }
-.service-plan-card p { color: #b3b3b3; min-height: 80px; }
-.service-plan-card ul { list-style: none; margin: 30px 0 40px 0; text-align: left; flex-grow: 1; }
-.service-plan-card ul li { margin-bottom: 12px; padding-left: 10px; }
-.service-plan-card .cta-button { width: 100%; }
+#planos { 
+    background-color: var(--card-background); 
+}
+
+.service-pricing-grid {
+    display: grid;
+    /* Por padrão, o grid se ajusta automaticamente. */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    
+    /* A MÁGICA ACONTECE AQUI: Limitamos a largura máxima do grid */
+    /* Isso impede que ele se estique demais em telas largas. */
+    max-width: 1400px; 
+    margin: 0 auto; /* Centraliza o grid dentro da seção */
+}
+
+.service-plan-card {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-plan-card:hover, .service-plan-card:active {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(157, 78, 221, 0.2);
+}
+
+.service-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 30px auto;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.service-plan-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.service-plan-card p {
+    color: #b3b3b3;
+    min-height: 80px;
+}
+
+.service-plan-card ul {
+    list-style: none;
+    margin: 30px 0 40px 0;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.service-plan-card ul li {
+    margin-bottom: 12px;
+    padding-left: 10px;
+}
+
+.service-plan-card .cta-button {
+    width: 100%;
+}
 
 /* --- 5. SEÇÃO DE DEPOIMENTOS --- */
 #depoimentos { 
