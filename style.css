@@ -41,35 +41,12 @@ section { padding: 100px 0; }
 #beneficios {
     background-color: #1e1e1e;
 }
-#beneficios .section-title {
-    text-align: center;
-}
-.benefits-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 30px; 
-}
-.benefit-card { 
-    background-color: #080808;
-    padding: 30px; 
-    border-radius: 10px; 
-    border-left: 4px solid var(--primary-color); 
-    transition: transform 0.3s ease; 
-    min-height: 220px; 
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15); 
-    cursor: pointer; 
-}
-.benefit-card:hover, .benefit-card:active { 
-    transform: translateY(-10px); 
-}
-.benefit-card h3 { 
-    font-size: 1.4rem; 
-    margin-bottom: 10px; 
-    color: var(--primary-color); 
-}
-.benefit-card p {
-    color: #b3b3b3;
-}
+#beneficios .section-title { text-align: center; }
+.benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.benefit-card { background-color: #080808; padding: 30px; border-radius: 10px; border-left: 4px solid var(--primary-color); transition: transform 0.3s ease; min-height: 220px; box-shadow: 0 0 12px rgba(0, 0, 0, 0.15); cursor: pointer; }
+.benefit-card:hover, .benefit-card:active { transform: translateY(-10px); }
+.benefit-card h3 { font-size: 1.4rem; margin-bottom: 10px; color: var(--primary-color); }
+.benefit-card p { color: #b3b3b3; }
 
 
 /* --- 3. SEÇÃO DE SERVIÇOS (CARROSSÉIS) --- */
@@ -78,7 +55,7 @@ section { padding: 100px 0; }
 }
 #nossos-servicos .section-title { text-align: center; }
 .service-category { margin-bottom: 80px; }
-.service-category:last-child { margin-bottom: 0; } /* Remove a margem do último carrossel */
+.service-category:last-child { margin-bottom: 0; }
 .category-title { font-size: 2rem; color: var(--primary-color); text-align: center; margin-bottom: 40px; font-weight: 600; }
 .service-slider { width: 100%; padding-bottom: 50px !important; }
 .service-slider .swiper-slide { display: flex; justify-content: center; align-items: center; }
@@ -95,7 +72,7 @@ section { padding: 100px 0; }
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
-    max-width: 1400px; 
+    max-width: 1200px; /* Ajustado para 3 cards */
     margin: 0 auto;
 }
 .service-plan-card {
@@ -108,17 +85,11 @@ section { padding: 100px 0; }
     display: flex;
     flex-direction: column;
 }
-.service-plan-card:hover, .service-plan-card:active {
-    transform: translateY(-10px);
-    border-color: var(--primary-color);
-    box-shadow: 0 10px 30px rgba(157, 78, 221, 0.2);
-}
+.service-plan-card:hover, .service-plan-card:active { transform: translateY(-10px); border-color: var(--primary-color); box-shadow: 0 10px 30px rgba(157, 78, 221, 0.2); }
 .service-icon { width: 70px; height: 70px; margin: 0 auto 30px auto; background-color: var(--primary-color); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; font-weight: 700; }
 .service-plan-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: var(--text-color); }
 .service-plan-card p { color: #b3b3b3; min-height: 80px; }
-.service-plan-card ul { list-style: none; margin: 30px 0 40px 0; text-align: left; flex-grow: 1; }
-.service-plan-card ul li { margin-bottom: 12px; padding-left: 10px; }
-.service-plan-card .cta-button { width: 100%; }
+.service-plan-card .cta-button { margin-top: auto; width: 100%; }
 
 /* --- 5. SEÇÃO DE DEPOIMENTOS --- */
 #depoimentos { 
@@ -160,7 +131,7 @@ section { padding: 100px 0; }
 
 /* --- RESPONSIVIDADE --- */
 @media (min-width: 992px) {
-    .service-pricing-grid { grid-template-columns: repeat(3, 1fr); } /* <<<< MUDANÇA APLICADA AQUI */
+    .service-pricing-grid { grid-template-columns: repeat(3, 1fr); } /* <<< AJUSTADO PARA 3 COLUNAS */
 }
 @media (min-width: 768px) and (max-width: 991px) {
     .service-pricing-grid { grid-template-columns: repeat(2, 1fr); }
