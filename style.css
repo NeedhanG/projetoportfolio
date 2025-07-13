@@ -37,6 +37,9 @@ section { padding: 100px 0; }
 
 
 /* --- 2. SEÇÃO DE BENEFÍCIOS --- */
+#beneficios {
+    background-color: #1e1e1e; /* <<<< MUDANÇA APLICADA AQUI */
+}
 #beneficios .section-title {
     text-align: center;
 }
@@ -46,7 +49,7 @@ section { padding: 100px 0; }
     gap: 30px; 
 }
 .benefit-card { 
-    background-color: var(--card-background); 
+    background-color: #080808;  /* <<<< MUDANÇA APLICADA AQUI */
     padding: 30px; 
     border-radius: 10px; 
     border-left: 4px solid var(--primary-color); 
@@ -69,6 +72,9 @@ section { padding: 100px 0; }
 
 
 /* --- 3. SEÇÃO DE SERVIÇOS (CARROSSÉIS) --- */
+#nossos-servicos {
+    background-color: #080808; /* <<<< MUDANÇA APLICADA AQUI */
+}
 #nossos-servicos .section-title { text-align: center; }
 .service-category { margin-bottom: 80px; }
 .category-title { font-size: 2rem; color: var(--primary-color); text-align: center; margin-bottom: 40px; font-weight: 600; }
@@ -82,9 +88,9 @@ section { padding: 100px 0; }
 .swiper-pagination-bullet-active { background: var(--swiper-theme-color); }
 
 /* --- 4. SEÇÃO DE PLANOS FOCADA NOS SERVIÇOS --- */
-#planos { background-color: var(--card-background); }
+#planos { background-color: var(--background-color); } /* Retornado para a cor principal para criar contraste */
 .service-pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-.service-plan-card { background-color: var(--background-color); border: 1px solid var(--border-color); padding: 40px 30px; border-radius: 12px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; display: flex; flex-direction: column; }
+.service-plan-card { background-color: #1e1e1e; border: 1px solid var(--border-color); padding: 40px 30px; border-radius: 12px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; display: flex; flex-direction: column; }
 .service-plan-card:hover, .service-plan-card:active { transform: translateY(-10px); border-color: var(--primary-color); box-shadow: 0 10px 30px rgba(157, 78, 221, 0.2); }
 .service-icon { width: 70px; height: 70px; margin: 0 auto 30px auto; background-color: var(--primary-color); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; font-weight: 700; }
 .service-plan-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: var(--text-color); }
@@ -95,13 +101,13 @@ section { padding: 100px 0; }
 
 /* --- 5. SEÇÃO DE DEPOIMENTOS --- */
 #depoimentos { 
-    background-color: var(--background-color); /* Fundo preto para combinar com a imagem */
+    background-color: #1e1e1e; /* Alternando a cor */
 }
 
 .testimonial-carousel {
-    max-width: 850px; /* Largura máxima do carrossel */
+    max-width: 850px;
     margin: 0 auto;
-    padding-bottom: 50px !important; /* Espaço para as bolinhas */
+    padding-bottom: 50px !important;
     overflow: hidden;
 }
 
@@ -109,11 +115,11 @@ section { padding: 100px 0; }
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px; /* Espaço para a sombra não ser cortada */
+    padding: 10px;
 }
 
 .testimonial-card {
-    background-color: var(--card-background);
+    background-color: #080808; /* Alternando a cor */
     padding: 40px;
     border-radius: 12px;
     border-top: 4px solid var(--primary-color);
@@ -123,7 +129,7 @@ section { padding: 100px 0; }
 }
 
 .testimonial-card blockquote {
-    font-size: 1.2rem; /* Texto um pouco maior para destaque */
+    font-size: 1.2rem;
     font-style: italic;
     color: #e0e0e0;
     line-height: 1.6;
@@ -133,7 +139,6 @@ section { padding: 100px 0; }
     position: relative;
 }
 
-/* Opcional: Adiciona as aspas visuais */
 .testimonial-card blockquote::before {
     content: '“';
     font-family: Georgia, serif;
