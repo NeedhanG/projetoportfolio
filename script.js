@@ -46,23 +46,26 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     });
 
-    // --- SCRIPT PARA O ACORDEÃO DO FAQ (Seu código original mantido) ---
-    const faqItems = document.querySelectorAll('.faq-item');
-    if (faqItems.length > 0) { // Adicionada verificação para evitar erros se a seção não existir
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            question.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-                faqItems.forEach(otherItem => {
-                    otherItem.classList.remove('active');
-                });
-                if (!isActive) {
-                    item.classList.add('active');
-                }
+   // --- SCRIPT PARA O ACORDEÃO DO FAQ ---
+const faqItems = document.querySelectorAll('.faq-item');
+if (faqItems.length > 0) {
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Fecha todos os outros itens para ter apenas um aberto por vez
+            faqItems.forEach(otherItem => {
+                otherItem.classList.remove('active');
             });
-        });
-    }
 
+            // Se o item clicado não estava ativo, abre ele.
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+}
     // --- CÓDIGO PARA ATIVAR O TOQUE NO MOBILE (Seu código original mantido) ---
     function enableActiveStateOnMobile(selector) {
         document.querySelectorAll(selector).forEach(element => {
