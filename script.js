@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- INICIALIZAÇÃO DO CARROSSEL DE SERVIÇOS (SWIPER.JS) ---
+   document.addEventListener('DOMContentLoaded', () => {
+
+    // --- CARROSSÉIS DE SERVIÇOS (COM PAUSE ON HOVER) ---
     const serviceSliders = document.querySelectorAll('.service-slider');
     serviceSliders.forEach(slider => {
         new Swiper(slider, {
@@ -9,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             autoplay: {
                 delay: 4000,
                 disableOnInteraction: false,
+                pauseOnMouseEnter: true, // <<<< MUDANÇA APLICADA AQUI
             },
             pagination: {
                 el: '.swiper-pagination',
@@ -22,28 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- NOVO CARROSSEL DE DEPOIMENTOS (SWIPER.JS) ---
+    // --- CARROSSEL DE DEPOIMENTOS (JÁ EXISTENTE) ---
     new Swiper('.testimonial-carousel', {
         effect: 'coverflow',
         grabCursor: true,
         centeredSlides: true,
         slidesPerView: 'auto',
         loop: true,
-        coverflowEffect: {
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: false,
-        },
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+        coverflowEffect: { rotate: 50, stretch: 0, depth: 100, modifier: 1, slideShadows: false, },
+        autoplay: { delay: 5000, disableOnInteraction: false, },
+        pagination: { el: '.swiper-pagination', clickable: true, },
     });
 
    // --- SCRIPT PARA O ACORDEÃO DO FAQ ---

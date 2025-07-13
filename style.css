@@ -50,20 +50,80 @@ section { padding: 100px 0; }
 
 
 /* --- 3. SEÇÃO DE SERVIÇOS (CARROSSÉIS) --- */
-#nossos-servicos {
-    background-color: #080808;
-}
+#nossos-servicos { background-color: #080808; }
 #nossos-servicos .section-title { text-align: center; }
 .service-category { margin-bottom: 80px; }
 .service-category:last-child { margin-bottom: 0; }
 .category-title { font-size: 2rem; color: var(--primary-color); text-align: center; margin-bottom: 40px; font-weight: 600; }
 .service-slider { width: 100%; padding-bottom: 50px !important; }
 .service-slider .swiper-slide { display: flex; justify-content: center; align-items: center; }
-.portfolio-card { width: 100%; background-color: var(--card-background); border-radius: 12px; overflow: hidden; transition: transform 0.3s ease; box-shadow: 0 0 15px rgba(0,0,0,0.2); }
-.portfolio-card img { width: 100%; height: auto; display: block; aspect-ratio: 4 / 5; object-fit: cover; }
-.swiper-pagination-bullet { background: var(--swiper-pagination-bullet-inactive-color); width: 10px; height: 10px; opacity: 0.8; }
-.swiper-pagination-bullet-active { background: var(--swiper-theme-color); }
 
+/* ESTILOS DO CARD DE PORTFÓLIO E SEUS EFEITOS */
+.portfolio-card {
+    position: relative; /* Essencial para o posicionamento do overlay */
+    width: 100%;
+    background-color: var(--card-background);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.portfolio-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    transition: transform 0.4s ease; /* Transição suave para o efeito de zoom */
+}
+
+/* Efeito de zoom na imagem ao interagir com o card */
+.portfolio-card:hover img,
+.portfolio-card:active img {
+    transform: scale(1.05);
+}
+
+/* ESTILOS PARA O OVERLAY E BOTÃO */
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 18, 18, 0.7); /* Fundo preto semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Começa invisível */
+    transition: opacity 0.4s ease;
+}
+
+/* Efeito de aparição do overlay */
+.portfolio-card:hover .card-overlay,
+.portfolio-card:active .card-overlay {
+    opacity: 1; /* Fica visível na interação */
+}
+
+.project-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transform: translateY(20px); /* Começa um pouco para baixo */
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Efeito de aparição do botão */
+.portfolio-card:hover .project-button,
+.portfolio-card:active .project-button {
+    transform: translateY(0); /* Sobe para a posição final */
+    opacity: 1; /* Fica visível */
+}
 /* --- 4. SEÇÃO DE PLANOS FOCADA NOS SERVIÇOS --- */
 #planos { 
     background-color: var(--card-background); 
