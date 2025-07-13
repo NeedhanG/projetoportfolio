@@ -23,15 +23,40 @@ section { padding: 100px 0; }
 .cta-button { display: inline-block; background-color: var(--primary-color); color: white; padding: 15px 35px; font-size: 1.1rem; font-weight: 600; text-decoration: none; border-radius: 50px; transition: transform 0.3s ease, background-color 0.3s ease; cursor: pointer; }
 .cta-button:hover, .cta-button:active { transform: scale(1.05); background-color: #b166f1; }
 
-/* --- SEÇÕES 1, 2, 3 (Sem alterações) --- */
-#hero, #beneficios, #incluso { /* Estilos existentes mantidos */ }
-.benefits-grid, .benefit-card, .included-grid, .included-card { /* Estilos existentes mantidos */ }
+/* --- HERO (SEÇÃO 1) --- */
+/* (Os estilos para o #hero já estão sendo cobertos por outras regras, se necessário, adicione aqui) */
 
-/* --- 4. NOVA SEÇÃO DE PORTFÓLIO (CARROSSÉIS) --- */
-.service-category {
-    margin-bottom: 80px; /* Espaço entre cada carrossel */
+/* --- SEÇÃO DE BENEFÍCIOS (SEÇÃO 2 - RESTAURADA) --- */
+#beneficios {
+    background-color: var(--background-color);
+}
+.benefits-list .benefit-item {
+    margin-bottom: 25px;
+}
+.benefits-list h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+.benefits-list p {
+    color: #b3b3b3;
+    max-width: 600px; /* Alinha com o design da imagem */
+    margin: 0 auto; /* Centraliza se a tela for muito grande */
 }
 
+/* Se você ainda usar a versão de grid de benefícios em algum lugar, os estilos são estes */
+.benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+.benefit-card { background-color: var(--card-background); padding: 30px; border-radius: 10px; border-left: 4px solid var(--primary-color); transition: transform 0.3s ease; min-height: 220px; box-shadow: 0 0 12px rgba(0, 0, 0, 0.15); cursor: pointer; }
+.benefit-card:hover, .benefit-card:active { transform: translateY(-10px); }
+
+/* --- NOVA SEÇÃO DE SERVIÇOS/PORTFÓLIO (CARROSSÉIS) --- */
+#nossos-servicos {
+    /* (O seletor antigo #portfolio foi substituído por este) */
+}
+.service-category {
+    margin-bottom: 80px;
+}
 .category-title {
     font-size: 2rem;
     color: var(--primary-color);
@@ -39,18 +64,15 @@ section { padding: 100px 0; }
     margin-bottom: 40px;
     font-weight: 600;
 }
-
 .service-slider {
     width: 100%;
-    padding-bottom: 50px !important; /* Espaço para a paginação ficar abaixo */
+    padding-bottom: 50px !important;
 }
-
 .service-slider .swiper-slide {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .portfolio-card {
     width: 100%;
     background-color: var(--card-background);
@@ -59,12 +81,11 @@ section { padding: 100px 0; }
     transition: transform 0.3s ease;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
-
 .portfolio-card img {
     width: 100%;
     height: auto;
     display: block;
-    aspect-ratio: 4 / 5; /* Proporção para imagens mais verticais (ajuste se necessário) */
+    aspect-ratio: 4 / 5;
     object-fit: cover;
 }
 
@@ -75,15 +96,51 @@ section { padding: 100px 0; }
     height: 10px;
     opacity: 0.8;
 }
-
 .swiper-pagination-bullet-active {
     background: var(--swiper-theme-color);
 }
 
-/* --- OUTRAS SEÇÕES (Sem alterações) --- */
-#depoimentos, #planos, #faq, #cta-final { /* Estilos existentes mantidos */ }
-
-/* --- RESPONSIVIDADE (Sem alterações) --- */
-@media (max-width: 768px) {
-    .section-title, .category-title { font-size: 1.8rem; }
+/* --- SEÇÃO DE DEPOIMENTOS --- */
+#depoimentos {
+    background-color: var(--card-background);
 }
+.testimonial-slider { max-width: 800px; margin: 0 auto; overflow: hidden; }
+.testimonial-wrapper { display: flex; transition: transform 0.8s ease-in-out; }
+.testimonial-card { background-color: var(--background-color); padding: 40px; border-radius: 10px; border-top: 4px solid var(--primary-color); min-width: 100%; box-sizing: border-box; }
+.testimonial-card blockquote { font-size: 1.1rem; font-style: italic; border-left: 3px solid var(--primary-color); padding-left: 15px; margin-bottom: 20px; }
+.testimonial-author { font-weight: 600; }
+.testimonial-author span { display: block; font-weight: 400; font-size: 0.9rem; color: #aaa; }
+
+
+/* --- ESTILOS PARA O NOVO RODAPÉ --- */
+#footer {
+    background-color: var(--card-background);
+    padding-top: 80px;
+    border-top: 2px solid var(--primary-color);
+}
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 60px;
+}
+.footer-about h3 { font-size: 1.8rem; margin-bottom: 15px; color: var(--text-color); }
+.footer-links h4, .footer-contact h4 { font-size: 1.4rem; margin-bottom: 20px; color: var(--text-color); }
+.footer-links ul { list-style: none; }
+.footer-links ul li a { color: #b3b3b3; text-decoration: none; transition: color 0.3s ease; display: block; margin-bottom: 10px; }
+.footer-links ul li a:hover { color: var(--primary-color); }
+.footer-contact p { margin-bottom: 15px; }
+.social-icons { display: flex; gap: 15px; margin-top: 20px; }
+.social-icons a { color: var(--background-color); background-color: var(--text-color); width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; font-weight: bold; transition: background-color 0.3s ease, color 0.3s ease; }
+.social-icons a:hover { background-color: var(--primary-color); color: white; }
+.footer-bottom { text-align: center; padding: 20px 0; border-top: 1px solid var(--border-color); }
+
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    section { padding: 80px 0; }
+    .section-title, .category-title { font-size: 1.8rem; }
+    .benefits-list { text-align: center; } /* Centraliza o texto dos benefícios no mobile */
+}
+
+/* (As outras seções como Planos, FAQ, CTA, etc, devem ter seus estilos aqui se forem adicionadas novamente) */
