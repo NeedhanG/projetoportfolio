@@ -79,14 +79,27 @@ section { padding: 100px 0; }
 #nossos-servicos .section-title { text-align: center; }
 .service-category { margin-bottom: 80px; }
 .service-category:last-child { margin-bottom: 0; } /* Remove a margem do último carrossel */
-.category-title { font-size: 2rem; color: var(--primary-color); text-align: center; margin-bottom: 40px; font-weight: 600; }
+
+/* Título da categoria modificado */
+.category-title { 
+    font-size: 2rem; 
+    color: var(--text-color); 
+    text-align: center; 
+    margin-bottom: 40px; 
+    font-weight: 600; 
+}
+
+/* Regra para colorir a parte dentro do <span> */
+.category-title span {
+    color: var(--primary-color);
+}
+
 .service-slider { width: 100%; padding-bottom: 50px !important; }
 .service-slider .swiper-slide { display: flex; justify-content: center; align-items: center; }
 .portfolio-card { width: 100%; background-color: var(--card-background); border-radius: 12px; overflow: hidden; transition: transform 0.3s ease; box-shadow: 0 0 15px rgba(0,0,0,0.2); }
 .portfolio-card img { width: 100%; height: auto; display: block; aspect-ratio: 4 / 5; object-fit: cover; }
 .swiper-pagination-bullet { background: var(--swiper-pagination-bullet-inactive-color); width: 10px; height: 10px; opacity: 0.8; }
 .swiper-pagination-bullet-active { background: var(--swiper-theme-color); }
-
 /* --- 4. SEÇÃO DE PLANOS FOCADA NOS SERVIÇOS --- */
 #planos { 
     background-color: var(--card-background); 
