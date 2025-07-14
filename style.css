@@ -157,6 +157,35 @@ section { padding: 100px 0; }
 .social-icons a:hover { background-color: var(--primary-color); color: white; }
 .footer-bottom { text-align: center; padding: 20px 0; border-top: 1px solid var(--border-color); }
 
+/* --- BOTÃO FLUTUANTE DO WHATSAPP --- */
+.floating-whatsapp-button {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 25px;
+    left: 25px; /* Posição na esquerda, como solicitado */
+    background-color: #25D366; /* Cor oficial do WhatsApp */
+    color: #FFF;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    transition: transform 0.3s ease;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.floating-whatsapp-button:hover {
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+}
+
+.floating-whatsapp-button svg {
+    width: 32px;
+    height: 32px;
+}
+
 
 /* --- RESPONSIVIDADE --- */
 @media (min-width: 992px) {
