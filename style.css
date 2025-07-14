@@ -167,7 +167,6 @@ section { padding: 100px 0; }
 .footer-contact p { margin-bottom: 15px; }
 .social-icons {
     display: flex;
-    justify-content: center;
     gap: 30px;
     margin-top: 40px;
 }
