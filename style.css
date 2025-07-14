@@ -191,34 +191,10 @@ section { padding: 100px 0; }
 }
 
 /* --- BOTÃO DE ROLAGEM PARA BAIXO --- */
-.scroll-down-button {
-    position: absolute;
-    bottom: 30px; /* Mesma distância da base que o botão do WhatsApp */
-    right: 30px;  /* <<<< MUDANÇA APLICADA AQUI */
-    z-index: 10;
-    text-decoration: none;
-    /* Remove a necessidade de transform para centralizar */
-}
-
-.mouse-icon {
-    width: 24px;
-    height: 40px;
-    border: 2px solid var(--text-color);
-    border-radius: 60px;
-    position: relative;
-}
-
-.mouse-wheel {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    height: 8px;
-    background-color: var(--text-color);
-    border-radius: 2px;
-    animation: scroll-animation 2s infinite;
-}
+.scroll-down-button { position: absolute; bottom: 30px; right: 30px; z-index: 10; text-decoration: none; }
+.mouse-icon { width: 24px; height: 40px; border: 2px solid var(--text-color); border-radius: 60px; position: relative; }
+.mouse-wheel { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 4px; height: 8px; background-color: var(--text-color); border-radius: 2px; animation: scroll-animation 2s infinite; }
+@keyframes scroll-animation { 0% { opacity: 1; top: 10px; } 15% { opacity: 1; top: 15px; } 50% { opacity: 0; top: 25px; } 100% { opacity: 0; top: 10px; } }
 
 /* Animação que simula o scroll do mouse */
 @keyframes scroll-animation {

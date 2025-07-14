@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- INICIALIZAÇÃO DO CARROSSEL DE SERVIÇOS (SWIPER.JS) ---
+    // --- INICIALIZAÇÃO DOS CARROSSÉIS (SWIPER.JS) ---
     const serviceSliders = document.querySelectorAll('.service-slider');
     serviceSliders.forEach(slider => {
         new Swiper(slider, {
@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             autoplay: {
                 delay: 4000,
                 disableOnInteraction: false,
+                pauseOnMouseEnter: true,
             },
             pagination: {
                 el: '.swiper-pagination',
@@ -22,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- NOVO CARROSSEL DE DEPOIMENTOS (SWIPER.JS) ---
     new Swiper('.testimonial-carousel', {
         effect: 'coverflow',
         grabCursor: true,
@@ -46,54 +46,43 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     });
 
-   // --- SCRIPT PARA O ACORDEÃO DO FAQ ---
-const faqItems = document.querySelectorAll('.faq-item');
-if (faqItems.length > 0) {
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        question.addEventListener('click', () => {
-            const isActive = item.classList.contains('active');
-            
-            // Fecha todos os outros itens para ter apenas um aberto por vez
-            faqItems.forEach(otherItem => {
-                otherItem.classList.remove('active');
+    // --- SCRIPT PARA O ACORDEÃO DO FAQ ---
+    const faqItems = document.querySelectorAll('.faq-item');
+    if (faqItems.length > 0) {
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+                if (!isActive) {
+                    item.classList.add('active');
+                }
             });
-
-            // Se o item clicado não estava ativo, abre ele.
-            if (!isActive) {
-                item.classList.add('active');
-            }
         });
-    });
-}
-    // --- CÓDIGO PARA ATIVAR O TOQUE NO MOBILE (Seu código original mantido) ---
+    }
+
+    // --- CÓDIGO PARA ATIVAR O EFEITO DE TOQUE NO MOBILE ---
     function enableActiveStateOnMobile(selector) {
         document.querySelectorAll(selector).forEach(element => {
             element.addEventListener('touchstart', () => {}, { passive: true });
         });
     }
-    enableActiveStateOnMobile('.benefit-card, .included-card, .pricing-plan, .cta-button, .service-plan-card'); // Adicionado .service-plan-card
+    enableActiveStateOnMobile('.benefit-card, .service-plan-card, .cta-button, .project-view-button');
 
-});
-
-// --- SCRIPT PARA ROLAGEM SUAVE SEM ALTERAR A URL ---
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        // 1. Impede o comportamento padrão do link
-        e.preventDefault();
-
-        // 2. Pega o ID do alvo (ex: '#planos')
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-
-        // 3. Verifica se o elemento de destino existe na página
-        if (targetElement) {
-            // 4. Faz a rolagem suave até o elemento
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+    // --- SCRIPT PARA ROLAGEM SUAVE SEM ALTERAR A URL ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
     });
 });
