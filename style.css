@@ -57,64 +57,13 @@ section { padding: 100px 0; }
 .service-category { margin-bottom: 80px; }
 .service-category:last-child { margin-bottom: 0; }
 .category-title { font-size: 2rem; color: var(--primary-color); text-align: center; margin-bottom: 40px; font-weight: 600; }
-
-.service-slider {
-    width: 100%;
-    padding-bottom: 70px !important; /* Espaço para o botão e paginação */
-}
-
-/* Container do item completo (card + botão) */
-.project-slide-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px; /* Espaço entre o card e o botão */
-}
-
-/* Card da imagem (estilo original restaurado) */
-.portfolio-card {
-    width: 100%;
-    background-color: var(--card-background);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
-.portfolio-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-}
-
-/* Botão "Ver Projeto" posicionado abaixo do card */
-.project-view-button {
-    display: inline-block;
-    background-color: transparent;
-    color: var(--primary-color);
-    padding: 10px 25px;
-    border: 2px solid var(--primary-color);
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.project-view-button:hover, .project-view-button:active {
-    background-color: var(--primary-color);
-    color: white;
-    transform: scale(1.05);
-}
-
-/* Customização da Paginação do Swiper */
-.swiper-pagination {
-    position: relative !important;
-    bottom: -15px !important; /* Posiciona as bolinhas abaixo do botão */
-}
+.service-slider { width: 100%; padding-bottom: 50px !important; }
+.service-slider .swiper-slide { display: flex; justify-content: center; align-items: center; }
+.portfolio-card { width: 100%; background-color: var(--card-background); border-radius: 12px; overflow: hidden; transition: transform 0.3s ease; box-shadow: 0 0 15px rgba(0,0,0,0.2); }
+.portfolio-card img { width: 100%; height: auto; display: block; aspect-ratio: 4 / 5; object-fit: cover; }
 .swiper-pagination-bullet { background: var(--swiper-pagination-bullet-inactive-color); width: 10px; height: 10px; opacity: 0.8; }
 .swiper-pagination-bullet-active { background: var(--swiper-theme-color); }
+
 /* --- 4. SEÇÃO DE PLANOS FOCADA NOS SERVIÇOS --- */
 #planos { 
     background-color: var(--card-background); 
