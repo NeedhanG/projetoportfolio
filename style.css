@@ -100,6 +100,31 @@ section { padding: 100px 0; }
 .portfolio-card img { width: 100%; height: auto; display: block; aspect-ratio: 4 / 5; object-fit: cover; }
 .swiper-pagination-bullet { background: var(--swiper-pagination-bullet-inactive-color); width: 10px; height: 10px; opacity: 0.8; }
 .swiper-pagination-bullet-active { background: var(--swiper-theme-color); }
+
+/* Estrutura do slide para alinhar o link abaixo */
+.service-slider .swiper-slide {
+    display: flex;
+    flex-direction: column; /* Empilha o card e o link verticalmente */
+    align-items: center;
+    justify-content: flex-start; /* Alinha no topo */
+}
+
+/* Estilo para o link abaixo do card */
+.project-view-link {
+    display: inline-block;
+    margin-top: 20px; /* Espaço entre o card e o link */
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.project-view-link:hover {
+    color: #ffffff; /* Muda para branco no hover */
+    text-decoration: underline;
+}
+
+
 /* --- 4. SEÇÃO DE PLANOS FOCADA NOS SERVIÇOS --- */
 #planos { 
     background-color: var(--card-background); 
