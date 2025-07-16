@@ -73,27 +73,56 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- SCRIPT DE PROTEÇÃO (NÃO RECOMENDADO) ---
-
+     // PARTE 2: CÓDIGO DE PROTEÇÃO
     // Bloqueia o clique com o botão direito do mouse
     document.addEventListener('contextmenu', e => e.preventDefault());
-
     // Bloqueia atalhos comuns e a tecla F12
     document.onkeydown = function (e) {
-        // Bloqueia Ctrl + U (ver código-fonte), S (salvar), C (copiar), P (imprimir)
         if (e.ctrlKey && ['u', 's', 'c', 'p'].includes(e.key.toLowerCase())) {
             return false;
         }
-
-        // Bloqueia a tecla F12 para abrir o DevTools
         if (e.key === 'F12') {
             return false;
         }
     };
-
-    // Bloqueia a seleção de texto e o ato de arrastar elementos
-    // ATENÇÃO: Isso impede que os usuários copiem seu endereço ou telefone.
+    // Bloqueia eventos de seleção e arrastar
     document.addEventListener('selectstart', e => e.preventDefault());
     document.addEventListener('dragstart', e => e.preventDefault());
+
+});
+
+    // Inicializa a biblioteca de animações ao rolar a página
+    AOS.init({
+        duration: 800, // Duração da animação em milissegundos
+        once: true,    // Animação acontece apenas uma vez
+        offset: 50,    // "Gatilho" da animação um pouco antes do elemento aparecer
+    });
+
+    // Inicializa o carrossel de depoimentos
+    const swiper = new Swiper('.testimonials-slider', {
+        loop: true,
+        grabCursor: true,
+        spaceBetween: 20,
+        
+        // Navegação por paginação (bolinhas)
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+
+        // Autoplay para girar sozinho
+        autoplay: {
+          delay: 6000,
+          disableOnInteraction: false,
+        },
+        
+        // Adaptação para diferentes tamanhos de tela
+        breakpoints: {
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 30
+            },
+        }
+    });
 
 });

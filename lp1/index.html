@@ -3,131 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advocacia & Consultoria Jurídica</title>
+    <title>Advocacia Especializada | [Nome do Advogado(a)]</title>
     
-    <!-- GOOGLE FONTS -->
+    <!-- Novas Fontes (Playfair Display para títulos, Inter para textos) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     
-    <!-- FONT AWESOME (ICONS) -->
+    <!-- Ícones (Font Awesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- SWIPER.JS CSS -->
+    <!-- Biblioteca de Animação (AOS) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Swiper.js CSS (para depoimentos) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-    <!-- SEU CSS (DEVE SER O ÚLTIMO) -->
+    <!-- Seu CSS (Sempre por último) -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <nav class="container">
-            <a href="#home" class="logo">
-                <i class="fas fa-balance-scale"></i> Advocacia Pro
-            </a>
-            <ul class="nav-links">
-                <li><a href="#home">Início</a></li>
-                <li><a href="#services">Serviços</a></li>
-                <li><a href="#about">Sobre</a></li>
-                <li><a href="#testimonials">Depoimentos</a></li>
-                <li><a href="#contact">Contato</a></li>
-            </ul>
-            <button class="mobile-nav-toggle" aria-label="Abrir menu">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
+    <!-- CABEÇALHO -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <a href="#home" class="logo">Advocacia</a>
+                <ul class="nav-links">
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#testimonials">Depoimentos</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <!-- (O restante do conteúdo da main permanece o mesmo) -->
-        <section id="home" class="hero">
-             <div class="hero-overlay"></div>
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="fade-in">Advocacia de Excelência</h1>
-                    <p class="fade-in">Defendendo seus direitos com expertise e dedicação. Consultoria jurídica especializada para pessoas físicas e empresas.</p>
-                    <a href="#contact" class="cta-button fade-in">Consulte Agora</a>
-                </div>
+
+        <!-- SEÇÃO HERO (CAPA) -->
+        <section id="home" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1 data-aos="fade-up">Assessoria Jurídica de Excelência</h1>
+                <p data-aos="fade-up" data-aos-delay="200">Defendendo seus direitos com estratégia, dedicação e foco em resultados.</p>
+                <a href="https://wa.me/5511999998888?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." class="cta-button" target="_blank" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fab fa-whatsapp"></i> Fale com um Especialista
+                </a>
             </div>
         </section>
 
-        <section id="services" class="services">
+        <!-- SEÇÃO DE SERVIÇOS (CARDS) -->
+        <section id="services" class="services-section">
             <div class="container">
-                <h2 class="section-title fade-in">Nossos Serviços</h2>
+                <h2 class="section-title" data-aos="fade-up">Áreas de Atuação</h2>
                 <div class="services-grid">
-                     <div class="service-card fade-in">
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="service-icon"><i class="fas fa-gavel"></i></div>
                         <h3>Direito Trabalhista</h3>
-                        <p>Defesa integral dos direitos trabalhistas. Ações, rescisões, horas extras, assédio moral e muito mais.</p>
+                        <p>Ações de rescisão, horas extras, assédio moral, acidentes de trabalho e defesa completa dos direitos do trabalhador.</p>
                     </div>
-                    <div class="service-card fade-in">
-                        <div class="service-icon"><i class="fas fa-briefcase"></i></div>
-                        <h3>Direito Empresarial</h3>
-                        <p>Consultoria completa para empresas. Contratos, societário, recuperação judicial e assessoria preventiva.</p>
-                    </div>
-                    <div class="service-card fade-in">
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="service-icon"><i class="fas fa-users"></i></div>
-                        <h3>Direito Civil</h3>
-                        <p>Resolução de conflitos civis, contratos, responsabilidade civil, direito de família e sucessões.</p>
+                        <h3>Direito de Família</h3>
+                        <p>Divórcio, pensão alimentícia, guarda de filhos, partilha de bens e inventários, com sensibilidade e eficiência.</p>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Direito do Consumidor</h3>
+                        <p>Ações contra práticas abusivas, produtos defeituosos, cobranças indevidas e busca por indenizações.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="about">
+        <!-- SEÇÃO SOBRE -->
+        <section id="about" class="about-section">
             <div class="container">
-                <h2 class="section-title fade-in">Sobre Nós</h2>
-                <div class="about-content">
-                    <div class="about-text fade-in">
-                        <h3>15 Anos de Experiência e Dedicação</h3>
-                        <p>Nossa advocacia se destaca pela excelência no atendimento e resultados efetivos. Oferecemos soluções jurídicas personalizadas, combinando profundo conhecimento técnico com uma abordagem humana e estratégica.</p>
-                        <p>Nossa equipe é formada por advogados altamente qualificados, comprometidos em defender seus direitos com ética, transparência e agilidade. Sua confiança é nosso maior patrimônio.</p>
+                <div class="about-grid">
+                    <div class="about-image" data-aos="fade-right">
+                        <img src="https://i.pravatar.cc/300?u=advogado" alt="Foto do Dr(a). [Nome]">
                     </div>
-                    <div class="about-image-wrapper fade-in">
-                        <img src="https://images.pexels.com/photos/159844/justice-law-case-books-159844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Biblioteca de direito com martelo e livros">
+                    <div class="about-text" data-aos="fade-left">
+                        <h2>Dr(a). Nome Sobrenome</h2>
+                        <p class="oab-number">OAB/SP 123.456</p>
+                        <p>Com mais de uma década de experiência, nossa missão é oferecer soluções jurídicas personalizadas que não apenas resolvam problemas, mas que também protejam o futuro de nossos clientes. Acreditamos em uma advocacia pautada pela ética, transparência e um relacionamento próximo.</p>
+                        <p>Especialista em [sua principal área], com pós-graduação pela [Nome da Universidade], busco constantemente o aprimoramento para garantir as estratégias mais eficazes em cada caso.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="testimonials" class="testimonials">
-            <div class="container">
-                <h2 class="section-title fade-in">O Que Nossos Clientes Dizem</h2>
-                <div class="swiper testimonials-slider fade-in">
+        <!-- SEÇÃO DEPOIMENTOS -->
+        <section id="testimonials" class="testimonials-section">
+            <div class="container" data-aos="fade-up">
+                <h2 class="section-title">Confiança e Resultados</h2>
+                 <div class="swiper testimonials-slider">
                     <div class="swiper-wrapper">
-                        <!-- Slides de depoimentos aqui -->
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <i class="fas fa-quote-left"></i>
+                                <p>"Profissionalismo impecável. Fui orientado(a) em cada etapa do processo com uma clareza e segurança que fizeram toda a diferença. Recomendo fortemente!"</p>
+                                <div class="testimonial-author"><h4>Carlos Silva</h4></div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <i class="fas fa-quote-left"></i>
+                                <p>"Resolveram minha questão de família com uma agilidade e sensibilidade que eu não esperava. Equipe extremamente competente e humana. Só tenho a agradecer."</p>
+                                <div class="testimonial-author"><h4>Juliana Martins</h4></div>
+                            </div>
+                        </div>
+                         <!-- Slide 3 -->
+                        <div class="swiper-slide">
+                            <div class="testimonial-card">
+                                <i class="fas fa-quote-left"></i>
+                                <p>"A melhor assessoria que já tive. Transformaram uma situação complexa em uma solução favorável para mim. A expertise técnica é notável."</p>
+                                <div class="testimonial-author"><h4>Roberto Oliveira</h4></div>
+                            </div>
+                        </div>
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
             </div>
         </section>
-        
-        <section id="location" class="location">
-             <div class="map-container">
-                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1974771035796!2d-46.65654492369394!3d-23.561414662568147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1674123456789!5m2!1spt-BR!2sbr" 
-                    width="100%" 
-                    height="450" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+
+        <!-- SEÇÃO CONTATO -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Entre em Contato</h2>
+                <div class="contact-grid">
+                    <div class="contact-details" data-aos="fade-right">
+                        <div class="contact-card">
+                            <i class="fas fa-phone"></i>
+                            <h3>Telefone</h3>
+                            <p>(11) 99999-8888</p>
+                        </div>
+                        <div class="contact-card">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>Endereço</h3>
+                            <p>Av. Paulista, 1000, São Paulo - SP</p>
+                        </div>
+                        <div class="contact-card">
+                            <i class="fab fa-instagram"></i>
+                            <h3>Instagram</h3>
+                            <p>@seu_instagram_aqui</p>
+                        </div>
+                    </div>
+                    <div class="contact-map" data-aos="fade-left">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1974771035796!2d-46.65654492369394!3d-23.561414662568147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
             </div>
         </section>
+
     </main>
 
-    <footer>
+    <!-- RODAPÉ -->
+    <footer class="site-footer">
         <div class="container">
-            <p>© 2025 Advocacia Pro. Todos os direitos reservados. | OAB/SP 123.456</p>
+            <p>© 2025 [Nome do Escritório]. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <!-- SWIPER.JS -->
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- SEU JAVASCRIPT -->
     <script src="script.js"></script>
 </body>
 </html>
