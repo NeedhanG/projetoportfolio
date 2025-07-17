@@ -9,11 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
         offset: 50,
     });
 
-    // Inicializa o carrossel de depoimentos
+    // --- CÓDIGO CORRIGIDO DO CARROSSEL DE DEPOIMENTOS ---
     const swiper = new Swiper('.testimonials-slider', {
+        // Configuração base (para celular)
+        slidesPerView: 1, // <<< AQUI ESTÁ A CORREÇÃO PRINCIPAL
+        spaceBetween: 20,
         loop: true,
         grabCursor: true,
-        spaceBetween: 20,
+        
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
@@ -22,9 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
           delay: 6000,
           disableOnInteraction: false,
         },
+        
+        // Breakpoints (para telas maiores)
         breakpoints: {
+            // Quando a tela for 768px ou maior
             768: {
-                slidesPerView: 2,
+                slidesPerView: 2, // Mostra 2 slides
                 spaceBetween: 30
             },
         }
