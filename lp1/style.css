@@ -25,12 +25,13 @@ body {
     color: var(--text-light);
     font-family: var(--font-body);
     line-height: 1.7;
+    overflow-x: hidden; /* <<< AQUI ESTÁ A CORREÇÃO MÁGICA E DEFINITIVA */
 
-    /* PROTEÇÃO CONTRA CÓPIA (PC E CELULAR) */
-    -webkit-user-select: none; /* Safari, Chrome, Opera */
-    -moz-user-select: none;    /* Firefox */
-    -ms-user-select: none;     /* Internet Explorer/Edge */
-    user-select: none;         /* Padrão */
+    /* Proteção contra cópia */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .container {
