@@ -9,28 +9,31 @@ document.addEventListener('DOMContentLoaded', () => {
         offset: 50,
     });
 
-    // --- CÓDIGO CORRIGIDO DO CARROSSEL DE DEPOIMENTOS ---
+    // --- CÓDIGO CORRIGIDO E COMPLETO DO CARROSSEL ---
     const swiper = new Swiper('.testimonials-slider', {
-        // Configuração base (para celular)
-        slidesPerView: 1, // <<< AQUI ESTÁ A CORREÇÃO PRINCIPAL
+        // Configuração base (para celular), mostrando 1 slide
+        slidesPerView: 1,
         spaceBetween: 20,
         loop: true,
         grabCursor: true,
         
+        // Paginação (bolinhas)
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
         },
+
+        // Autoplay
         autoplay: {
           delay: 6000,
           disableOnInteraction: false,
         },
         
-        // Breakpoints (para telas maiores)
+        // Breakpoints: Regras para telas maiores
         breakpoints: {
             // Quando a tela for 768px ou maior
             768: {
-                slidesPerView: 2, // Mostra 2 slides
+                slidesPerView: 2, // Mostra 2 slides lado a lado
                 spaceBetween: 30
             },
         }
@@ -66,11 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- SCRIPT DE PROTEÇÃO DE CONTEÚDO (PC) ---
-
-    // Bloqueia o clique com o botão direito do mouse
     document.addEventListener('contextmenu', e => e.preventDefault());
-
-    // Bloqueia atalhos comuns e a tecla F12
     document.onkeydown = function (e) {
         if (e.ctrlKey && ['u', 's', 'c', 'p'].includes(e.key.toLowerCase())) {
             return false;
@@ -79,8 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return false;
         }
     };
-
-    // Bloqueia eventos de seleção e arrastar (reforço para alguns navegadores)
     document.addEventListener('selectstart', e => e.preventDefault());
     document.addEventListener('dragstart', e => e.preventDefault());
 
