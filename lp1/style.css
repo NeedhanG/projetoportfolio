@@ -25,7 +25,7 @@ body {
     color: var(--text-light);
     font-family: var(--font-body);
     line-height: 1.7;
-    overflow-x: hidden; /* <<< AQUI ESTÁ A CORREÇÃO MÁGICA E DEFINITIVA */
+    overflow-x: hidden; /* Mantém como segurança extra */
 
     /* Proteção contra cópia */
     -webkit-user-select: none;
@@ -34,13 +34,12 @@ body {
     user-select: none;
 }
 
+/* O restante do CSS continua o mesmo e está correto */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
-
-/* === CABEÇALHO === */
 .site-header {
     background-color: rgba(17, 24, 39, 0.8);
     backdrop-filter: blur(10px);
@@ -52,36 +51,30 @@ body {
     z-index: 1000;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 .main-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .logo {
     font-family: var(--font-title);
     font-size: 1.8rem;
     color: var(--text-light);
     text-decoration: none;
 }
-
 .nav-links {
     display: flex;
     list-style: none;
     gap: 2.5rem;
 }
-
 .nav-links a {
     color: var(--text-gray);
     text-decoration: none;
     transition: color 0.3s ease;
 }
-
 .nav-links a:hover {
     color: var(--accent-gold);
 }
-
 .mobile-nav-toggle {
     display: none;
     background: none;
@@ -91,8 +84,6 @@ body {
     cursor: pointer;
     z-index: 1002;
 }
-
-/* === SEÇÃO HERO === */
 .hero-section {
     position: relative;
     height: 100vh;
@@ -103,7 +94,6 @@ body {
     background: url('https://images.pexels.com/photos/6077326/pexels-photo-6077326.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
     padding: 0 20px;
 }
-
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -112,12 +102,10 @@ body {
     height: 100%;
     background: linear-gradient(to top, rgba(17, 24, 39, 1) 0%, rgba(17, 24, 39, 0.6) 100%);
 }
-
 .hero-content {
     position: relative;
     z-index: 2;
 }
-
 .hero-content h1 {
     font-family: var(--font-title);
     font-size: clamp(2.5rem, 6vw, 4.5rem);
@@ -125,14 +113,12 @@ body {
     margin-bottom: 1rem;
     text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
-
 .hero-content p {
     font-size: clamp(1rem, 2.5vw, 1.25rem);
     color: var(--text-gray);
     max-width: 650px;
     margin: 0 auto 2rem;
 }
-
 .cta-button {
     background-color: var(--accent-gold);
     color: var(--bg-dark);
@@ -146,14 +132,11 @@ body {
     align-items: center;
     gap: 10px;
 }
-
 .cta-button:hover {
     background-color: var(--accent-gold-hover);
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
 }
-
-/* === TÍTULOS DE SEÇÃO === */
 .section-title {
     font-family: var(--font-title);
     font-size: 2.8rem;
@@ -171,18 +154,14 @@ body {
     height: 3px;
     background-color: var(--accent-gold);
 }
-
-/* === SEÇÃO DE SERVIÇOS === */
 .services-section {
     padding: 100px 0;
 }
-
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
 }
-
 .service-card {
     background-color: var(--bg-card);
     padding: 40px;
@@ -192,30 +171,24 @@ body {
     position: relative;
     overflow: hidden;
 }
-
 .service-card:hover {
     transform: translateY(-10px);
     border-color: var(--accent-gold);
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
-
 .service-icon {
     font-size: 2.5rem;
     color: var(--accent-gold);
     margin-bottom: 1.5rem;
 }
-
 .service-card h3 {
     font-family: var(--font-title);
     font-size: 1.6rem;
     margin-bottom: 1rem;
 }
-
 .service-card p {
     color: var(--text-gray);
 }
-
-/* === SEÇÃO SOBRE === */
 .about-section {
     padding: 100px 0;
     background-color: var(--bg-card);
@@ -249,8 +222,6 @@ body {
     color: var(--text-gray);
     max-width: 700px;
 }
-
-/* === SEÇÃO DEPOIMENTOS === */
 .testimonials-section {
     padding: 100px 0;
 }
@@ -282,8 +253,6 @@ body {
 .swiper-pagination-bullet-active {
     background-color: var(--accent-gold) !important;
 }
-
-/* === SEÇÃO CONTATO === */
 .contact-section {
     padding: 100px 0;
 }
@@ -323,28 +292,22 @@ body {
     border-radius: 8px;
     filter: invert(90%) grayscale(80%);
 }
-
-/* === RODAPÉ === */
 .site-footer {
     background-color: #000;
     padding: 2rem 0;
     text-align: center;
     color: var(--text-gray);
 }
-
-/* === RESPONSIVIDADE (CELULAR) === */
 @media (max-width: 768px) {
     .section-title {
         font-size: 2.2rem;
     }
-
     .services-section,
     .about-section,
     .testimonials-section,
     .contact-section {
         padding: 60px 0;
     }
-
     .nav-links {
         display: none;
         position: fixed;
@@ -359,44 +322,35 @@ body {
         gap: 2rem;
         z-index: 1001;
     }
-
     .nav-links.active {
         display: flex;
     }
-
     .nav-links a {
         font-size: 1.5rem;
     }
-    
     .mobile-nav-toggle {
         display: block;
     }
-    
     .hero-content h1 {
         font-size: 2.5rem;
     }
-
     .hero-content p {
         font-size: 1.1rem;
     }
-
     .about-grid {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 2rem;
     }
-
     .about-image {
         margin: 0 auto;
     }
     .about-image img {
         max-width: 250px;
     }
-
     .contact-grid {
         grid-template-columns: 1fr;
     }
-
     .contact-map {
         min-height: 300px;
     }

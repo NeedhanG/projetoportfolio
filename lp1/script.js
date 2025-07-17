@@ -1,39 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- CÓDIGO DAS FUNCIONALIDADES DO SITE ---
-
-    // Inicializa a biblioteca de animações ao rolar a página
+    // --- INICIALIZAÇÃO CORRIGIDA E DEFINITIVA DAS ANIMAÇÕES ---
     AOS.init({
         duration: 800,
         once: true,
         offset: 50,
+        // AQUI ESTÁ A CORREÇÃO: Desativa a animação em telas com menos de 768px
+        disable: function() {
+            return window.innerWidth < 768;
+        }
     });
 
-    // --- CÓDIGO CORRIGIDO E COMPLETO DO CARROSSEL ---
+    // Inicializa o carrossel de depoimentos
     const swiper = new Swiper('.testimonials-slider', {
-        // Configuração base (para celular), mostrando 1 slide
         slidesPerView: 1,
         spaceBetween: 20,
         loop: true,
         grabCursor: true,
-        
-        // Paginação (bolinhas)
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
         },
-
-        // Autoplay
         autoplay: {
           delay: 6000,
           disableOnInteraction: false,
         },
-        
-        // Breakpoints: Regras para telas maiores
         breakpoints: {
-            // Quando a tela for 768px ou maior
             768: {
-                slidesPerView: 2, // Mostra 2 slides lado a lado
+                slidesPerView: 2,
                 spaceBetween: 30
             },
         }
