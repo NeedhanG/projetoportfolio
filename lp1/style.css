@@ -256,47 +256,149 @@ body {
 .contact-section {
     padding: 100px 0;
 }
+
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 3rem;
     align-items: stretch;
 }
+
+/* Transforma a div .contact-details no card principal */
 .contact-details {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-.contact-card {
     background-color: var(--bg-card);
-    padding: 25px;
+    padding: 40px;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.5rem; /* Espaçamento entre os itens de contato */
+}
+
+/* Estilo para cada item de informação dentro do card grande */
+.contact-item {
     display: flex;
     align-items: center;
     gap: 20px;
 }
-.contact-card i {
-    font-size: 1.5rem;
+
+.contact-item i {
+    font-size: 1.8rem;
     color: var(--accent-gold);
+    width: 40px; /* Largura fixa para alinhar os ícones */
+    text-align: center;
 }
-.contact-card h3 {
+
+.contact-item h4 {
+    font-family: var(--font-title);
     font-size: 1.2rem;
-    margin: 0;
+    margin: 0 0 4px 0;
+    color: var(--text-light);
 }
-.contact-card p {
+
+.contact-item p {
     margin: 0;
     color: var(--text-gray);
+    font-size: 1rem;
 }
+
 .contact-map iframe {
     border-radius: 8px;
     filter: invert(90%) grayscale(80%);
+    height: 100%;
+    width: 100%;
+    min-height: 400px; /* Garante altura mínima */
 }
+/* === RODAPÉ (NOVO E COMPLETO) === */
 .site-footer {
-    background-color: #000;
-    padding: 2rem 0;
-    text-align: center;
+    background-color: var(--bg-dark);
+    padding: 80px 0 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.footer-column .footer-logo {
+    font-family: var(--font-title);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.footer-column h4 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+}
+
+.footer-column p {
     color: var(--text-gray);
+    max-width: 250px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-column ul a {
+    color: var(--text-gray);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul a:hover {
+    color: var(--accent-gold);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--text-gray);
+    color: var(--text-gray);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: var(--accent-gold);
+    color: var(--bg-dark);
+    border-color: var(--accent-gold);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    opacity: 0.8;
+}
+
 }
 @media (max-width: 768px) {
     .section-title {
