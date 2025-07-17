@@ -1,11 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- INICIALIZAÇÃO CORRIGIDA E DEFINITIVA DAS ANIMAÇÕES ---
+    // --- CÓDIGO DAS FUNCIONALIDADES DO SITE ---
+
+    // --- SMOOTH SCROLL SEM ALTERAR A URL (NOVA PARTE ADICIONADA) ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault(); // Impede o comportamento padrão do link
+
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Inicializa a biblioteca de animações ao rolar a página
     AOS.init({
         duration: 800,
         once: true,
         offset: 50,
-        // AQUI ESTÁ A CORREÇÃO: Desativa a animação em telas com menos de 768px
         disable: function() {
             return window.innerWidth < 768;
         }
