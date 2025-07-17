@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- CÓDIGO DAS FUNCIONALIDADES DO SITE ---
+
     // Inicializa a biblioteca de animações ao rolar a página
     AOS.init({
-        duration: 800, // Duração da animação em milissegundos
-        once: true,    // Animação acontece apenas uma vez
-        offset: 50,    // "Gatilho" da animação um pouco antes do elemento aparecer
+        duration: 800,
+        once: true,
+        offset: 50,
     });
 
     // Inicializa o carrossel de depoimentos
@@ -12,20 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
         loop: true,
         grabCursor: true,
         spaceBetween: 20,
-        
-        // Navegação por paginação (bolinhas)
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
         },
-
-        // Autoplay para girar sozinho
         autoplay: {
           delay: 6000,
           disableOnInteraction: false,
         },
-        
-        // Adaptação para diferentes tamanhos de tela
         breakpoints: {
             768: {
                 slidesPerView: 2,
@@ -33,5 +29,53 @@ document.addEventListener('DOMContentLoaded', () => {
             },
         }
     });
+
+    // Código do menu hambúrguer (mobile)
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    mobileNavToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const icon = mobileNavToggle.querySelector('i');
+        if (navLinks.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+            document.body.style.overflow = 'hidden';
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                mobileNavToggle.querySelector('i').classList.remove('fa-times');
+                mobileNavToggle.querySelector('i').classList.add('fa-bars');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    });
+
+    // --- SCRIPT DE PROTEÇÃO DE CONTEÚDO (PC) ---
+
+    // Bloqueia o clique com o botão direito do mouse
+    document.addEventListener('contextmenu', e => e.preventDefault());
+
+    // Bloqueia atalhos comuns e a tecla F12
+    document.onkeydown = function (e) {
+        if (e.ctrlKey && ['u', 's', 'c', 'p'].includes(e.key.toLowerCase())) {
+            return false;
+        }
+        if (e.key === 'F12') {
+            return false;
+        }
+    };
+
+    // Bloqueia eventos de seleção e arrastar (reforço para alguns navegadores)
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('dragstart', e => e.preventDefault());
 
 });
