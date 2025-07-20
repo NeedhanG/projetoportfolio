@@ -87,6 +87,24 @@ footer { text-align: center; padding: 40px 20px; }
     transition: transform 0.3s ease;
 }
 .whatsapp-button:hover { transform: scale(1.05); }
+/* --- TÍTULOS DE CATEGORIA DENTRO DA GALERIA --- */
+.category-heading {
+    /* A MÁGICA: Faz o título ocupar todas as colunas do grid */
+    grid-column: 1 / -1; 
+    
+    font-size: 1.8rem;
+    color: var(--primary-color); /* Sua cor roxa de destaque */
+    margin-top: 50px; /* Espaço acima de cada novo título */
+    margin-bottom: 10px; /* Espaço entre o título e as imagens */
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--border-color); /* Uma linha sutil para separar */
+    text-align: left; /* Fica mais elegante que centralizado */
+}
+
+/* Remove a margem do topo do primeiro título para não criar espaço extra */
+.category-heading:first-of-type {
+    margin-top: 0;
+}
 
 @media (max-width: 768px) {
     header h1 { font-size: 2rem; }
