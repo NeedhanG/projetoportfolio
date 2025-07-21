@@ -1,4 +1,4 @@
-/* --- /dentista/style.css (Arquivo Corrigido e Atualizado) --- */
+/* --- /criativos/style.css (Arquivo Corrigido) --- */
 
 :root {
     --bg-color: #1a1a1a;
@@ -49,8 +49,8 @@ main { padding: 0 20px 80px 20px; }
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
     
-    /* <<<< A CORREÇÃO ESTÁ AQUI */
-    /* Garante que o card tenha a proporção 4:5 (retângulo vertical) */
+    /* <<<< MUDANÇA PRINCIPAL AQUI */
+    /* Ajustado de 1/1 (quadrado) para 4/5 (retângulo vertical) */
     aspect-ratio: 4 / 5; 
 }
 
@@ -88,4 +88,8 @@ footer { text-align: center; padding: 40px 20px; }
 }
 .whatsapp-button:hover { transform: scale(1.05); }
 
-@media (max-width: 768p
+
+@media (max-width: 768px) {
+    header h1 { font-size: 2rem; }
+    .watermark { font-size: 2rem; }
+}
