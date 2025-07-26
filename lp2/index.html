@@ -1,192 +1,565 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Axis Contabilidade - Soluções Completas para sua Empresa</title>
-    
-    <!-- Importação da Fonte do Google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import {
+  CheckCircle,
+  Zap,
+  Users,
+  BarChart3,
+  Shield,
+  Star,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Instagram,
+  Menu,
+} from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
 
-    <!-- Link para o seu arquivo de estilos CSS -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- 1. Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Contabilidade Empresarial que Impulsiona seu Sucesso</h1>
-            <p>Soluções contábeis completas para empresas que querem crescer com segurança e tranquilidade.</p>
-            <!-- EDITE O NÚMERO DO WHATSAPP AQUI -->
-            <a href="https://wa.me/5511988887777" class="whatsapp-btn" target="_blank">
-                Fale com um Contador
-            </a>
-        </div>
-    </section>
-
-    <!-- 2. Benefícios -->
-    <section class="benefits section" id="beneficios">
-        <div class="container">
-            <h2 class="fade-in">Sua Empresa em Boas Mãos</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card fade-in">
-                    <span class="icon">🛡️</span>
-                    <h3>Redução de Riscos Fiscais</h3>
-                    <p>Mantenha sua empresa em total conformidade com a legislação, evitando multas e passivos fiscais inesperados.</p>
-                </div>
-                <div class="benefit-card fade-in">
-                    <span class="icon">📈</span>
-                    <h3>Planejamento Estratégico</h3>
-                    <p>Utilize dados contábeis para tomar decisões mais inteligentes, otimizar impostos e planejar o crescimento do seu negócio.</p>
-                </div>
-                <div class="benefit-card fade-in">
-                    <span class="icon">💡</span>
-                    <h3>Foco Total no seu Negócio</h3>
-                    <p>Deixe a burocracia conosco e dedique seu tempo ao que realmente importa: a gestão e a expansão da sua empresa.</p>
-                </div>
+export default function LandingPage() {
+  return (
+    <div className="flex flex-col min-h-screen">
+      {/* Header */}
+      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container flex h-16 items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <div className="flex items-center justify-center w-8 h-8 bg-primary rounded-lg">
+              <Zap className="h-5 w-5 text-primary-foreground" />
             </div>
+            <span className="text-xl font-bold">StreamLine</span>
+          </div>
+
+          <nav className="hidden md:flex items-center space-x-6">
+            <Link href="#features" className="text-sm font-medium hover:text-primary transition-colors">
+              Features
+            </Link>
+            <Link href="#testimonials" className="text-sm font-medium hover:text-primary transition-colors">
+              Testimonials
+            </Link>
+            <Link href="#pricing" className="text-sm font-medium hover:text-primary transition-colors">
+              Pricing
+            </Link>
+            <Link href="#contact" className="text-sm font-medium hover:text-primary transition-colors">
+              Contact
+            </Link>
+          </nav>
+
+          <div className="flex items-center space-x-4">
+            <Button variant="ghost" className="hidden md:inline-flex">
+              Sign In
+            </Button>
+            <Button>Get Started</Button>
+            <Button variant="ghost" size="icon" className="md:hidden">
+              <Menu className="h-5 w-5" />
+            </Button>
+          </div>
         </div>
-    </section>
-    
-    <!-- 3. Sobre Nós -->
-    <section class="about section" id="sobre">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-image fade-in"></div>
-                <div class="about-text fade-in">
-                    <h2>Sua Parceria Estratégica para o Sucesso</h2>
-                    <p>Com mais de 15 anos de experiência, a Axis Contabilidade é especialista em simplificar a complexidade do mundo fiscal e contábil para empreendedores e empresas de todos os portes. Nossa missão é oferecer mais do que apenas o cumprimento de obrigações: somos um parceiro estratégico que ajuda seu negócio a prosperar.</p>
-                    <p>Nossa equipe de contadores certificados se dedica a entender as particularidades da sua operação para fornecer soluções personalizadas, garantindo segurança, economia e eficiência.</p>
-                    <div class="cta-center">
-                        <!-- EDITE O NÚMERO DO WHATSAPP AQUI -->
-                        <a href="https://wa.me/5511988887777" class="whatsapp-btn" target="_blank">
-                            💬 Converse com um Especialista
-                        </a>
+      </header>
+
+      <main className="flex-1">
+        {/* Hero Section */}
+        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
+          <div className="container px-4 md:px-6">
+            <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+              <div className="flex flex-col justify-center space-y-4">
+                <div className="space-y-2">
+                  <Badge variant="secondary" className="w-fit">
+                    🚀 New: AI-Powered Workflows
+                  </Badge>
+                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                    Streamline Your Team's Productivity
+                  </h1>
+                  <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                    Transform how your team collaborates with our all-in-one productivity platform. Automate workflows,
+                    track progress, and achieve more together.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                  <Button size="lg" className="h-12 px-8">
+                    Start Free Trial
+                  </Button>
+                  <Button variant="outline" size="lg" className="h-12 px-8 bg-transparent">
+                    Watch Demo
+                  </Button>
+                </div>
+                <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+                  <div className="flex items-center space-x-1">
+                    <CheckCircle className="h-4 w-4 text-green-500" />
+                    <span>14-day free trial</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <CheckCircle className="h-4 w-4 text-green-500" />
+                    <span>No credit card required</span>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center justify-center">
+                <Image
+                  src="/placeholder.svg?height=400&width=600"
+                  width={600}
+                  height={400}
+                  alt="StreamLine Dashboard"
+                  className="mx-auto aspect-video overflow-hidden rounded-xl object-cover shadow-2xl"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <Badge variant="secondary">Features</Badge>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Everything you need to succeed</h2>
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  Powerful features designed to help your team work smarter, not harder.
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
+              <div className="grid gap-6">
+                <Card>
+                  <CardHeader>
+                    <div className="flex items-center space-x-2">
+                      <div className="flex items-center justify-center w-10 h-10 bg-primary/10 rounded-lg">
+                        <Zap className="h-5 w-5 text-primary" />
+                      </div>
+                      <CardTitle>Automated Workflows</CardTitle>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. Serviços -->
-    <section class="services section" id="servicos">
-        <div class="container">
-            <h2 class="fade-in">Soluções Completas para sua Empresa</h2>
-            <div class="services-grid">
-                <div class="service-card fade-in">
-                    <span class="icon">📊</span>
-                    <h3>Contabilidade Mensal</h3>
-                    <p>Gestão contábil e fiscal completa, com relatórios claros e suporte contínuo para sua tomada de decisão.</p>
-                </div>
-                <div class="service-card fade-in">
-                    <span class="icon">🏢</span>
-                    <h3>Abertura de Empresas</h3>
-                    <p>Cuidamos de todo o processo de abertura do seu CNPJ de forma rápida, segura e com o regime tributário ideal.</p>
-                </div>
-                <div class="service-card fade-in">
-                    <span class="icon">⚖️</span>
-                    <h3>Regularização de CNPJ</h3>
-                    <p>Resolvemos pendências e regularizamos a situação fiscal e cadastral da sua empresa junto aos órgãos competentes.</p>
-                </div>
-                <div class="service-card fade-in">
-                    <span class="icon">💡</span>
-                    <h3>Consultoria Tributária</h3>
-                    <p>Análise aprofundada para otimizar sua carga tributária, garantindo a máxima economia dentro da lei.</p>
-                </div>
-                <div class="service-card fade-in">
-                    <span class="icon">👥</span>
-                    <h3>Folha de Pagamento e DP</h3>
-                    <p>Administração completa da sua folha de pagamento, pró-labore, e-Social e todas as rotinas do departamento pessoal.</p>
-                </div>
-                <div class="service-card fade-in">
-                    <span class="icon">🧾</span>
-                    <h3>Imposto de Renda (PJ/PF)</h3>
-                    <p>Elaboração e entrega da declaração de Imposto de Renda para sua empresa e para os sócios, com total precisão.</p>
-                </div>
-            </div>
-            <div class="cta-center">
-                <!-- EDITE O NÚMERO DO WHATSAPP AQUI -->
-                <a href="https://wa.me/5511988887777" class="whatsapp-btn" target="_blank">
-                    🚀 Solicite uma Proposta
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. Depoimentos -->
-    <section class="testimonials section" id="depoimentos">
-        <div class="container">
-            <h2 class="fade-in">O Que Nossos Clientes Dizem</h2>
-            <div class="testimonials-container">
-                <div class="testimonials-track">
-                    <div class="testimonial">
-                        <div class="testimonial-content">
-                            <p>"A Axis transformou a gestão da minha empresa. Hoje tenho clareza dos números e segurança para crescer. Atendimento impecável!"</p>
-                            <div class="testimonial-author">- Mariana Almeida, CEO da InovaTech</div>
-                        </div>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription>
+                      Create custom automation rules that trigger actions based on your team's activities. Save hours of
+                      manual work every week.
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader>
+                    <div className="flex items-center space-x-2">
+                      <div className="flex items-center justify-center w-10 h-10 bg-primary/10 rounded-lg">
+                        <Users className="h-5 w-5 text-primary" />
+                      </div>
+                      <CardTitle>Team Collaboration</CardTitle>
                     </div>
-                    <div class="testimonial">
-                        <div class="testimonial-content">
-                            <p>"Desde que contratei a Axis, nunca mais tive dor de cabeça com impostos. Eles são proativos e a consultoria tributária me fez economizar muito."</p>
-                            <div class="testimonial-author">- Ricardo Borges, Diretor da Construtora Valor</div>
-                        </div>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription>
+                      Real-time collaboration tools that keep everyone on the same page. Share files, communicate, and
+                      work together seamlessly.
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </div>
+              <div className="grid gap-6">
+                <Card>
+                  <CardHeader>
+                    <div className="flex items-center space-x-2">
+                      <div className="flex items-center justify-center w-10 h-10 bg-primary/10 rounded-lg">
+                        <BarChart3 className="h-5 w-5 text-primary" />
+                      </div>
+                      <CardTitle>Advanced Analytics</CardTitle>
                     </div>
-                    <div class="testimonial">
-                        <div class="testimonial-content">
-                            <p>"O processo de abertura da minha empresa foi muito mais simples do que imaginei, tudo graças à agilidade e competência da equipe. Recomendo!"</p>
-                            <div class="testimonial-author">- Juliana Ferraz, Fundadora da Estilo Digital</div>
-                        </div>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription>
+                      Get deep insights into your team's performance with comprehensive analytics and reporting tools.
+                      Make data-driven decisions.
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader>
+                    <div className="flex items-center space-x-2">
+                      <div className="flex items-center justify-center w-10 h-10 bg-primary/10 rounded-lg">
+                        <Shield className="h-5 w-5 text-primary" />
+                      </div>
+                      <CardTitle>Enterprise Security</CardTitle>
                     </div>
-                </div>
-                <div class="testimonial-dots">
-                    <span class="dot active" data-slide="0"></span>
-                    <span class="dot" data-slide="1"></span>
-                    <span class="dot" data-slide="2"></span>
-                </div>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription>
+                      Bank-level security with end-to-end encryption, SSO integration, and compliance with industry
+                      standards.
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
-            <div class="cta-center">
-                <!-- EDITE O NÚMERO DO WHATSAPP AQUI -->
-                <a href="https://wa.me/5511988887777" class="whatsapp-btn" target="_blank">
-                    ⭐ Seja Nosso Próximo Sucesso
-                </a>
-            </div>
-        </div>
-    </section>
+          </div>
+        </section>
 
-    <!-- 6. Rodapé -->
-    <footer class="footer" id="contato">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Axis Contabilidade</h3>
-                    <p>Sua parceira estratégica para o crescimento seguro e sustentável do seu negócio.</p>
-                    <p style="margin-top: 10px;"><strong>CNPJ:</strong> 00.000.000/0001-00</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Contato</h3>
-                    <p>📧 contato@axiscontabilidade.com</p>
-                    <p>📱 (11) 98888-7777</p>
-                    <p>📍 Av. Paulista, 1000 - São Paulo, SP</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Links Rápidos</h3>
-                    <ul class="footer-links">
-                        <li><a href="#sobre">Sobre Nós</a></li>
-                        <li><a href="#servicos">Serviços</a></li>
-                        <li><a href="#beneficios">Benefícios</a></li>
-                        <li><a href="#depoimentos">Depoimentos</a></li>
-                    </ul>
-                </div>
+        {/* Testimonials Section */}
+        <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <Badge variant="secondary">Testimonials</Badge>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Loved by teams worldwide</h2>
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  See what our customers have to say about StreamLine.
+                </p>
+              </div>
             </div>
-            <div class="footer-bottom">
-                <p>© 2025 Axis Contabilidade. Todos os direitos reservados.</p>
+            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
+              <Card>
+                <CardHeader>
+                  <div className="flex items-center space-x-2">
+                    <Avatar>
+                      <AvatarImage src="/placeholder.svg?height=40&width=40" />
+                      <AvatarFallback>SJ</AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <CardTitle className="text-base">Sarah Johnson</CardTitle>
+                      <CardDescription>Product Manager at TechCorp</CardDescription>
+                    </div>
+                  </div>
+                  <div className="flex">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">
+                    "StreamLine has transformed how our team works. The automation features alone have saved us 10+
+                    hours per week. Highly recommended!"
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <div className="flex items-center space-x-2">
+                    <Avatar>
+                      <AvatarImage src="/placeholder.svg?height=40&width=40" />
+                      <AvatarFallback>MC</AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <CardTitle className="text-base">Michael Chen</CardTitle>
+                      <CardDescription>CTO at StartupXYZ</CardDescription>
+                    </div>
+                  </div>
+                  <div className="flex">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">
+                    "The analytics dashboard gives us incredible insights into our workflow. We've improved our
+                    efficiency by 40% since switching to StreamLine."
+                  </p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <div className="flex items-center space-x-2">
+                    <Avatar>
+                      <AvatarImage src="/placeholder.svg?height=40&width=40" />
+                      <AvatarFallback>ER</AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <CardTitle className="text-base">Emily Rodriguez</CardTitle>
+                      <CardDescription>Operations Director at GrowthCo</CardDescription>
+                    </div>
+                  </div>
+                  <div className="flex">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">
+                    "Excellent customer support and a product that actually delivers on its promises. Our team
+                    collaboration has never been better."
+                  </p>
+                </CardContent>
+              </Card>
             </div>
-        </div>
-    </footer>
+          </div>
+        </section>
 
-    <!-- Link para o seu arquivo de script JavaScript -->
-     <script src="script.js"></script>
-</body>
-</html>
+        {/* Pricing Section */}
+        <section id="pricing" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <Badge variant="secondary">Pricing</Badge>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Simple, transparent pricing</h2>
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  Choose the plan that's right for your team. All plans include a 14-day free trial.
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Starter</CardTitle>
+                  <CardDescription>Perfect for small teams getting started</CardDescription>
+                  <div className="text-3xl font-bold">
+                    $9<span className="text-sm font-normal text-muted-foreground">/user/month</span>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <ul className="space-y-2">
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span className="text-sm">Up to 10 team members</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span className="text-sm">Basic workflow automation</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span className="text-sm">5GB storage per user</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span className="text-sm">Email support</span>
+                    </li>
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button className="w-full bg-transparent" variant="outline">
+                    Get Started
+                  </Button>
+                </CardFooter>
+              </Card>
+              <Card className="border-primary">
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <CardTitle>Professional</CardTitle>
+                    <Badge>Most Popular</Badge>
+                  </div>
+                  <CardDescription>Ideal for growing teams and businesses</CardDescription>
+                  <div className="text-3xl font-bold">
+                    $19<span className="text-sm font-normal text-muted-foreground">/user/month</span>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <ul className="space-y-2">
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span className="text-sm">Up to 50 team members</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span className="text-sm">Advanced automation & AI</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span className="text-sm">25GB storage per user</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span className="text-sm">Priority support</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span className="text-sm">Advanced analytics</span>
+                    </li>
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button className="w-full">Get Started</Button>
+                </CardFooter>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Enterprise</CardTitle>
+                  <CardDescription>For large organizations with advanced needs</CardDescription>
+                  <div className="text-3xl font-bold">
+                    $39<span className="text-sm font-normal text-muted-foreground">/user/month</span>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <ul className="space-y-2">
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span className="text-sm">Unlimited team members</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span className="text-sm">Custom integrations</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span className="text-sm">Unlimited storage</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span className="text-sm">24/7 dedicated support</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span className="text-sm">SSO & advanced security</span>
+                    </li>
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button className="w-full bg-transparent" variant="outline">
+                    Contact Sales
+                  </Button>
+                </CardFooter>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA Section */}
+        <section className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Ready to streamline your workflow?</h2>
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  Join thousands of teams who have already transformed their productivity with StreamLine.
+                </p>
+              </div>
+              <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                <Button size="lg" className="h-12 px-8">
+                  Start Your Free Trial
+                </Button>
+                <Button variant="outline" size="lg" className="h-12 px-8 bg-transparent">
+                  Schedule a Demo
+                </Button>
+              </div>
+              <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+                <div className="flex items-center space-x-1">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <span>14-day free trial</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <span>Cancel anytime</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <span>Setup in minutes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer id="contact" className="w-full py-12 bg-muted/50 border-t">
+        <div className="container px-4 md:px-6">
+          <div className="grid gap-8 lg:grid-cols-4">
+            <div className="space-y-4">
+              <div className="flex items-center space-x-2">
+                <div className="flex items-center justify-center w-8 h-8 bg-primary rounded-lg">
+                  <Zap className="h-5 w-5 text-primary-foreground" />
+                </div>
+                <span className="text-xl font-bold">StreamLine</span>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Streamline your team's productivity with our all-in-one collaboration platform.
+              </p>
+              <div className="flex space-x-4">
+                <Link href="#" className="text-muted-foreground hover:text-primary">
+                  <Facebook className="h-5 w-5" />
+                </Link>
+                <Link href="#" className="text-muted-foreground hover:text-primary">
+                  <Twitter className="h-5 w-5" />
+                </Link>
+                <Link href="#" className="text-muted-foreground hover:text-primary">
+                  <Linkedin className="h-5 w-5" />
+                </Link>
+                <Link href="#" className="text-muted-foreground hover:text-primary">
+                  <Instagram className="h-5 w-5" />
+                </Link>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <h4 className="text-sm font-semibold">Product</h4>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link href="#" className="text-muted-foreground hover:text-primary">
+                    Features
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-muted-foreground hover:text-primary">
+                    Pricing
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-muted-foreground hover:text-primary">
+                    Integrations
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-muted-foreground hover:text-primary">
+                    API
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div className="space-y-4">
+              <h4 className="text-sm font-semibold">Company</h4>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link href="#" className="text-muted-foreground hover:text-primary">
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-muted-foreground hover:text-primary">
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-muted-foreground hover:text-primary">
+                    Careers
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-muted-foreground hover:text-primary">
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div className="space-y-4">
+              <h4 className="text-sm font-semibold">Support</h4>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link href="#" className="text-muted-foreground hover:text-primary">
+                    Help Center
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-muted-foreground hover:text-primary">
+                    Documentation
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-muted-foreground hover:text-primary">
+                    Status
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-muted-foreground hover:text-primary">
+                    Privacy Policy
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
+            <p>&copy; {new Date().getFullYear()} StreamLine. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}
