@@ -163,6 +163,7 @@ body {
 .hero {
   padding: 120px 0 80px;
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  overflow: hidden; /* --- AJUSTE --- Evita que a imagem vaze para fora */
 }
 
 .hero-content {
@@ -210,9 +211,20 @@ body {
   color: #10b981;
 }
 
+/* --- AJUSTE --- Novo container para a imagem */
+.hero-image {
+  position: relative;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- AJUSTE --- Regra da imagem modificada para se ajustar ao container */
 .dashboard-image {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain; /* Faz a imagem caber no espaço sem distorcer */
   border-radius: 12px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
@@ -555,6 +567,20 @@ body {
   .nav-menu {
     display: none;
   }
+  
+  /* --- AJUSTE --- Regra do menu ativo movida para o lugar certo */
+  .nav-menu.active {
+    display: flex;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #e5e7eb;
+  }
 
   .mobile-menu-btn {
     display: block;
@@ -568,6 +594,11 @@ body {
     grid-template-columns: 1fr;
     gap: 40px;
     text-align: center;
+  }
+  
+  /* --- AJUSTE --- Altura da imagem para telas menores */
+  .hero-image {
+    height: 300px;
   }
 
   .hero-title {
@@ -619,6 +650,7 @@ body {
     gap: 32px;
   }
 }
+
 /* Estilos para a animação de "fade in" com o Intersection Observer */
 .feature-card,
 .testimonial-card,
@@ -639,18 +671,7 @@ body {
   .container {
     padding: 0 16px;
   }
-.nav-menu.active {
-    display: flex; /* Muda de 'none' para 'flex' para exibir o menu */
-    position: absolute;
-    top: 64px; /* Altura do seu header */
-    left: 0;
-    right: 0;
-    background-color: white;
-    flex-direction: column;
-    padding: 20px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    border-top: 1px solid #e5e7eb;
-}
+  
   .hero {
     padding: 100px 0 60px;
   }
