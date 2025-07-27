@@ -167,7 +167,7 @@ body {
 
 .hero-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 800px; /* --- AJUSTE 800x800 --- Coluna da imagem com largura fixa */
   gap: 60px;
   align-items: center;
 }
@@ -218,13 +218,13 @@ body {
   border-radius: 24px;
   padding: 24px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-  max-height: 450px; /* A LINHA DA SOLUÇÃO */
+  height: 800px; /* --- AJUSTE 800x800 --- Altura fixa */
 }
 
 .dashboard-image {
   width: 100%;
-  height: auto;
-  object-fit: contain; /* GARANTE QUE A IMAGEM NÃO CORTE */
+  height: 100%; /* Imagem ocupa toda a altura do container */
+  object-fit: contain;
   border-radius: 16px;
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
   opacity: 0.9;
@@ -564,6 +564,14 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 992px) { /* --- AJUSTE 800x800 --- Alterado para 992px para o layout quebrar antes */
+  .hero-content {
+    grid-template-columns: 1fr; /* Volta a ser uma coluna para telas menores */
+    gap: 40px;
+    text-align: center;
+  }
+}
+
 @media (max-width: 768px) {
   .nav-menu {
     display: none;
@@ -589,11 +597,10 @@ body {
   .desktop-only {
     display: none;
   }
-
-  .hero-content {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    text-align: center;
+  
+  .hero-image {
+    height: auto; /* Altura automática no mobile */
+    max-height: 400px; /* Limita a altura máxima no mobile */
   }
 
   .hero-title {
