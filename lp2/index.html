@@ -1,565 +1,308 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import {
-  CheckCircle,
-  Zap,
-  Users,
-  BarChart3,
-  Shield,
-  Star,
-  Facebook,
-  Twitter,
-  Linkedin,
-  Instagram,
-  Menu,
-} from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
-
-export default function LandingPage() {
-  return (
-    <div className="flex flex-col min-h-screen">
-      {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="flex items-center justify-center w-8 h-8 bg-primary rounded-lg">
-              <Zap className="h-5 w-5 text-primary-foreground" />
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamLine - Otimize a produtividade da sua equipe</title>
+    <meta name="description" content="Transforme como sua equipe colabora com nossa plataforma de produtividade completa.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <span class="brand-name">StreamLine</span>
             </div>
-            <span className="text-xl font-bold">StreamLine</span>
-          </div>
-
-          <nav className="hidden md:flex items-center space-x-6">
-            <Link href="#features" className="text-sm font-medium hover:text-primary transition-colors">
-              Features
-            </Link>
-            <Link href="#testimonials" className="text-sm font-medium hover:text-primary transition-colors">
-              Testimonials
-            </Link>
-            <Link href="#pricing" className="text-sm font-medium hover:text-primary transition-colors">
-              Pricing
-            </Link>
-            <Link href="#contact" className="text-sm font-medium hover:text-primary transition-colors">
-              Contact
-            </Link>
-          </nav>
-
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" className="hidden md:inline-flex">
-              Sign In
-            </Button>
-            <Button>Get Started</Button>
-            <Button variant="ghost" size="icon" className="md:hidden">
-              <Menu className="h-5 w-5" />
-            </Button>
-          </div>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="#features" class="nav-link">Soluções</a>
+                <a href="#testimonials" class="nav-link">Cases</a>
+                <a href="#about" class="nav-link">Sobre</a>
+                <a href="#contact" class="nav-link">Contato</a>
+            </nav>
+            
+            <div class="nav-actions">
+                <button class="btn btn-ghost desktop-only">Sobre Nós</button>
+                <button class="btn btn-primary">Contato</button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
-      </header>
+    </header>
 
-      <main className="flex-1">
-        {/* Hero Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-          <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
-                  <Badge variant="secondary" className="w-fit">
-                    🚀 New: AI-Powered Workflows
-                  </Badge>
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                    Streamline Your Team's Productivity
-                  </h1>
-                  <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    Transform how your team collaborates with our all-in-one productivity platform. Automate workflows,
-                    track progress, and achieve more together.
-                  </p>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="badge">
+                            🚀 Novo: Fluxos de trabalho com tecnologia de IA
+                        </div>
+                        <h1 class="hero-title">Transformamos a Produtividade Empresarial</h1>
+                        <p class="hero-description">
+                            Somos especialistas em soluções de produtividade para empresas. Conheça como podemos 
+                            ajudar sua organização a alcançar melhores resultados através da tecnologia.
+                        </p>
+                        <div class="hero-actions">
+                            <button class="btn btn-primary btn-large">Saiba Mais</button>
+                            <button class="btn btn-outline btn-large">Nossos Serviços</button>
+                        </div>
+                        <div class="hero-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Teste gratuito de 14 dias</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Não é necessário cartão de crédito</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="/placeholder.svg?height=400&width=600" alt="Painel StreamLine" class="dashboard-image">
+                    </div>
                 </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button size="lg" className="h-12 px-8">
-                    Start Free Trial
-                  </Button>
-                  <Button variant="outline" size="lg" className="h-12 px-8 bg-transparent">
-                    Watch Demo
-                  </Button>
-                </div>
-                <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-                  <div className="flex items-center space-x-1">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>14-day free trial</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>No credit card required</span>
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center justify-center">
-                <Image
-                  src="/placeholder.svg?height=400&width=600"
-                  width={600}
-                  height={400}
-                  alt="StreamLine Dashboard"
-                  className="mx-auto aspect-video overflow-hidden rounded-xl object-cover shadow-2xl"
-                />
-              </div>
             </div>
-          </div>
         </section>
 
-        {/* Features Section */}
-        <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <Badge variant="secondary">Features</Badge>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Everything you need to succeed</h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Powerful features designed to help your team work smarter, not harder.
-                </p>
-              </div>
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <div class="badge">Recursos</div>
+                    <h2 class="section-title">Nossas Soluções Especializadas</h2>
+                    <p class="section-description">
+                        Oferecemos soluções completas para otimizar a produtividade da sua empresa.
+                    </p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="feature-title">Fluxos de trabalho automatizados</h3>
+                        <p class="feature-description">
+                            Crie regras de automação personalizadas que acionam ações com base nas atividades da sua equipe. 
+                            Economize horas de trabalho manual toda semana.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="feature-title">Colaboração em equipe</h3>
+                        <p class="feature-description">
+                            Ferramentas de colaboração em tempo real que mantêm todos alinhados. 
+                            Compartilhe arquivos, comunique-se e trabalhe em conjunto sem interrupções.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3 class="feature-title">Análise avançada</h3>
+                        <p class="feature-description">
+                            Obtenha insights profundos sobre o desempenho da sua equipe com ferramentas abrangentes de análise e relatórios. 
+                            Tome decisões baseadas em dados.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Segurança Empresarial</h3>
+                        <p class="feature-description">
+                            Segurança em nível bancário com criptografia de ponta a ponta, integração SSO e conformidade com os padrões do setor.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
-              <div className="grid gap-6">
-                <Card>
-                  <CardHeader>
-                    <div className="flex items-center space-x-2">
-                      <div className="flex items-center justify-center w-10 h-10 bg-primary/10 rounded-lg">
-                        <Zap className="h-5 w-5 text-primary" />
-                      </div>
-                      <CardTitle>Automated Workflows</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription>
-                      Create custom automation rules that trigger actions based on your team's activities. Save hours of
-                      manual work every week.
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardHeader>
-                    <div className="flex items-center space-x-2">
-                      <div className="flex items-center justify-center w-10 h-10 bg-primary/10 rounded-lg">
-                        <Users className="h-5 w-5 text-primary" />
-                      </div>
-                      <CardTitle>Team Collaboration</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription>
-                      Real-time collaboration tools that keep everyone on the same page. Share files, communicate, and
-                      work together seamlessly.
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              </div>
-              <div className="grid gap-6">
-                <Card>
-                  <CardHeader>
-                    <div className="flex items-center space-x-2">
-                      <div className="flex items-center justify-center w-10 h-10 bg-primary/10 rounded-lg">
-                        <BarChart3 className="h-5 w-5 text-primary" />
-                      </div>
-                      <CardTitle>Advanced Analytics</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription>
-                      Get deep insights into your team's performance with comprehensive analytics and reporting tools.
-                      Make data-driven decisions.
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-                <Card>
-                  <CardHeader>
-                    <div className="flex items-center space-x-2">
-                      <div className="flex items-center justify-center w-10 h-10 bg-primary/10 rounded-lg">
-                        <Shield className="h-5 w-5 text-primary" />
-                      </div>
-                      <CardTitle>Enterprise Security</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription>
-                      Bank-level security with end-to-end encryption, SSO integration, and compliance with industry
-                      standards.
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </div>
         </section>
 
-        {/* Testimonials Section */}
-        <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <Badge variant="secondary">Testimonials</Badge>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Loved by teams worldwide</h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  See what our customers have to say about StreamLine.
-                </p>
-              </div>
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <div class="badge">Cases de Sucesso</div>
+                    <h2 class="section-title">Empresas que confiam em nosso trabalho</h2>
+                    <p class="section-description">
+                        Veja alguns resultados que alcançamos com nossos clientes.
+                    </p>
+                </div>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="/placeholder.svg?height=40&width=40" alt="Sarah Johnson">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4 class="testimonial-name">Sarah Johnson</h4>
+                                <p class="testimonial-role">Gerente de Produto na TechCorp</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "O StreamLine transformou como nossa equipe trabalha. Apenas os recursos de automação nos pouparam mais de 10 horas por semana. Altamente recomendado!"
+                        </p>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="/placeholder.svg?height=40&width=40" alt="Michael Chen">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4 class="testimonial-name">Michael Chen</h4>
+                                <p class="testimonial-role">CTO na StartupXYZ</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "O painel de análise nos dá insights incríveis sobre nosso fluxo de trabalho. Melhoramos nossa eficiência em 40% desde que mudamos para o StreamLine."
+                        </p>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="/placeholder.svg?height=40&width=40" alt="Emily Rodriguez">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4 class="testimonial-name">Emily Rodriguez</h4>
+                                <p class="testimonial-role">Diretora de Operações na GrowthCo</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Excelente suporte ao cliente e um produto que realmente cumpre suas promessas. A colaboração da nossa equipe nunca foi melhor."
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center space-x-2">
-                    <Avatar>
-                      <AvatarImage src="/placeholder.svg?height=40&width=40" />
-                      <AvatarFallback>SJ</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <CardTitle className="text-base">Sarah Johnson</CardTitle>
-                      <CardDescription>Product Manager at TechCorp</CardDescription>
-                    </div>
-                  </div>
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                    ))}
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    "StreamLine has transformed how our team works. The automation features alone have saved us 10+
-                    hours per week. Highly recommended!"
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center space-x-2">
-                    <Avatar>
-                      <AvatarImage src="/placeholder.svg?height=40&width=40" />
-                      <AvatarFallback>MC</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <CardTitle className="text-base">Michael Chen</CardTitle>
-                      <CardDescription>CTO at StartupXYZ</CardDescription>
-                    </div>
-                  </div>
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                    ))}
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    "The analytics dashboard gives us incredible insights into our workflow. We've improved our
-                    efficiency by 40% since switching to StreamLine."
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center space-x-2">
-                    <Avatar>
-                      <AvatarImage src="/placeholder.svg?height=40&width=40" />
-                      <AvatarFallback>ER</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <CardTitle className="text-base">Emily Rodriguez</CardTitle>
-                      <CardDescription>Operations Director at GrowthCo</CardDescription>
-                    </div>
-                  </div>
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                    ))}
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    "Excellent customer support and a product that actually delivers on its promises. Our team
-                    collaboration has never been better."
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
         </section>
 
-        {/* Pricing Section */}
-        <section id="pricing" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <Badge variant="secondary">Pricing</Badge>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Simple, transparent pricing</h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Choose the plan that's right for your team. All plans include a 14-day free trial.
-                </p>
-              </div>
+        <!-- Final CTA Section -->
+        <section class="final-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Quer saber mais sobre nossas soluções?</h2>
+                    <p class="cta-description">
+                        Entre em contato conosco e descubra como podemos ajudar sua empresa a crescer.
+                    </p>
+                    <div class="cta-actions">
+                        <button class="btn btn-primary btn-large">Entre em Contato</button>
+                        <button class="btn btn-outline btn-large">Conheça Nosso Trabalho</button>
+                    </div>
+                    <div class="cta-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Consultoria gratuita</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Soluções personalizadas</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Suporte especializado</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Starter</CardTitle>
-                  <CardDescription>Perfect for small teams getting started</CardDescription>
-                  <div className="text-3xl font-bold">
-                    $9<span className="text-sm font-normal text-muted-foreground">/user/month</span>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <ul className="space-y-2">
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm">Up to 10 team members</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm">Basic workflow automation</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm">5GB storage per user</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm">Email support</span>
-                    </li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-transparent" variant="outline">
-                    Get Started
-                  </Button>
-                </CardFooter>
-              </Card>
-              <Card className="border-primary">
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle>Professional</CardTitle>
-                    <Badge>Most Popular</Badge>
-                  </div>
-                  <CardDescription>Ideal for growing teams and businesses</CardDescription>
-                  <div className="text-3xl font-bold">
-                    $19<span className="text-sm font-normal text-muted-foreground">/user/month</span>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <ul className="space-y-2">
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm">Up to 50 team members</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm">Advanced automation & AI</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm">25GB storage per user</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm">Priority support</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm">Advanced analytics</span>
-                    </li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full">Get Started</Button>
-                </CardFooter>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Enterprise</CardTitle>
-                  <CardDescription>For large organizations with advanced needs</CardDescription>
-                  <div className="text-3xl font-bold">
-                    $39<span className="text-sm font-normal text-muted-foreground">/user/month</span>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <ul className="space-y-2">
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm">Unlimited team members</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm">Custom integrations</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm">Unlimited storage</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm">24/7 dedicated support</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm">SSO & advanced security</span>
-                    </li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-transparent" variant="outline">
-                    Contact Sales
-                  </Button>
-                </CardFooter>
-              </Card>
-            </div>
-          </div>
         </section>
+    </main>
 
-        {/* Final CTA Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Ready to streamline your workflow?</h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Join thousands of teams who have already transformed their productivity with StreamLine.
-                </p>
-              </div>
-              <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Button size="lg" className="h-12 px-8">
-                  Start Your Free Trial
-                </Button>
-                <Button variant="outline" size="lg" className="h-12 px-8 bg-transparent">
-                  Schedule a Demo
-                </Button>
-              </div>
-              <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-                <div className="flex items-center space-x-1">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>14-day free trial</span>
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <span class="brand-name">StreamLine</span>
+                    </div>
+                    <p class="footer-description">
+                        Otimize a produtividade da sua equipe com nossa plataforma de colaboração completa.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
-                <div className="flex items-center space-x-1">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>Cancel anytime</span>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Produto</h4>
+                        <ul class="footer-list">
+                            <li><a href="#" class="footer-link">Recursos</a></li>
+                            <li><a href="#" class="footer-link">Preços</a></li>
+                            <li><a href="#" class="footer-link">Integrações</a></li>
+                            <li><a href="#" class="footer-link">API</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Empresa</h4>
+                        <ul class="footer-list">
+                            <li><a href="#" class="footer-link">Sobre</a></li>
+                            <li><a href="#" class="footer-link">Blog</a></li>
+                            <li><a href="#" class="footer-link">Carreiras</a></li>
+                            <li><a href="#" class="footer-link">Contato</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Suporte</h4>
+                        <ul class="footer-list">
+                            <li><a href="#" class="footer-link">Central de Ajuda</a></li>
+                            <li><a href="#" class="footer-link">Documentação</a></li>
+                            <li><a href="#" class="footer-link">Status</a></li>
+                            <li><a href="#" class="footer-link">Política de Privacidade</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div className="flex items-center space-x-1">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>Setup in minutes</span>
-                </div>
-              </div>
             </div>
-          </div>
-        </section>
-      </main>
-
-      {/* Footer */}
-      <footer id="contact" className="w-full py-12 bg-muted/50 border-t">
-        <div className="container px-4 md:px-6">
-          <div className="grid gap-8 lg:grid-cols-4">
-            <div className="space-y-4">
-              <div className="flex items-center space-x-2">
-                <div className="flex items-center justify-center w-8 h-8 bg-primary rounded-lg">
-                  <Zap className="h-5 w-5 text-primary-foreground" />
-                </div>
-                <span className="text-xl font-bold">StreamLine</span>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Streamline your team's productivity with our all-in-one collaboration platform.
-              </p>
-              <div className="flex space-x-4">
-                <Link href="#" className="text-muted-foreground hover:text-primary">
-                  <Facebook className="h-5 w-5" />
-                </Link>
-                <Link href="#" className="text-muted-foreground hover:text-primary">
-                  <Twitter className="h-5 w-5" />
-                </Link>
-                <Link href="#" className="text-muted-foreground hover:text-primary">
-                  <Linkedin className="h-5 w-5" />
-                </Link>
-                <Link href="#" className="text-muted-foreground hover:text-primary">
-                  <Instagram className="h-5 w-5" />
-                </Link>
-              </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 StreamLine. Todos os direitos reservados.</p>
             </div>
-            <div className="space-y-4">
-              <h4 className="text-sm font-semibold">Product</h4>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <Link href="#" className="text-muted-foreground hover:text-primary">
-                    Features
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-muted-foreground hover:text-primary">
-                    Pricing
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-muted-foreground hover:text-primary">
-                    Integrations
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-muted-foreground hover:text-primary">
-                    API
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h4 className="text-sm font-semibold">Company</h4>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <Link href="#" className="text-muted-foreground hover:text-primary">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-muted-foreground hover:text-primary">
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-muted-foreground hover:text-primary">
-                    Careers
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-muted-foreground hover:text-primary">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h4 className="text-sm font-semibold">Support</h4>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <Link href="#" className="text-muted-foreground hover:text-primary">
-                    Help Center
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-muted-foreground hover:text-primary">
-                    Documentation
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-muted-foreground hover:text-primary">
-                    Status
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-muted-foreground hover:text-primary">
-                    Privacy Policy
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-            <p>&copy; {new Date().getFullYear()} StreamLine. All rights reserved.</p>
-          </div>
         </div>
-      </footer>
-    </div>
-  )
-}
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,107 +1,148 @@
-// Animações de entrada ao scroll
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
+// Mobile Menu Toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const mobileMenuBtn = document.getElementById("mobileMenuBtn")
+  const navMenu = document.getElementById("navMenu")
+
+  if (mobileMenuBtn && navMenu) {
+    mobileMenuBtn.addEventListener("click", () => {
+      navMenu.classList.toggle("active")
+    })
+  }
+
+  // Smooth scrolling for navigation links
+  const navLinks = document.querySelectorAll('a[href^="#"]')
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault()
+
+      const targetId = this.getAttribute("href")
+      const targetSection = document.querySelector(targetId)
+
+      if (targetSection) {
+        const headerHeight = document.querySelector(".header").offsetHeight
+        const targetPosition = targetSection.offsetTop - headerHeight
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth",
+        })
+
+        // Close mobile menu if open
+        if (navMenu.classList.contains("active")) {
+          navMenu.classList.remove("active")
         }
-    });
-}, { threshold: 0.1 });
+      }
+    })
+  })
 
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  // Add scroll effect to header
+  window.addEventListener("scroll", () => {
+    const header = document.querySelector(".header")
 
-// Carousel de depoimentos
-class TestimonialCarousel {
-    constructor() {
-        this.track = document.querySelector('.testimonials-track');
-        this.dots = document.querySelectorAll('.dot');
-        this.testimonials = document.querySelectorAll('.testimonial');
-        this.currentSlide = 0;
-        this.totalSlides = this.dots.length;
-        this.isAutoPlaying = true;
-        
-        if (!this.track || this.totalSlides === 0) return;
-        this.init();
+    if (window.scrollY > 100) {
+      header.style.backgroundColor = "rgba(255, 255, 255, 0.98)"
+    } else {
+      header.style.backgroundColor = "rgba(255, 255, 255, 0.95)"
     }
+  })
 
-    init() {
-        this.dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                this.goToSlide(index);
-                this.pauseAutoPlay();
-            });
-        });
-        this.setupTouchEvents();
-        this.startAutoPlay();
-        this.track.addEventListener('mouseenter', () => this.isAutoPlaying = false);
-        this.track.addEventListener('mouseleave', () => this.isAutoPlaying = true);
-    }
+  // Add animation on scroll for feature cards
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px",
+  }
 
-    setupTouchEvents() {
-        let startX = 0;
-        this.track.addEventListener('touchstart', (e) => startX = e.touches[0].clientX, { passive: true });
-        this.track.addEventListener('touchend', (e) => {
-            let endX = e.changedTouches[0].clientX;
-            if (startX > endX + 50) this.nextSlide();
-            else if (startX < endX - 50) this.previousSlide();
-            this.pauseAutoPlay();
-        });
-    }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1"
+        entry.target.style.transform = "translateY(0)"
+      }
+    })
+  }, observerOptions)
 
-    goToSlide(index) {
-        this.currentSlide = index;
-        
-        // Ajuste para o tamanho dos slides
-        if (this.testimonials.length > 0) {
-            this.track.style.width = `${this.totalSlides * 100}%`;
-            this.testimonials.forEach(t => t.style.width = `${100 / this.totalSlides}%`);
+  // Observe feature cards, testimonials, and pricing cards
+  const animatedElements = document.querySelectorAll(".feature-card, .testimonial-card, .pricing-card")
+
+  animatedElements.forEach((el) => {
+    el.style.opacity = "0"
+    el.style.transform = "translateY(20px)"
+    el.style.transition = "opacity 0.6s ease, transform 0.6s ease"
+    observer.observe(el)
+  })
+
+  // Form handling for buttons (you can customize this)
+  const ctaButtons = document.querySelectorAll(".btn-primary")
+
+  ctaButtons.forEach((button) => {
+    button.addEventListener("click", function (e) {
+      if (this.textContent.includes("Contato") || this.textContent.includes("Entre em Contato")) {
+        e.preventDefault()
+        alert("Redirecionando para página de contato...")
+        // Here you would redirect to your contact page
+        // window.location.href = '/contact';
+      } else if (this.textContent.includes("Saiba Mais")) {
+        e.preventDefault()
+        // Scroll to features section
+        document.getElementById("features").scrollIntoView({ behavior: "smooth" })
+      }
+    })
+  })
+
+  // Demo button handling
+  const demoButtons = document.querySelectorAll(".btn-outline")
+
+  demoButtons.forEach((button) => {
+    button.addEventListener("click", function (e) {
+      if (this.textContent.includes("Serviços") || this.textContent.includes("Nossos Serviços")) {
+        e.preventDefault()
+        // Scroll to features section
+        document.getElementById("features").scrollIntoView({ behavior: "smooth" })
+      } else if (this.textContent.includes("Trabalho") || this.textContent.includes("Conheça")) {
+        e.preventDefault()
+        // Scroll to testimonials section
+        document.getElementById("testimonials").scrollIntoView({ behavior: "smooth" })
+      }
+    })
+  })
+})
+
+// Add mobile menu styles dynamically
+const style = document.createElement("style")
+style.textContent = `
+    @media (max-width: 768px) {
+        .nav-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: white;
+            border-top: 1px solid #e5e7eb;
+            flex-direction: column;
+            padding: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
         }
         
-        this.track.style.transform = `translateX(-${index * (100 / this.totalSlides)}%)`;
-        this.updateDots();
+        .nav-menu.active {
+            display: flex;
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .nav-menu .nav-link {
+            padding: 12px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .nav-menu .nav-link:last-child {
+            border-bottom: none;
+        }
     }
-
-    nextSlide() {
-        this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-        this.goToSlide(this.currentSlide);
-    }
-    
-    previousSlide() {
-        this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
-        this.goToSlide(this.currentSlide);
-    }
-
-    updateDots() {
-        this.dots.forEach((dot, index) => dot.classList.toggle('active', index === this.currentSlide));
-    }
-
-    startAutoPlay() {
-        this.autoPlayInterval = setInterval(() => {
-            if (this.isAutoPlaying) this.nextSlide();
-        }, 5000);
-    }
-
-    pauseAutoPlay() {
-        this.isAutoPlaying = false;
-        clearInterval(this.autoPlayInterval);
-        this.autoPlayInterval = setInterval(() => {
-            this.isAutoPlaying = true;
-            this.startAutoPlay();
-        }, 8000); // Resume after a delay
-    }
-}
-
-// Scroll suave para links internos e inicialização do carrossel
-document.addEventListener('DOMContentLoaded', () => {
-    new TestimonialCarousel();
-    
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
-});
+`
+document.head.appendChild(style)
