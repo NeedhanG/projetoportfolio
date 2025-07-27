@@ -1,148 +1,103 @@
-// Mobile Menu Toggle
+// Aguarda o documento HTML ser completamente carregado para executar o script.
 document.addEventListener("DOMContentLoaded", () => {
-  const mobileMenuBtn = document.getElementById("mobileMenuBtn")
-  const navMenu = document.getElementById("navMenu")
 
+  // --- 1. LÓGICA DO MENU MOBILE ---
+  const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+  const navMenu = document.getElementById("navMenu");
+
+  // Adiciona um evento de clique ao botão do menu mobile.
   if (mobileMenuBtn && navMenu) {
     mobileMenuBtn.addEventListener("click", () => {
-      navMenu.classList.toggle("active")
-    })
+      // Adiciona ou remove a classe 'active' do menu, fazendo-o aparecer ou desaparecer.
+      navMenu.classList.toggle("active");
+    });
   }
 
-  // Smooth scrolling for navigation links
-  const navLinks = document.querySelectorAll('a[href^="#"]')
+
+  // --- 2. LÓGICA DE ROLAGEM SUAVE (SMOOTH SCROLL) ---
+  // Seleciona todos os links que apontam para uma âncora (#) na página.
+  const navLinks = document.querySelectorAll('a[href^="#"]');
 
   navLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
-      e.preventDefault()
+      e.preventDefault(); // Impede o comportamento padrão do link.
 
-      const targetId = this.getAttribute("href")
-      const targetSection = document.querySelector(targetId)
+      const targetId = this.getAttribute("href");
+      const targetSection = document.querySelector(targetId);
 
       if (targetSection) {
-        const headerHeight = document.querySelector(".header").offsetHeight
-        const targetPosition = targetSection.offsetTop - headerHeight
+        // Calcula a posição do topo da seção, descontando a altura do header.
+        const headerHeight = document.querySelector(".header").offsetHeight;
+        const targetPosition = targetSection.offsetTop - headerHeight;
 
+        // Rola a página suavemente até a posição calculada.
         window.scrollTo({
           top: targetPosition,
           behavior: "smooth",
-        })
+        });
 
-        // Close mobile menu if open
+        // Fecha o menu mobile se ele estiver aberto após o clique.
         if (navMenu.classList.contains("active")) {
-          navMenu.classList.remove("active")
+          navMenu.classList.remove("active");
         }
       }
-    })
-  })
+    });
+  });
 
-  // Add scroll effect to header
+
+  // --- 3. EFEITO NO HEADER AO ROLAR A PÁGINA ---
   window.addEventListener("scroll", () => {
-    const header = document.querySelector(".header")
-
-    if (window.scrollY > 100) {
-      header.style.backgroundColor = "rgba(255, 255, 255, 0.98)"
+    const header = document.querySelector(".header");
+    // Adiciona um leve sombreamento ao header quando o usuário rola a página.
+    if (window.scrollY > 50) {
+      header.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.05)";
     } else {
-      header.style.backgroundColor = "rgba(255, 255, 255, 0.95)"
+      header.style.boxShadow = "none";
     }
-  })
+  });
 
-  // Add animation on scroll for feature cards
+
+  // --- 4. ANIMAÇÃO DE ELEMENTOS AO APARECEREM NA TELA (Intersection Observer) ---
   const observerOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px",
-  }
+    threshold: 0.1, // O elemento é considerado "visível" quando 10% dele estiver na tela.
+  };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
+      // Se o elemento estiver visível na tela.
       if (entry.isIntersecting) {
-        entry.target.style.opacity = "1"
-        entry.target.style.transform = "translateY(0)"
+        // Adiciona a classe 'is-visible' para ativar a animação CSS.
+        entry.target.classList.add("is-visible");
       }
-    })
-  }, observerOptions)
+    });
+  }, observerOptions);
 
-  // Observe feature cards, testimonials, and pricing cards
-  const animatedElements = document.querySelectorAll(".feature-card, .testimonial-card, .pricing-card")
+  // Seleciona todos os elementos que devem ser animados.
+  const animatedElements = document.querySelectorAll(".feature-card, .testimonial-card, .pricing-card");
 
+  // Aplica o observador a cada elemento.
   animatedElements.forEach((el) => {
-    el.style.opacity = "0"
-    el.style.transform = "translateY(20px)"
-    el.style.transition = "opacity 0.6s ease, transform 0.6s ease"
-    observer.observe(el)
-  })
+    observer.observe(el);
+  });
 
-  // Form handling for buttons (you can customize this)
-  const ctaButtons = document.querySelectorAll(".btn-primary")
+
+  // --- 5. INTERAÇÃO DOS BOTÕES PRINCIPAIS (CTA) ---
+  // Apenas um exemplo de como adicionar interatividade.
+  const ctaButtons = document.querySelectorAll(".btn");
 
   ctaButtons.forEach((button) => {
     button.addEventListener("click", function (e) {
-      if (this.textContent.includes("Contato") || this.textContent.includes("Entre em Contato")) {
-        e.preventDefault()
-        alert("Redirecionando para página de contato...")
-        // Here you would redirect to your contact page
-        // window.location.href = '/contact';
-      } else if (this.textContent.includes("Saiba Mais")) {
-        e.preventDefault()
-        // Scroll to features section
-        document.getElementById("features").scrollIntoView({ behavior: "smooth" })
+      const buttonText = this.textContent.trim();
+
+      if (buttonText === "Contato" || buttonText === "Entre em Contato") {
+        e.preventDefault();
+        // Aqui você poderia redirecionar para uma página de contato ou abrir um formulário.
+        alert("Ação para o botão de contato!");
+      } else if (buttonText === "Saiba Mais" || buttonText === "Nossos Serviços") {
+        e.preventDefault();
+        // Rola até a seção de funcionalidades.
+        document.getElementById("features").scrollIntoView({ behavior: "smooth" });
       }
-    })
-  })
-
-  // Demo button handling
-  const demoButtons = document.querySelectorAll(".btn-outline")
-
-  demoButtons.forEach((button) => {
-    button.addEventListener("click", function (e) {
-      if (this.textContent.includes("Serviços") || this.textContent.includes("Nossos Serviços")) {
-        e.preventDefault()
-        // Scroll to features section
-        document.getElementById("features").scrollIntoView({ behavior: "smooth" })
-      } else if (this.textContent.includes("Trabalho") || this.textContent.includes("Conheça")) {
-        e.preventDefault()
-        // Scroll to testimonials section
-        document.getElementById("testimonials").scrollIntoView({ behavior: "smooth" })
-      }
-    })
-  })
-})
-
-// Add mobile menu styles dynamically
-const style = document.createElement("style")
-style.textContent = `
-    @media (max-width: 768px) {
-        .nav-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background-color: white;
-            border-top: 1px solid #e5e7eb;
-            flex-direction: column;
-            padding: 20px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transform: translateY(-100%);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-menu.active {
-            display: flex;
-            transform: translateY(0);
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .nav-menu .nav-link {
-            padding: 12px 0;
-            border-bottom: 1px solid #f3f4f6;
-        }
-        
-        .nav-menu .nav-link:last-child {
-            border-bottom: none;
-        }
-    }
-`
-document.head.appendChild(style)
+    });
+  });
+});

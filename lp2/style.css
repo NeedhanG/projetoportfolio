@@ -619,12 +619,38 @@ body {
     gap: 32px;
   }
 }
+/* Estilos para a animação de "fade in" com o Intersection Observer */
+.feature-card,
+.testimonial-card,
+.pricing-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.feature-card.is-visible,
+.testimonial-card.is-visible,
+.pricing-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 @media (max-width: 480px) {
   .container {
     padding: 0 16px;
   }
-
+.nav-menu.active {
+    display: flex; /* Muda de 'none' para 'flex' para exibir o menu */
+    position: absolute;
+    top: 64px; /* Altura do seu header */
+    left: 0;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #e5e7eb;
+}
   .hero {
     padding: 100px 0 60px;
   }
