@@ -3,216 +3,484 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advocacia Especializada | [Nome do Advogado(a)]</title>
+    <title>Dr. Ricardo Silva - Advocacia & Consultoria</title>
+    <meta name="description" content="Advocacia especializada com mais de 15 anos de experiência. Atendimento personalizado e resultados comprovados.">
     
-    <!-- Fontes e Ícones -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
     
-    <!-- Bibliotecas de Animação e Carrossel -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-    <!-- Seu CSS (Sempre por último) -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css">
+    
+    <!-- Leaflet Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
-    <!-- (O restante do seu HTML continua o mesmo e está correto) -->
-    <header class="site-header">
-    <div class="container">
-        <nav class="main-nav">
-            <a href="#home" class="logo">Sua Logo Aqui</a>
-            <ul class="nav-links">
-                <li><a href="#services">Serviços</a></li>
-                <li><a href="#about">Sobre</a></li>
-                <li><a href="#testimonials">Depoimentos</a></li>
-                <li><a href="#contact">Contato</a></li>
-            </ul>
-            <button class="mobile-nav-toggle" aria-label="Abrir menu">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </div>
-</header>
-    <main>
-        <!--CAPA-->
-        <section id="home" class="hero-section">
-            <div class="hero-overlay"></div>
-            <div class="container hero-content">
-                <h1 data-aos="fade-up">Assessoria Jurídica de Excelência</h1>
-                <p data-aos="fade-up" data-aos-delay="200">Defendendo seus direitos com estratégia, dedicação e foco em resultados.</p>
-                <a href="https://wa.me/5511999998888?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." class="cta-button" target="_blank" data-aos="fade-up" data-aos-delay="400">
-                    <i class="fab fa-whatsapp"></i> Fale com um Especialista
-                </a>
-            </div>
-        </section>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-3kwxAonG2dorJJOy93noKNr5hJLROC.png" alt="Dr. Ricardo Silva - Logo" class="logo-image">
+                </div>
 
-         <!--SERVIÇOS-->
-        <section id="services" class="services-section">
-            <div class="container">
-                <h2 class="section-title" data-aos="fade-up">Áreas de Atuação</h2>
-                <div class="services-grid">
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="service-icon"><i class="fas fa-gavel"></i></div>
-                        <h3>Direito Trabalhista</h3>
-                        <p>Ações de rescisão, horas extras, assédio moral, acidentes de trabalho e defesa completa dos direitos do trabalhador.</p>
-                    </div>
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="service-icon"><i class="fas fa-users"></i></div>
-                        <h3>Direito de Família</h3>
-                        <p>Divórcio, pensão alimentícia, guarda de filhos, partilha de bens e inventários, com sensibilidade e eficiência.</p>
-                    </div>
-                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
-                        <h3>Direito do Consumidor</h3>
-                        <p>Ações contra práticas abusivas, produtos defeituosos, cobranças indevidas e busca por indenizações.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <nav class="nav-desktop">
+                    <a href="#areas" class="nav-link">Áreas de Atuação</a>
+                    <a href="#sobre" class="nav-link">Sobre</a>
+                    <a href="#depoimentos" class="nav-link">Depoimentos</a>
+                    <a href="#contato" class="nav-link">Contato</a>
+                </nav>
 
-        <!--SOBRE ESCRITÓRIO-->
-        <section id="about" class="about-section">
-            <div class="container">
-                <div class="about-grid">
-                    <div class="about-image" data-aos="fade-right">
-                        <img src="https://i.pravatar.cc/300?u=advogado" alt="Foto do Dr(a). [Nome]">
+                <div class="header-actions">
+                    <div class="phone-info">
+                        <i data-lucide="phone" class="icon-sm"></i>
+                        (11) 99999-9999
                     </div>
-                    <div class="about-text" data-aos="fade-left">
-                        <h2>Dr(a). Nome Sobrenome</h2>
-                        <p class="oab-number">OAB/SP 123.456</p>
-                        <p>Com mais de uma década de experiência, nossa missão é oferecer soluções jurídicas personalizadas que não apenas resolvam problemas, mas que também protejam o futuro de nossos clientes. Acreditamos em uma advocacia pautada pela ética, transparência e um relacionamento próximo.</p>
-                        <p>Especialista em [sua principal área], com pós-graduação pela [Nome da Universidade], busco constantemente o aprimoramento para garantir as estratégias mais eficazes em cada caso.</p>
-                    </div>
+                    <button class="btn btn-primary">Consulta Gratuita</button>
                 </div>
-            </div>
-        </section>
 
-        <!--DEPOIMENTOS-->
-        <section id="testimonials" class="testimonials-section">
-            <div class="container" data-aos="fade-up">
-                <h2 class="section-title">Confiança e Resultados</h2>
-                 <div class="swiper testimonials-slider">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="testimonial-card">
-                                <i class="fas fa-quote-left"></i>
-                                <p>"Profissionalismo impecável. Fui orientado(a) em cada etapa do processo com uma clareza e segurança que fizeram toda a diferença. Recomendo fortemente!"</p>
-                                <div class="testimonial-author"><h4>Carlos Silva</h4></div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="testimonial-card">
-                                <i class="fas fa-quote-left"></i>
-                                <p>"Resolveram minha questão de família com uma agilidade e sensibilidade que eu não esperava. Equipe extremamente competente e humana. Só tenho a agradecer."</p>
-                                <div class="testimonial-author"><h4>Juliana Martins</h4></div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="testimonial-card">
-                                <i class="fas fa-quote-left"></i>
-                                <p>"A melhor assessoria que já tive. Transformaram uma situação complexa em uma solução favorável para mim. A expertise técnica é notável."</p>
-                                <div class="testimonial-author"><h4>Roberto Oliveira</h4></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i data-lucide="menu" class="icon"></i>
+                </button>
             </div>
-        </section>
+        </div>
+    </header>
 
-       <!-- SEÇÃO CONTATO (ATUALIZADA) -->
-<section id="contact" class="contact-section">
-    <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Entre em Contato</h2>
-        <div class="contact-grid">
-            
-            <!-- CARD GRANDE DE INFORMAÇÕES -->
-            <div class="contact-details" data-aos="fade-right">
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <h4>Telefone / WhatsApp</h4>
-                        <p>(11) 99999-8888</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h4>E-mail</h4>
-                        <p>contato@seu-escritorio.com</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-instagram"></i>
-                    <div>
-                        <h4>Instagram</h4>
-                        <p>@seu_instagram_aqui</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h4>Endereço</h4>
-                        <p>Av. Paulista, 1000, São Paulo - SP</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- MAPA -->
-            <div class="contact-map" data-aos="fade-left">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1974771035796!2d-46.65654492369394!3d-23.561414662568147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="#areas" class="mobile-nav-link">Áreas de Atuação</a>
+            <a href="#sobre" class="mobile-nav-link">Sobre</a>
+            <a href="#depoimentos" class="mobile-nav-link">Depoimentos</a>
+            <a href="#contato" class="mobile-nav-link">Contato</a>
+            <button class="btn btn-primary mobile-cta">Consulta Gratuita</button>
         </div>
     </div>
-</section>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="badge">
+                            ⚖️ +15 Anos de Experiência
+                        </div>
+                        <h1 class="hero-title">
+                            Defenda Seus <span class="text-primary">Direitos</span> com Quem Entende
+                        </h1>
+                        <p class="hero-description">
+                            Advocacia especializada com mais de 15 anos de experiência. Atendimento personalizado e resultados
+                            comprovados em diversas áreas do direito.
+                        </p>
+
+                        <div class="hero-actions">
+                            <button class="btn btn-primary btn-lg">
+                                <i data-lucide="message-circle" class="icon"></i>
+                                Consulta Gratuita Agora
+                            </button>
+                            <button class="btn btn-outline btn-lg">
+                                <i data-lucide="phone" class="icon"></i>
+                                (11) 99999-9999
+                            </button>
+                        </div>
+
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <div class="stat-number">500+</div>
+                                <div class="stat-label">Casos Ganhos</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">98%</div>
+                                <div class="stat-label">Taxa de Sucesso</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">15+</div>
+                                <div class="stat-label">Anos de Experiência</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-image">
+                        <div class="image-container">
+                            <img src="/placeholder.svg?height=500&width=400" alt="Dr. Ricardo Silva - Advogado" class="profile-image">
+                            <div class="availability-badge">
+                                <div class="status-dot"></div>
+                                <span>Disponível para consulta</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Áreas de Atuação -->
+        <section id="areas" class="areas">
+            <div class="container">
+                <div class="section-header">
+                    <div class="badge">Especialidades</div>
+                    <h2 class="section-title">Áreas de Atuação</h2>
+                    <p class="section-description">
+                        Atendimento especializado nas principais áreas do direito com foco em resultados
+                    </p>
+                </div>
+
+                <div class="areas-grid">
+                    <div class="area-card">
+                        <div class="area-icon">
+                            <i data-lucide="gavel" class="icon"></i>
+                        </div>
+                        <h3 class="area-title">Direito Civil</h3>
+                        <p class="area-description">
+                            Contratos, responsabilidade civil, direito de família, sucessões e questões patrimoniais.
+                        </p>
+                        <a href="#" class="area-link">
+                            Saiba mais <i data-lucide="arrow-right" class="icon-sm"></i>
+                        </a>
+                    </div>
+
+                    <div class="area-card">
+                        <div class="area-icon">
+                            <i data-lucide="users" class="icon"></i>
+                        </div>
+                        <h3 class="area-title">Direito Trabalhista</h3>
+                        <p class="area-description">
+                            Rescisões, horas extras, assédio moral, acidentes de trabalho e direitos do trabalhador.
+                        </p>
+                        <a href="#" class="area-link">
+                            Saiba mais <i data-lucide="arrow-right" class="icon-sm"></i>
+                        </a>
+                    </div>
+
+                    <div class="area-card">
+                        <div class="area-icon">
+                            <i data-lucide="shield" class="icon"></i>
+                        </div>
+                        <h3 class="area-title">Direito Criminal</h3>
+                        <p class="area-description">
+                            Defesa criminal, habeas corpus, recursos e acompanhamento processual completo.
+                        </p>
+                        <a href="#" class="area-link">
+                            Saiba mais <i data-lucide="arrow-right" class="icon-sm"></i>
+                        </a>
+                    </div>
+
+                    <div class="area-card">
+                        <div class="area-icon">
+                            <i data-lucide="file-text" class="icon"></i>
+                        </div>
+                        <h3 class="area-title">Direito Previdenciário</h3>
+                        <p class="area-description">
+                            Aposentadorias, pensões, auxílios, revisões de benefícios e recursos no INSS.
+                        </p>
+                        <a href="#" class="area-link">
+                            Saiba mais <i data-lucide="arrow-right" class="icon-sm"></i>
+                        </a>
+                    </div>
+
+                    <div class="area-card">
+                        <div class="area-icon">
+                            <i data-lucide="trending-up" class="icon"></i>
+                        </div>
+                        <h3 class="area-title">Direito Empresarial</h3>
+                        <p class="area-description">
+                            Constituição de empresas, contratos comerciais, recuperação judicial e consultoria.
+                        </p>
+                        <a href="#" class="area-link">
+                            Saiba mais <i data-lucide="arrow-right" class="icon-sm"></i>
+                        </a>
+                    </div>
+
+                    <div class="area-card">
+                        <div class="area-icon">
+                            <i data-lucide="user-check" class="icon"></i>
+                        </div>
+                        <h3 class="area-title">Direito do Consumidor</h3>
+                        <p class="area-description">
+                            Defesa dos direitos do consumidor, indenizações e resolução de conflitos comerciais.
+                        </p>
+                        <a href="#" class="area-link">
+                            Saiba mais <i data-lucide="arrow-right" class="icon-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre -->
+        <section id="sobre" class="sobre">
+            <div class="container">
+                <div class="sobre-content">
+                    <div class="sobre-text">
+                        <div class="badge">Sobre o Advogado</div>
+                        <h2 class="section-title">Dr. Ricardo Silva</h2>
+                        <p class="sobre-description">
+                            Advogado formado pela Universidade de São Paulo (USP) com mais de 15 anos de experiência.
+                            Especialista em Direito Civil e Trabalhista, com pós-graduação em Direito Processual Civil.
+                        </p>
+
+                        <div class="credentials">
+                            <div class="credential">
+                                <i data-lucide="check-circle" class="icon-check"></i>
+                                <span>OAB/SP 123.456 - Registro ativo</span>
+                            </div>
+                            <div class="credential">
+                                <i data-lucide="check-circle" class="icon-check"></i>
+                                <span>Especialização em Direito Processual Civil (PUC-SP)</span>
+                            </div>
+                            <div class="credential">
+                                <i data-lucide="check-circle" class="icon-check"></i>
+                                <span>Membro da Comissão de Direito Civil da OAB/SP</span>
+                            </div>
+                            <div class="credential">
+                                <i data-lucide="check-circle" class="icon-check"></i>
+                                <span>Palestrante em congressos jurídicos nacionais</span>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-lg">
+                            <i data-lucide="message-circle" class="icon"></i>
+                            Falar com o Advogado
+                        </button>
+                    </div>
+
+                    <div class="sobre-image">
+                        <img src="/placeholder.svg?height=600&width=500" alt="Dr. Ricardo Silva" class="advogado-photo">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Depoimentos -->
+        <section id="depoimentos" class="depoimentos">
+            <div class="container">
+                <div class="section-header">
+                    <div class="badge">Depoimentos</div>
+                    <h2 class="section-title">O que nossos clientes dizem</h2>
+                    <p class="section-description">
+                        Resultados reais de clientes que confiaram em nosso trabalho
+                    </p>
+                </div>
+
+                <div class="depoimentos-grid">
+                    <div class="depoimento-card">
+                        <div class="stars">
+                            <i data-lucide="star" class="star-filled"></i>
+                            <i data-lucide="star" class="star-filled"></i>
+                            <i data-lucide="star" class="star-filled"></i>
+                            <i data-lucide="star" class="star-filled"></i>
+                            <i data-lucide="star" class="star-filled"></i>
+                        </div>
+                        <p class="depoimento-text">
+                            "Excelente profissional! Me ajudou a resolver um problema trabalhista complexo. Consegui receber todos
+                            os meus direitos. Recomendo muito!"
+                        </p>
+                        <div class="cliente">
+                            <img src="/placeholder.svg?height=40&width=40" alt="Maria Fernanda" class="cliente-avatar">
+                            <div class="cliente-info">
+                                <div class="cliente-nome">Maria Fernanda</div>
+                                <div class="cliente-area">Direito Trabalhista</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="depoimento-card">
+                        <div class="stars">
+                            <i data-lucide="star" class="star-filled"></i>
+                            <i data-lucide="star" class="star-filled"></i>
+                            <i data-lucide="star" class="star-filled"></i>
+                            <i data-lucide="star" class="star-filled"></i>
+                            <i data-lucide="star" class="star-filled"></i>
+                        </div>
+                        <p class="depoimento-text">
+                            "Dr. Ricardo é muito competente e dedicado. Ganhou minha causa de aposentadoria que estava negada há
+                            anos. Profissional de confiança!"
+                        </p>
+                        <div class="cliente">
+                            <img src="/placeholder.svg?height=40&width=40" alt="João Santos" class="cliente-avatar">
+                            <div class="cliente-info">
+                                <div class="cliente-nome">João Santos</div>
+                                <div class="cliente-area">Direito Previdenciário</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="depoimento-card">
+                        <div class="stars">
+                            <i data-lucide="star" class="star-filled"></i>
+                            <i data-lucide="star" class="star-filled"></i>
+                            <i data-lucide="star" class="star-filled"></i>
+                            <i data-lucide="star" class="star-filled"></i>
+                            <i data-lucide="star" class="star-filled"></i>
+                        </div>
+                        <p class="depoimento-text">
+                            "Atendimento excepcional! Resolveu meu divórcio de forma rápida e justa. Sempre disponível para
+                            esclarecer dúvidas. Muito obrigada!"
+                        </p>
+                        <div class="cliente">
+                            <img src="/placeholder.svg?height=40&width=40" alt="Ana Clara" class="cliente-avatar">
+                            <div class="cliente-info">
+                                <div class="cliente-nome">Ana Clara</div>
+                                <div class="cliente-area">Direito de Família</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato com Mapa -->
+        <section id="contato" class="contato">
+            <div class="container">
+                <div class="contato-content">
+                    <div class="contato-info">
+                        <div class="badge">Entre em Contato</div>
+                        <h2 class="section-title">Precisa de Ajuda Jurídica?</h2>
+                        <p class="contato-description">
+                            Entre em contato conosco e agende uma consulta gratuita. Atendimento personalizado e sigiloso.
+                        </p>
+
+                        <div class="contato-items">
+                            <div class="contato-item">
+                                <div class="contato-icon">
+                                    <i data-lucide="message-circle" class="icon"></i>
+                                </div>
+                                <div class="contato-details">
+                                    <div class="contato-label">WhatsApp</div>
+                                    <div class="contato-value">(11) 99999-9999</div>
+                                </div>
+                            </div>
+
+                            <div class="contato-item">
+                                <div class="contato-icon">
+                                    <i data-lucide="mail" class="icon"></i>
+                                </div>
+                                <div class="contato-details">
+                                    <div class="contato-label">E-mail</div>
+                                    <div class="contato-value">contato@ricardosilva.adv.br</div>
+                                </div>
+                            </div>
+
+                            <div class="contato-item">
+                                <div class="contato-icon">
+                                    <i data-lucide="map-pin" class="icon"></i>
+                                </div>
+                                <div class="contato-details">
+                                    <div class="contato-label">Endereço</div>
+                                    <div class="contato-value">Av. Paulista, 1000 - São Paulo/SP</div>
+                                </div>
+                            </div>
+
+                            <div class="contato-item">
+                                <div class="contato-icon">
+                                    <i data-lucide="clock" class="icon"></i>
+                                </div>
+                                <div class="contato-details">
+                                    <div class="contato-label">Horário</div>
+                                    <div class="contato-value">Seg-Sex: 8h às 18h</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-lg">
+                            <i data-lucide="message-circle" class="icon"></i>
+                            Consulta Gratuita WhatsApp
+                        </button>
+                    </div>
+
+                    <div class="mapa-container">
+                        <div id="map" class="mapa"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!--RODAPÉ-->
-    <footer class="site-footer" data-aos="fade-up">
-    <div class="container">
-        <div class="footer-grid">
-            
-            <!-- Coluna 1: Logo e Descrição -->
-            <div class="footer-column">
-                <h3 class="footer-logo">Advocacia</h3>
-                <p>Compromisso com a justiça e a defesa intransigente dos seus direitos.</p>
-            </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-3kwxAonG2dorJJOy93noKNr5hJLROC.png" alt="Dr. Ricardo Silva - Logo" class="footer-logo-image">
+                    </div>
+                    <p class="footer-description">
+                        Defendendo seus direitos com experiência, dedicação e resultados comprovados há mais de 15 anos.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i data-lucide="message-circle" class="icon"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="linkedin" class="icon"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i data-lucide="instagram" class="icon"></i>
+                        </a>
+                    </div>
+                </div>
 
-            <!-- Coluna 2: Navegação -->
-            <div class="footer-column">
-                <h4>Navegação</h4>
-                <ul>
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#services">Serviços</a></li>
-                    <li><a href="#about">Sobre</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                </ul>
-            </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Áreas de Atuação</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Direito Civil</a></li>
+                        <li><a href="#" class="footer-link">Direito Trabalhista</a></li>
+                        <li><a href="#" class="footer-link">Direito Criminal</a></li>
+                        <li><a href="#" class="footer-link">Direito Previdenciário</a></li>
+                    </ul>
+                </div>
 
-            <!-- Coluna 3: Redes Sociais -->
-            <div class="footer-column">
-                <h4>Redes Sociais</h4>
-                <div class="social-icons">
-                    <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://wa.me/5511999998888" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <div class="footer-section">
+                    <h4 class="footer-title">Contato</h4>
+                    <ul class="footer-contacts">
+                        <li class="footer-contact">
+                            <i data-lucide="phone" class="icon-sm"></i>
+                            (11) 99999-9999
+                        </li>
+                        <li class="footer-contact">
+                            <i data-lucide="mail" class="icon-sm"></i>
+                            contato@ricardosilva.adv.br
+                        </li>
+                        <li class="footer-contact">
+                            <i data-lucide="map-pin" class="icon-sm"></i>
+                            Av. Paulista, 1000 - São Paulo/SP
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Informações</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Sobre o Advogado</a></li>
+                        <li><a href="#" class="footer-link">Blog Jurídico</a></li>
+                        <li><a href="#" class="footer-link">Perguntas Frequentes</a></li>
+                        <li><a href="#" class="footer-link">Política de Privacidade</a></li>
+                    </ul>
                 </div>
             </div>
 
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © 2024 Dr. Ricardo Silva - OAB/SP 123.456. Todos os direitos reservados.
+                </p>
+                <p class="footer-dev">Desenvolvido com foco em resultados</p>
+            </div>
         </div>
-        
-        <!-- Barra Inferior do Rodapé -->
-        <div class="footer-bottom">
-            <p>© 2025 [Nome do Escritório]. Todos os direitos reservados. | Desenvolvido com expertise.</p>
-        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-btn">
+            <i data-lucide="message-circle" class="icon"></i>
+        </a>
     </div>
-</footer>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
