@@ -263,9 +263,13 @@ body {
   position: relative;
 }
 
+/* ===== CORREÇÃO PARA RESPONSIVIDADE ===== */
+/* A largura fixa foi trocada por width: 100% e max-width para não quebrar em telas pequenas. */
+/* A altura foi trocada para 'auto' para manter a proporção da imagem. */
 .profile-image {
-  width: 300px;
-  height: 375px;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
   object-fit: cover;
   border-radius: 1rem;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -425,9 +429,11 @@ body {
   justify-content: center;
 }
 
+/* ===== CORREÇÃO PARA RESPONSIVIDADE ===== */
 .advogado-photo {
-  width: 400px;
-  height: 500px;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
   object-fit: cover;
   border-radius: 1rem;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
