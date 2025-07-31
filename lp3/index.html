@@ -1,37 +1,597 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex,nofollow" />
-  <title>Clínica de Estética | Realce sua Beleza</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pink Estética - Clínica de Beleza</title>
+    <meta name="description" content="Desperte sua beleza natural com tratamentos estéticos de alta qualidade. Tecnologia avançada, cuidado personalizado e resultados excepcionais.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Transforme seu bem-estar</h1>
-    <p>Tratamentos estéticos modernos, com foco na sua autoestima e saúde. Agende sua avaliação gratuita.</p>
-    <a href="https://wa.me/SEUNUMERO" class="btn-whatsapp" target="_blank">Agendar avaliação</a>
-  </header>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-name">Pink Estética</span>
+                        <span class="logo-subtitle">Clínica de Beleza</span>
+                    </div>
+                </div>
 
-  <section>
-    <h2>Sobre a clínica</h2>
-    <p>Atendimento personalizado, profissionais qualificados e equipamentos de ponta. Cuidamos de você com carinho e responsabilidade.</p>
-  </section>
+                <nav class="nav">
+                    <a href="#tratamentos" class="nav-link">Tratamentos</a>
+                    <a href="#sobre" class="nav-link">Sobre</a>
+                    <a href="#resultados" class="nav-link">Resultados</a>
+                    <a href="#depoimentos" class="nav-link">Depoimentos</a>
+                </nav>
 
-  <section>
-    <h2>Tratamentos oferecidos</h2>
-    <p>✔ Limpeza de pele<br>
-       ✔ Botox e preenchimento<br>
-       ✔ Redução de medidas<br>
-       ✔ Depilação a laser<br>
-       ✔ Procedimentos faciais e corporais</p>
-  </section>
+                <button class="btn-primary" onclick="openWhatsApp()">
+                    <i class="fab fa-whatsapp"></i>
+                    Consulta
+                </button>
 
-  <footer>
-    <p>© 2025 Clínica Estética. Todos os direitos reservados.</p>
-  </footer>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
 
-  <script src="script.js"></script>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="#tratamentos" class="mobile-nav-link" onclick="closeMobileMenu()">Tratamentos</a>
+            <a href="#sobre" class="mobile-nav-link" onclick="closeMobileMenu()">Sobre</a>
+            <a href="#resultados" class="mobile-nav-link" onclick="closeMobileMenu()">Resultados</a>
+            <a href="#depoimentos" class="mobile-nav-link" onclick="closeMobileMenu()">Depoimentos</a>
+            <button class="btn-primary mobile-cta" onclick="openWhatsApp()">
+                <i class="fab fa-whatsapp"></i>
+                Agendar Consulta
+            </button>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-decorations">
+                <div class="decoration decoration-1"></div>
+                <div class="decoration decoration-2"></div>
+            </div>
+            
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="badge">
+                            <i class="fas fa-crown"></i>
+                            Excelência em Estética
+                        </div>
+                        <h1 class="hero-title">
+                            <span class="gradient-text">Desperte sua</span><br>
+                            <span class="gradient-text-alt">beleza natural</span>
+                        </h1>
+                        <p class="hero-description">
+                            Transforme sua autoestima com tratamentos estéticos de alta qualidade. 
+                            Tecnologia avançada, cuidado personalizado e resultados excepcionais.
+                        </p>
+                        <div class="hero-buttons">
+                            <button class="btn-hero-primary" onclick="openWhatsApp()">
+                                <i class="fab fa-whatsapp"></i>
+                                Agendar Avaliação Gratuita
+                            </button>
+                            <button class="btn-hero-secondary" onclick="scrollToSection('tratamentos')">
+                                <i class="fas fa-crown"></i>
+                                Nossos Tratamentos
+                            </button>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span>5.0 • 500+ avaliações</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Certificação ANVISA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Tratamento estético de luxo">
+                            <div class="sparkle-icon">
+                                <i class="fas fa-sparkles"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tratamentos Section -->
+        <section id="tratamentos" class="treatments">
+            <div class="container">
+                <div class="section-header">
+                    <div class="badge">
+                        <i class="fas fa-magic"></i>
+                        Nossos Tratamentos
+                    </div>
+                    <h2 class="section-title">Experiências transformadoras</h2>
+                    <p class="section-description">
+                        Cada tratamento é uma jornada personalizada para realçar sua beleza natural 
+                        com as mais avançadas técnicas.
+                    </p>
+                </div>
+
+                <div class="treatments-grid">
+                    <div class="treatment-card">
+                        <div class="treatment-icon gradient-1">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3 class="treatment-title">Hidrafacial Premium</h3>
+                        <p class="treatment-description">
+                            Limpeza profunda com tecnologia de ponta, extração suave e hidratação 
+                            intensa para uma pele luminosa.
+                        </p>
+                        <div class="treatment-price">A partir de R$ 180</div>
+                        <button class="btn-treatment" onclick="openWhatsApp()">Agendar Consulta</button>
+                    </div>
+
+                    <div class="treatment-card">
+                        <div class="treatment-icon gradient-2">
+                            <i class="fas fa-sparkles"></i>
+                        </div>
+                        <h3 class="treatment-title">Botox Preventivo</h3>
+                        <p class="treatment-description">
+                            Aplicação precisa de toxina botulínica para prevenir e suavizar linhas 
+                            de expressão com naturalidade.
+                        </p>
+                        <div class="treatment-price">A partir de R$ 400</div>
+                        <button class="btn-treatment" onclick="openWhatsApp()">Agendar Consulta</button>
+                    </div>
+
+                    <div class="treatment-card">
+                        <div class="treatment-icon gradient-3">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="treatment-title">Preenchimento Labial</h3>
+                        <p class="treatment-description">
+                            Realce dos lábios com ácido hialurônico de alta qualidade para um 
+                            resultado natural e harmonioso.
+                        </p>
+                        <div class="treatment-price">A partir de R$ 550</div>
+                        <button class="btn-treatment" onclick="openWhatsApp()">Agendar Consulta</button>
+                    </div>
+
+                    <div class="treatment-card">
+                        <div class="treatment-icon gradient-4">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <h3 class="treatment-title">Depilação Alexandrite</h3>
+                        <p class="treatment-description">
+                            Tecnologia laser alexandrite para remoção definitiva de pelos com 
+                            máximo conforto e eficácia.
+                        </p>
+                        <div class="treatment-price">A partir de R$ 120</div>
+                        <button class="btn-treatment" onclick="openWhatsApp()">Agendar Consulta</button>
+                    </div>
+
+                    <div class="treatment-card">
+                        <div class="treatment-icon gradient-5">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="treatment-title">Drenagem Modeladora</h3>
+                        <p class="treatment-description">
+                            Massagem terapêutica especializada para reduzir medidas, melhorar 
+                            circulação e tonificar.
+                        </p>
+                        <div class="treatment-price">A partir de R$ 200</div>
+                        <button class="btn-treatment" onclick="openWhatsApp()">Agendar Consulta</button>
+                    </div>
+
+                    <div class="treatment-card">
+                        <div class="treatment-icon gradient-6">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3 class="treatment-title">Harmonização Facial</h3>
+                        <p class="treatment-description">
+                            Protocolo completo para equilibrar proporções faciais e realçar 
+                            sua beleza única.
+                        </p>
+                        <div class="treatment-price">A partir de R$ 1.200</div>
+                        <button class="btn-treatment" onclick="openWhatsApp()">Agendar Consulta</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre Section -->
+        <section id="sobre" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <div class="badge">
+                            <i class="fas fa-crown"></i>
+                            Nossa História
+                        </div>
+                        <h2 class="section-title">Dra. Isabella Pink</h2>
+                        <div class="about-description">
+                            <p>
+                                Há mais de 12 anos dedicada à arte da estética, nossa missão é despertar 
+                                a confiança e realçar a beleza única de cada cliente através de tratamentos 
+                                personalizados e inovadores.
+                            </p>
+                            <p>
+                                Especialista em Medicina Estética com formação internacional, utilizo as mais 
+                                avançadas tecnologias e técnicas para garantir resultados excepcionais, sempre 
+                                priorizando a naturalidade e harmonia.
+                            </p>
+                            <p>
+                                Acredito que cada pessoa possui uma beleza singular. Por isso, desenvolvo 
+                                protocolos exclusivos que respeitam suas características individuais e 
+                                desejos pessoais.
+                            </p>
+                        </div>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-number">12+</div>
+                                <div class="stat-label">Anos de experiência</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">2000+</div>
+                                <div class="stat-label">Clientes transformadas</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">25+</div>
+                                <div class="stat-label">Especializações</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Dra. Isabella Pink">
+                            <div class="rating-badge">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span>Avaliação 5.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resultados Section -->
+        <section id="resultados" class="results">
+            <div class="container">
+                <div class="section-header">
+                    <div class="badge">
+                        <i class="fas fa-sparkles"></i>
+                        Transformações
+                    </div>
+                    <h2 class="section-title">Resultados que inspiram</h2>
+                    <p class="section-description">
+                        Cada transformação conta uma história única de autoestima renovada e confiança conquistada.
+                    </p>
+                </div>
+
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-header">
+                            <h3 class="result-title">Hidrafacial + Bioestimulador</h3>
+                            <p class="result-duration">3 sessões</p>
+                        </div>
+                        <div class="before-after">
+                            <div class="before">
+                                <p class="label">Antes</p>
+                                <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Antes do tratamento">
+                            </div>
+                            <div class="after">
+                                <p class="label">Depois</p>
+                                <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Depois do tratamento">
+                                <div class="new-badge">Novo</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-header">
+                            <h3 class="result-title">Harmonização Facial</h3>
+                            <p class="result-duration">1 sessão</p>
+                        </div>
+                        <div class="before-after">
+                            <div class="before">
+                                <p class="label">Antes</p>
+                                <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Antes do tratamento">
+                            </div>
+                            <div class="after">
+                                <p class="label">Depois</p>
+                                <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Depois do tratamento">
+                                <div class="new-badge">Novo</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <div class="result-header">
+                            <h3 class="result-title">Depilação Alexandrite</h3>
+                            <p class="result-duration">6 sessões</p>
+                        </div>
+                        <div class="before-after">
+                            <div class="before">
+                                <p class="label">Antes</p>
+                                <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Antes do tratamento">
+                            </div>
+                            <div class="after">
+                                <p class="label">Depois</p>
+                                <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Depois do tratamento">
+                                <div class="new-badge">Novo</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Depoimentos Section -->
+        <section id="depoimentos" class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <div class="badge">
+                        <i class="fas fa-heart"></i>
+                        Depoimentos
+                    </div>
+                    <h2 class="section-title">Histórias de transformação</h2>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            "Resultado incrível! A Dra. Isabella tem um olhar artístico único. Me sinto mais 
+                            confiante e o resultado ficou completamente natural. Recomendo de olhos fechados!"
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Isabela Ferreira">
+                            <div class="author-info">
+                                <div class="author-name">Isabela Ferreira</div>
+                                <div class="author-treatment">Harmonização Facial Completa</div>
+                                <div class="author-location">São Paulo, SP</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            "Atendimento excepcional! Ambiente acolhedor e resultados que superaram minhas 
+                            expectativas. A equipe é muito profissional e cuidadosa."
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Camila Rodrigues">
+                            <div class="author-info">
+                                <div class="author-name">Camila Rodrigues</div>
+                                <div class="author-treatment">Depilação a Laser + Hidrafacial</div>
+                                <div class="author-location">Rio de Janeiro, RJ</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            "Transformação incrível na minha pele! Procedimento confortável e resultados naturais. 
+                            A Dra. Isabella é uma artista, realmente entende do que faz."
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Juliana Mendes">
+                            <div class="author-info">
+                                <div class="author-name">Juliana Mendes</div>
+                                <div class="author-treatment">Bioestimulador de Colágeno</div>
+                                <div class="author-location">Belo Horizonte, MG</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final Section -->
+        <section class="final-cta">
+            <div class="cta-bg"></div>
+            <div class="cta-decorations">
+                <div class="decoration decoration-1"></div>
+                <div class="decoration decoration-2"></div>
+            </div>
+            
+            <div class="container">
+                <div class="cta-content">
+                    <i class="fas fa-crown cta-icon"></i>
+                    <h2 class="cta-title">Pronta para sua transformação?</h2>
+                    <p class="cta-description">
+                        Agende sua consulta personalizada e descubra como podemos realçar sua beleza natural 
+                        com tratamentos exclusivos e resultados excepcionais.
+                    </p>
+                    <div class="cta-buttons">
+                        <button class="btn-cta-primary" onclick="openWhatsApp()">
+                            <i class="fab fa-whatsapp"></i>
+                            Consulta Gratuita Agora
+                        </button>
+                        <button class="btn-cta-secondary" onclick="callPhone()">
+                            <i class="fas fa-phone"></i>
+                            Ligar Agora
+                        </button>
+                    </div>
+                    <div class="cta-features">
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Consulta sem compromisso</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-heart"></i>
+                            <span>Atendimento personalizado</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-crown"></i>
+                            <span>Resultados garantidos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-name">Pink Estética</span>
+                            <span class="logo-subtitle">Clínica de Beleza</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Desperte sua beleza natural com tratamentos estéticos de excelência. 
+                        Cuidado personalizado, tecnologia avançada e resultados naturais.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/pinkestetica" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/pinkestetica" target="_blank" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Contato</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+5511999999999">(11) 99999-9999</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:contato@pinkestetica.com.br">contato@pinkestetica.com.br</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <a href="https://maps.google.com/?q=Av.+Paulista,+1000+-+São+Paulo/SP" target="_blank">
+                                Av. Paulista, 1000 - São Paulo/SP
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Horários</h4>
+                    <div class="schedule">
+                        <div class="schedule-item">
+                            <span>Segunda - Sexta:</span>
+                            <span>8h às 19h</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span>Sábado:</span>
+                            <span>8h às 17h</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span>Domingo:</span>
+                            <span>Fechado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Certificações</h4>
+                    <div class="certifications">
+                        <div class="cert-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>ANVISA Certificada</span>
+                        </div>
+                        <div class="cert-item">
+                            <i class="fas fa-crown"></i>
+                            <span>Medicina Estética</span>
+                        </div>
+                        <div class="cert-item">
+                            <i class="fas fa-star"></i>
+                            <span>ISO 9001:2015</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">
+                    © 2024 Pink Estética. Todos os direitos reservados.
+                </p>
+                <div class="footer-links">
+                    <a href="#privacy">Política de Privacidade</a>
+                    <a href="#terms">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float">
+        <div class="whatsapp-sonar"></div>
+        <button class="whatsapp-btn" onclick="openWhatsApp()">
+            <i class="fab fa-whatsapp"></i>
+        </button>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
 </body>
 </html>
