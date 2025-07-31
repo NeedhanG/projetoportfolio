@@ -19,16 +19,16 @@ body {
   padding: 0 20px;
 }
 
-/* Utilitários */
+/* Utilitários - CORRIGIDO */
 .gradient-text {
-  background: linear-gradient(135deg, #be185d, #ec4899, #f472b6);
+  background: linear-gradient(135deg, #be185d, #e11d48);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-alt {
-  background: linear-gradient(135deg, #f472b6, #ec4899, #be185d);
+  background: linear-gradient(135deg, #e11d48, #be185d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -81,7 +81,8 @@ body {
 .logo-name {
   font-size: 20px;
   font-weight: 700;
-  background: linear-gradient(135deg, #be185d, #ec4899, #f472b6);
+  /* CORRIGIDO */
+  background: linear-gradient(135deg, #be185d, #e11d48);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -472,7 +473,8 @@ body {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #be185d, #f472b6);
+  /* CORRIGIDO */
+  background: linear-gradient(135deg, #be185d, #e11d48);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -575,7 +577,8 @@ body {
 .treatment-price {
   font-size: 20px;
   font-weight: 700;
-  background: linear-gradient(135deg, #db2777, #f472b6);
+  /* CORRIGIDO */
+  background: linear-gradient(135deg, #db2777, #e11d48);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -642,7 +645,8 @@ body {
 .stat-number {
   font-size: 32px;
   font-weight: 800;
-  background: linear-gradient(135deg, #db2777, #f472b6);
+  /* CORRIGIDO */
+  background: linear-gradient(135deg, #db2777, #e11d48);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
