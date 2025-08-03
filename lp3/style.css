@@ -409,7 +409,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: start;
+  margin-top: -40px; /* ajuste conforme necessário */
 }
+
 
 @keyframes slideInRight {
   from {
