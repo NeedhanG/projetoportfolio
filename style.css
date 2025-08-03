@@ -311,7 +311,7 @@ section { padding: 100px 0; }
 
 /* --- RESPONSIVIDADE --- */
 @media (min-width: 992px) {
-    .service-pricing-grid { grid-template-columns: repeat(3, 1fr); } /* <<<< MUDANÇA APLICADA AQUI */
+    .service-pricing-grid { grid-template-columns: repeat(4, 1fr); } /* <<<< MUDANÇA APLICADA AQUI */
 }
 @media (min-width: 768px) and (max-width: 991px) {
     .service-pricing-grid { grid-template-columns: repeat(2, 1fr); }
