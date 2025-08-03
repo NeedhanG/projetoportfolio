@@ -262,14 +262,18 @@ body {
     transform: translateY(-25px) scale(1.05);
   }
 }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
 
 .hero-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
-  position: relative;
-  z-index: 2;
 }
 
 .hero-text {
