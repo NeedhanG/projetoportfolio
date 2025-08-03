@@ -1275,7 +1275,13 @@ body {
 /* =====            DESIGN RESPONSIVO                  ===== */
 /* ======================================================= */
 
-@media (max-width: 992px) { /* Ponto de quebra ajustado para melhor transição */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 100px;
+    padding-bottom: 60px;
+    min-height: auto;
+  }
+  
   .hero-content {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -1298,14 +1304,6 @@ body {
 
   .hero-buttons, .hero-stats {
     justify-content: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero {
-    padding-top: 100px;
-    padding-bottom: 60px;
-    min-height: auto;
   }
   
   .nav, .btn-primary {
