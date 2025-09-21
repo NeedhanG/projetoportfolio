@@ -5,20 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sua Agência Criativa - Design que Vende</title>
     
-    <!-- Link para a biblioteca Swiper.js (CSS) -->
+    <!-- Links de Estilos -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Links de Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- NOVO: Scripts para React e Babel (para rodar JSX no navegador) -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
 
     <!-- 1. SEÇÃO DE CAPA (HERO) -->
     <header id="hero">
-        <div class="container">
+        <!-- NOVO: Container onde a animação do cérebro será renderizada -->
+        <div id="brain-container"></div>
+        
+        <!-- NOVO: Renomeei para .hero-content para o conteúdo ficar sobre a animação -->
+        <div class="hero-content">
            <h1>Design que Vende <span>Presença que Impacta</span></h1>
             <h2>Criamos landing pages, cartões de visita virtuais e criativos para redes sociais com design exclusivo e foco total em destacar sua marca e atrair mais clientes.</h2>
             <a href="https://wa.me/5511999999999?text=Ol%C3%A1%21+Gostaria+de+fazer+um+or%C3%A7amento." target="_blank" class="cta-button">Fazer Orçamento via WhatsApp</a>
@@ -332,6 +342,16 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
+
+     <script type="text/babel" src="BrainCanvas.js"></script>
+    
+    <!-- NOVO: Renderiza o componente React dentro do #brain-container -->
+    <script type="text/babel">
+        const container = document.getElementById('brain-container');
+        const root = ReactDOM.createRoot(container);
+        root.render(<BrainCanvas />);
+    </script>
+    
 
 </body>
 </html>
