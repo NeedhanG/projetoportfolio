@@ -16,38 +16,14 @@
 </head>
 <body>
 
-   // Hero.jsx
-import React from "react";
-import BrainCanvas from "./BrainCanvas"; // ajuste o caminho conforme sua estrutura
-
-export default function Hero() {
-  return (
-    <header id="hero" className="relative w-full h-screen flex items-center justify-center bg-black text-white">
-      <div className="container text-center z-10 relative">
-        <h1 className="text-4xl md:text-6xl font-bold">
-          Design que Vende <span className="text-purple-400">Presença que Impacta</span>
-        </h1>
-        <h2 className="mt-4 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
-          Criamos landing pages, cartões de visita virtuais e criativos para redes sociais com design exclusivo e foco total em destacar sua marca e atrair mais clientes.
-        </h2>
-        <a
-          href="https://wa.me/5511999999999?text=Ol%C3%A1%21+Gostaria+de+fazer+um+or%C3%A7amento."
-          target="_blank"
-          rel="noopener noreferrer"
-          className="cta-button inline-block mt-6 px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-full shadow-lg transition"
-        >
-          Fazer Orçamento via WhatsApp
-        </a>
-      </div>
-
-      {/* Cérebro animado no fundo */}
-      <div className="absolute inset-0 z-0 opacity-40">
-        <BrainCanvas />
-      </div>
+    <!-- 1. SEÇÃO DE CAPA (HERO) -->
+    <header id="hero">
+        <div class="container">
+           <h1>Design que Vende <span>Presença que Impacta</span></h1>
+            <h2>Criamos landing pages, cartões de visita virtuais e criativos para redes sociais com design exclusivo e foco total em destacar sua marca e atrair mais clientes.</h2>
+            <a href="https://wa.me/5511999999999?text=Ol%C3%A1%21+Gostaria+de+fazer+um+or%C3%A7amento." target="_blank" class="cta-button">Fazer Orçamento via WhatsApp</a>
+        </div>
     </header>
-  );
-}
-
 
     <main>
         <!-- 2. SEÇÃO DE BENEFÍCIOS -->
