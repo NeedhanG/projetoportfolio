@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Imobiliária Premium</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fontes Modernas -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilos específicos para o admin.html - pode ser movido para style.css se preferir */
+        .admin-body {
+            background-color: var(--background-dark);
+        }
+
+        .auth-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-color), #2D4059);
+            color: var(--text-light);
+        }
+
+        .auth-card, .admin-dashboard {
+            background-color: var(--background-light);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 450px;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .auth-card h2, .admin-dashboard h2 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 2.2em;
+        }
+
+        .auth-card input[type="email"],
+        .auth-card input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 12px 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1em;
+        }
+
+        .auth-card .btn-primary {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1em;
+        }
+
+        .admin-dashboard {
+            display: none; /* Escondido por padrão, mostrado após login */
+            max-width: 1200px;
+            text-align: left;
+            padding: 60px;
+            margin: 30px auto; /* Centraliza no topo */
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .dashboard-header .welcome-message {
+            font-size: 1.2em;
+            color: var(--primary-color);
+        }
+
+        .dashboard-header .btn-secondary {
+            background-color: #f44336; /* Vermelho para logout */
+            color: var(--text-light);
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color var(--transition-speed);
+        }
+
+        .dashboard-header .btn-secondary:hover {
+            background-color: #d32f2f;
+        }
+
+        .add-property-form {
+            background-color: var(--background-dark);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin-bottom: 50px;
+            box-shadow: 0 2px 15px var(--shadow-light);
+        }
+
+        .add-property-form h3 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        .add-property-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .add-property-form input[type="text"],
+        .add-property-form input[type="number"],
+        .add-property-form textarea,
+        .add-property-form select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1em;
+        }
+        .add-property-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .add-property-form input[type="file"] {
+            margin-bottom: 20px;
+            padding: 10px 0;
+            width: 100%;
+            border: 1px dashed #ccc;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .add-property-form input[type="file"]::file-selector-button {
+            padding: 8px 15px;
+            border: none;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 15px;
+            transition: background-color var(--transition-speed);
+        }
+        .add-property-form input[type="file"]::file-selector-button:hover {
+            background-color: #d8a75e;
+        }
+
+        .add-property-form .btn-primary {
+            width: 100%;
+            padding: 15px;
+        }
+
+        .property-management-list {
+            margin-top: 40px;
+        }
+
+        .property-management-list h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-size: 1.8em;
+        }
+
+        .admin-property-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--background-light);
+            box-shadow: 0 2px 15px var(--shadow-light);
+            border-radius: var(--border-radius);
+            overflow: hidden; /* Para cantos arredondados na tabela */
+        }
+
+        .admin-property-table th, .admin-property-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+        }
+
+        .admin-property-table th {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+
+        .admin-property-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .admin-property-table tbody tr:hover {
+            background-color: #f8f8f8;
+        }
+
+        .admin-property-table img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .admin-property-table .actions button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 0 5px;
+            padding: 5px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .admin-property-table .actions .edit-btn {
+            color: var(--primary-color);
+        }
+        .admin-property-table .actions .edit-btn:hover {
+            background-color: rgba(10, 25, 49, 0.1);
+        }
+
+        .admin-property-table .actions .delete-btn {
+            color: #f44336;
+        }
+        .admin-property-table .actions .delete-btn:hover {
+            background-color: rgba(244, 67, 54, 0.1);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .status-badge.disponivel {
+            background-color: #e8f5e9;
+            color: #4CAF50;
+        }
+
+        .status-badge.vendido {
+            background-color: #ffebee;
+            color: #F44336;
+        }
+
+        /* Responsividade para a tabela */
+        @media (max-width: 992px) {
+            .admin-dashboard {
+                padding: 30px;
+            }
+            .admin-property-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            .admin-property-table thead, .admin-property-table tbody, .admin-property-table th, .admin-property-table td, .admin-property-table tr {
+                display: block;
+            }
+            .admin-property-table thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            .admin-property-table tr {
+                border: 1px solid #ccc;
+                margin-bottom: 10px;
+                border-radius: var(--border-radius);
+                background-color: var(--background-light);
+            }
+            .admin-property-table td {
+                border: none;
+                position: relative;
+                padding-left: 50%;
+                text-align: right;
+            }
+            .admin-property-table td:before {
+                position: absolute;
+                top: 0;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                text-align: left;
+                font-weight: 600;
+                color: var(--primary-color);
+            }
+            /* Labels para cada coluna */
+            .admin-property-table td:nth-of-type(1):before { content: "Imagem:"; }
+            .admin-property-table td:nth-of-type(2):before { content: "Título:"; }
+            .admin-property-table td:nth-of-type(3):before { content: "Preço:"; }
+            .admin-property-table td:nth-of-type(4):before { content: "Status:"; }
+            .admin-property-table td:nth-of-type(5):before { content: "Ações:"; }
+        }
+
+        @media (max-width: 768px) {
+            .auth-card, .admin-dashboard {
+                padding: 30px;
+            }
+            .auth-card h2 {
+                font-size: 1.8em;
+            }
+            .add-property-form h3, .property-management-list h3 {
+                font-size: 1.5em;
+            }
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body class="admin-body">
+
+    <!-- Seção de Login -->
+    <section id="auth-section" class="auth-section">
+        <div class="auth-card">
+            <h2>Login Administrativo</h2>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="E-mail" required>
+                <input type="password" id="login-password" placeholder="Senha" required>
+                <button type="submit" class="btn btn-primary">Entrar</button>
+                <p id="login-error-message" style="color: #f44336; margin-top: 15px; display: none;"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Painel Administrativo (Visível após login) -->
+    <section id="admin-dashboard" class="admin-dashboard">
+        <div class="dashboard-header">
+            <h2 class="welcome-message">Bem-vindo, <span id="user-email-display"></span>!</h2>
+            <button id="logout-button" class="btn btn-secondary"><i class="fas fa-sign-out-alt"></i> Sair</button>
+        </div>
+
+        <div class="add-property-form">
+            <h3 id="form-title">Cadastrar Novo Imóvel</h3>
+            <form id="property-form">
+                <input type="hidden" id="property-id"> <!-- Para edição -->
+
+                <label for="property-image">Foto de Destaque:</label>
+                <input type="file" id="property-image" accept="image/*">
+                <img id="current-image-preview" src="" alt="Pré-visualização da imagem atual" style="max-width: 200px; max-height: 150px; display: none; margin-bottom: 20px; border-radius: 5px;">
+                <p style="font-size: 0.9em; color: #777; margin-bottom: 15px;">*A imagem será automaticamente redimensionada para otimização.</p>
+
+
+                <label for="property-title">Título:</label>
+                <input type="text" id="property-title" placeholder="Ex: Apartamento Moderno no Centro" required>
+
+                <label for="property-price">Preço (R$):</label>
+                <input type="number" id="property-price" step="0.01" min="0" placeholder="Ex: 550000.00" required>
+
+                <label for="property-description">Descrição:</label>
+                <textarea id="property-description" placeholder="Descrição completa do imóvel..." required></textarea>
+
+                <label for="property-status">Status:</label>
+                <select id="property-status">
+                    <option value="disponivel">Disponível</option>
+                    <option value="vendido">Vendido</option>
+                </select>
+
+                <button type="submit" class="btn btn-primary" id="submit-property-btn">Cadastrar Imóvel</button>
+                <p id="form-message" style="color: green; margin-top: 15px; display: none;"></p>
+            </form>
+        </div>
+
+        <div class="property-management-list">
+            <h3>Gerenciar Imóveis</h3>
+            <table class="admin-property-table">
+                <thead>
+                    <tr>
+                        <th>Imagem</th>
+                        <th>Título</th>
+                        <th>Preço</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="admin-property-list">
+                    <!-- Imóveis serão carregados aqui via JavaScript -->
+                    <tr><td colspan="5">Carregando imóveis...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Firebase SDK (coloque seus dados de configuração aqui) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage-compat.js"></script>
+    <script>
+        // Substitua pelas suas credenciais do Firebase (mesmas do index.html)
+        const firebaseConfig = {
+            apiKey: "SUA_API_KEY",
+            authDomain: "SEU_AUTH_DOMAIN",
+            projectId: "SEU_PROJECT_ID",
+            storageBucket: "SEU_STORAGE_BUCKET",
+            messagingSenderId: "SEU_MESSAGING_SENDER_ID",
+            appId: "SEU_APP_ID"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+        const storage = firebase.storage();
+    </script>
+    <script src="admin.js"></script>
+</body>
+</html>

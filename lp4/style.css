@@ -1,0 +1,505 @@
+/* Variáveis de Cores */
+:root {
+    --primary-color: #0A1931; /* Azul Marinho Escuro */
+    --secondary-color: #E0B973; /* Dourado Sutil */
+    --accent-color: #387B67; /* Esmeralda Sutil (alternativa ao dourado) */
+    --text-light: #F0F2F5; /* Branco Quase Puro */
+    --text-dark: #333;
+    --background-light: #FFFFFF;
+    --background-dark: #F5F5F5;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --border-radius: 8px;
+    --transition-speed: 0.3s ease;
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+    overflow-x: hidden; /* Evita scroll horizontal */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Tipografia */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 3em; }
+h2 { font-size: 2.2em; }
+h3 { font-size: 1.8em; }
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-align: center;
+    transition: all var(--transition-speed);
+    cursor: pointer;
+    border: none;
+    font-size: 1em;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary-color), #2D4059); /* Gradiente azul */
+    color: var(--text-light);
+    box-shadow: 0 4px 10px var(--shadow-light);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    opacity: 0.9;
+}
+
+.btn-admin {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+}
+
+.btn-admin:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 1px solid var(--primary-color);
+}
+
+/* Cabeçalho */
+.header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px var(--shadow-light);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+.header .logo a {
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+.header .main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.header .main-nav ul li {
+    margin-left: 30px;
+}
+
+.header .main-nav ul li a {
+    color: var(--text-light);
+    font-weight: 400;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.header .main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: width var(--transition-speed);
+}
+
+.header .main-nav ul li a:hover::after,
+.header .main-nav ul li a.active::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none; /* Escondido por padrão em desktop */
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.8em;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero-section {
+    background: url('https://source.unsplash.com/1600x900/?luxury-real-estate,modern-house') no-repeat center center/cover; /* Imagem moderna */
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Overlay escuro */
+    z-index: 1;
+}
+
+.hero-section .container {
+    z-index: 2;
+}
+
+.hero-section h1 {
+    font-size: 4em;
+    margin-bottom: 20px;
+    color: var(--text-light);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.hero-section p {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+/* Seção de Lista de Imóveis */
+.property-list-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.property-list-section h2 {
+    margin-bottom: 40px;
+    color: var(--primary-color);
+}
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsivo com auto-fit */
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.property-card {
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 20px var(--shadow-light);
+    overflow: hidden;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.property-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.property-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.property-card-content {
+    padding: 20px;
+    flex-grow: 1; /* Faz o conteúdo ocupar o espaço restante */
+    display: flex;
+    flex-direction: column;
+}
+
+.property-card h3 {
+    font-size: 1.4em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.property-card .price {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.property-card .description {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.property-card .btn-details {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+    transition: background-color var(--transition-speed);
+}
+
+.property-card .btn-details:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+/* Modal */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed; /* Fica por cima de tudo */
+    z-index: 1001; /* Z-index alto */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Permite scroll se o conteúdo for muito grande */
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo escuro transparente */
+    display: flex; /* Para centralizar o modal */
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--background-light);
+    margin: auto;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: fadeIn 0.3s forwards; /* Animação ao abrir */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-content .close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-content .close-button:hover,
+.modal-content .close-button:focus {
+    color: var(--primary-color);
+}
+
+#modal-details h3 {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+#modal-details .modal-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+}
+
+#modal-details .modal-price {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+#modal-details .modal-description {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #555;
+}
+
+
+/* Rodapé */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 40px 0;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.6em;
+    color: var(--text-light);
+}
+
+.footer-contact p {
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.footer-contact p a {
+    color: var(--text-light);
+    transition: color var(--transition-speed);
+}
+
+.footer-contact p a:hover {
+    color: var(--secondary-color);
+}
+
+.footer-contact i {
+    margin-right: 8px;
+    color: var(--secondary-color);
+}
+
+.footer-copyright {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+/* Responsividade (Mobile First - ajuste para telas maiores) */
+
+/* Tablets e Telas Médias */
+@media (max-width: 992px) {
+    .header .main-nav {
+        display: none; /* Esconde o menu em telas menores por padrão */
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--primary-color);
+        position: absolute;
+        top: 70px; /* Ajuste conforme a altura do seu cabeçalho */
+        left: 0;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .header .main-nav.active {
+        display: flex;
+    }
+
+    .header .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header .main-nav ul li {
+        margin: 15px 0;
+    }
+
+    .menu-toggle {
+        display: block; /* Mostra o botão de menu em telas menores */
+    }
+
+    .hero-section h1 {
+        font-size: 3em;
+    }
+
+    .hero-section p {
+        font-size: 1.2em;
+    }
+
+    .property-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+/* Celulares e Telas Pequenas */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 1.8em; }
+
+    .hero-section {
+        height: 60vh;
+    }
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+    .hero-section p {
+        font-size: 1em;
+    }
+
+    .property-list-section {
+        padding: 40px 0;
+    }
+
+    .property-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+
+    #modal-details h3 {
+        font-size: 1.5em;
+    }
+    #modal-details .modal-price {
+        font-size: 1.4em;
+    }
+    #modal-details .modal-description {
+        font-size: 0.95em;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

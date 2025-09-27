@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua Imobiliária Premium - Encontre Seu Novo Lar</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fontes Modernas - Exemplo: Poppins e Montserrat do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Ícones (Opcional, mas útil para redes sociais e botões) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <!-- Substitua por seu logotipo de imagem ou texto estilizado -->
+                <a href="index.html">IMOBILIÁRIA PREMIUM</a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#imoveis">Imóveis</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="admin.html" class="btn btn-admin">Admin</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h1>Seu novo lar está aqui.</h1>
+                <p>Encontre a propriedade dos seus sonhos com a nossa curadoria exclusiva.</p>
+                <a href="#imoveis" class="btn btn-primary">Ver Imóveis</a>
+            </div>
+        </section>
+
+        <section id="imoveis" class="property-list-section container">
+            <h2>Imóveis Disponíveis</h2>
+            <div class="property-grid" id="property-grid">
+                <!-- Cards dos imóveis serão injetados aqui via JavaScript (app.js) -->
+                <p class="loading-message">Carregando imóveis...</p>
+            </div>
+        </section>
+
+        <!-- Modal para detalhes do imóvel -->
+        <div id="property-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <div id="modal-details">
+                    <!-- Detalhes do imóvel serão injetados aqui -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">IMOBILIÁRIA PREMIUM</div>
+                <div class="footer-contact">
+                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/55XXYYYYYYYYY" target="_blank">(XX) YYYYY-YYYY</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:contato@suaimobiliaria.com">contato@suaimobiliaria.com</a></p>
+                    <p><i class="fab fa-instagram"></i> <a href="https://instagram.com/suaimobiliaria" target="_blank">@suaimobiliaria</a></p>
+                </div>
+                <div class="footer-copyright">
+                    &copy; 2023 Imobiliária Premium. Todos os direitos reservados.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK (coloque seus dados de configuração aqui) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script>
+        // Substitua pelas suas credenciais do Firebase
+        const firebaseConfig = {
+            apiKey: "SUA_API_KEY",
+            authDomain: "SEU_AUTH_DOMAIN",
+            projectId: "SEU_PROJECT_ID",
+            storageBucket: "SEU_STORAGE_BUCKET",
+            messagingSenderId: "SEU_MESSAGING_SENDER_ID",
+            appId: "SEU_APP_ID"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
