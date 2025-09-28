@@ -3,79 +3,466 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sua Imobiliária Premium - Encontre Seu Novo Lar</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Fontes Modernas - Exemplo: Poppins e Montserrat do Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- Ícones (Opcional, mas útil para redes sociais e botões) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Imobiliária Premium - Encontre seu lar dos sonhos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
         <div class="container">
-            <div class="logo">
-                <!-- Substitua por seu logotipo de imagem ou texto estilizado -->
-                <a href="index.html">IMOBILIÁRIA PREMIUM</a>
+            <div class="header-content">
+                <div class="logo">IMOBILIÁRIA PREMIUM</div>
+                
+                <nav class="nav-desktop">
+                    <a href="#imoveis" class="nav-link">Imóveis</a>
+                    <a href="#sobre" class="nav-link">Sobre Nós</a>
+                    <a href="#contato" class="nav-link">Contato</a>
+                    <button class="btn btn-outline">Agendar Visita</button>
+                </nav>
+
+                <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+                    <span class="menu-icon">☰</span>
+                </button>
             </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#imoveis">Imóveis</a></li>
-                    <li><a href="#sobre">Sobre Nós</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                <!--  <li><a href="admin.html" class="btn btn-admin">Admin</a></li> -->
-                </ul>
-            </nav>
-            <button class="menu-toggle" aria-label="Abrir menu">
-                <i class="fas fa-bars"></i>
-            </button>
+
+            <div class="nav-mobile" id="mobileNav">
+                <nav class="nav-mobile-content">
+                    <a href="#imoveis" class="nav-link">Imóveis</a>
+                    <a href="#sobre" class="nav-link">Sobre Nós</a>
+                    <a href="#contato" class="nav-link">Contato</a>
+                    <button class="btn btn-outline">Agendar Visita</button>
+                </nav>
+            </div>
         </div>
     </header>
 
     <main>
-        <section class="hero-section">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-background"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Encontre seu lar dos sonhos</h1>
+                <p class="hero-subtitle">
+                    Curadoria exclusiva de propriedades premium com atendimento personalizado
+                </p>
+                <button class="btn btn-primary btn-large">
+                    Explorar Imóveis
+                    <span class="btn-icon">→</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Property Grid -->
+        <section id="imoveis" class="properties">
             <div class="container">
-                <h1>Seu novo lar está aqui.</h1>
-                <p>Encontre a propriedade dos seus sonhos com a nossa curadoria exclusiva.</p>
-                <a href="#imoveis" class="btn btn-primary">Ver Imóveis</a>
-            </div>
-        </section>
+                <div class="section-header">
+                    <h2 class="section-title">Imóveis Selecionados</h2>
+                    <p class="section-subtitle">
+                        Cada propriedade é cuidadosamente selecionada para oferecer o melhor em qualidade e localização
+                    </p>
+                </div>
 
-        <section id="imoveis" class="property-list-section container">
-            <h2>Imóveis Disponíveis</h2>
-            <div class="property-grid" id="property-grid">
-                <!-- Cards dos imóveis serão injetados aqui via JavaScript (app.js) -->
-                <p class="loading-message">Carregando imóveis...</p>
-            </div>
-        </section>
+                <div class="property-grid">
+                    <div class="property-card" onclick="openModal(1)">
+                        <div class="property-image">
+                            <img src="/placeholder.svg?height=300&width=400" alt="Casa Moderna em Condomínio">
+                        </div>
+                        <div class="property-content">
+                            <h3 class="property-title">Casa Moderna em Condomínio</h3>
+                            <p class="property-price">R$ 1.200.000</p>
+                            <p class="property-description">Ampla casa com 4 quartos, piscina e área gourmet em condomínio fechado.</p>
+                            <button class="btn btn-outline btn-full">Ver Detalhes</button>
+                        </div>
+                    </div>
 
-        <!-- Modal para detalhes do imóvel -->
-        <div id="property-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-button">&times;</span>
-                <div id="modal-details">
-                    <!-- Detalhes do imóvel serão injetados aqui -->
+                    <div class="property-card" onclick="openModal(2)">
+                        <div class="property-image">
+                            <img src="/placeholder.svg?height=300&width=400" alt="Apartamento de Luxo">
+                        </div>
+                        <div class="property-content">
+                            <h3 class="property-title">Apartamento de Luxo</h3>
+                            <p class="property-price">R$ 850.000</p>
+                            <p class="property-description">Cobertura duplex com vista panorâmica da cidade e acabamentos premium.</p>
+                            <button class="btn btn-outline btn-full">Ver Detalhes</button>
+                        </div>
+                    </div>
+
+                    <div class="property-card" onclick="openModal(3)">
+                        <div class="property-image">
+                            <img src="/placeholder.svg?height=300&width=400" alt="Sobrado Contemporâneo">
+                        </div>
+                        <div class="property-content">
+                            <h3 class="property-title">Sobrado Contemporâneo</h3>
+                            <p class="property-price">R$ 950.000</p>
+                            <p class="property-description">Arquitetura contemporânea com 3 suítes e área de lazer completa.</p>
+                            <button class="btn btn-outline btn-full">Ver Detalhes</button>
+                        </div>
+                    </div>
+
+                    <div class="property-card" onclick="openModal(4)">
+                        <div class="property-image">
+                            <img src="/placeholder.svg?height=300&width=400" alt="Casa de Campo Premium">
+                        </div>
+                        <div class="property-content">
+                            <h3 class="property-title">Casa de Campo Premium</h3>
+                            <p class="property-price">R$ 1.500.000</p>
+                            <p class="property-description">Refúgio exclusivo com 5 quartos, vista para as montanhas e área rural.</p>
+                            <button class="btn btn-outline btn-full">Ver Detalhes</button>
+                        </div>
+                    </div>
+
+                    <div class="property-card" onclick="openModal(5)">
+                        <div class="property-image">
+                            <img src="/placeholder.svg?height=300&width=400" alt="Loft Industrial Moderno">
+                        </div>
+                        <div class="property-content">
+                            <h3 class="property-title">Loft Industrial Moderno</h3>
+                            <p class="property-price">R$ 680.000</p>
+                            <p class="property-description">Loft com conceito aberto, pé-direito alto e localização privilegiada.</p>
+                            <button class="btn btn-outline btn-full">Ver Detalhes</button>
+                        </div>
+                    </div>
+
+                    <div class="property-card" onclick="openModal(6)">
+                        <div class="property-image">
+                            <img src="/placeholder.svg?height=300&width=400" alt="Mansão Clássica">
+                        </div>
+                        <div class="property-content">
+                            <h3 class="property-title">Mansão Clássica</h3>
+                            <p class="property-price">R$ 2.800.000</p>
+                            <p class="property-description">Mansão em estilo clássico com 6 suítes, jardim e piscina olímpica.</p>
+                            <button class="btn btn-outline btn-full">Ver Detalhes</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="sobre" class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2 class="section-title">Sobre Nossa História</h2>
+                        <p class="about-text">
+                            Há mais de 15 anos no mercado imobiliário, construímos nossa reputação baseada na confiança, transparência
+                            e excelência no atendimento. Especializamos-nos em propriedades premium e oferecemos um serviço
+                            personalizado para cada cliente.
+                        </p>
+                        <p class="about-text">
+                            Nossa equipe de especialistas conhece profundamente o mercado local e está comprometida em encontrar a
+                            propriedade perfeita para você, seja para morar ou investir.
+                        </p>
+                        <button class="btn btn-primary btn-large">Conheça Nossa Equipe</button>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">🏆</div>
+                            <h3 class="stat-number">15+</h3>
+                            <p class="stat-label">Anos de Experiência</p>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">👥</div>
+                            <h3 class="stat-number">500+</h3>
+                            <p class="stat-label">Clientes Satisfeitos</p>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🏠</div>
+                            <h3 class="stat-number">800+</h3>
+                            <p class="stat-label">Imóveis Vendidos</p>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">⭐</div>
+                            <h3 class="stat-number">4.9</h3>
+                            <p class="stat-label">Avaliação Média</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">O Que Nossos Clientes Dizem</h2>
+                    <p class="section-subtitle">
+                        Depoimentos reais de clientes que confiaram em nossos serviços
+                    </p>
+                </div>
+
+                <div class="testimonial-container">
+                    <div class="testimonial-card active" id="testimonial-1">
+                        <div class="quote-icon">"</div>
+                        <blockquote class="testimonial-quote">
+                            "Excelente atendimento! A equipe foi muito profissional e me ajudou a encontrar a casa dos meus sonhos. Recomendo sem hesitar."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <img src="/placeholder.svg?height=64&width=64" alt="Maria Silva" class="author-image">
+                            <div class="author-info">
+                                <h4 class="author-name">Maria Silva</h4>
+                                <p class="author-role">Empresária</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card" id="testimonial-2">
+                        <div class="quote-icon">"</div>
+                        <blockquote class="testimonial-quote">
+                            "Processo de compra muito transparente e eficiente. A imobiliária superou todas as minhas expectativas com seu atendimento personalizado."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <img src="/placeholder.svg?height=64&width=64" alt="João Santos" class="author-image">
+                            <div class="author-info">
+                                <h4 class="author-name">João Santos</h4>
+                                <p class="author-role">Advogado</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card" id="testimonial-3">
+                        <div class="quote-icon">"</div>
+                        <blockquote class="testimonial-quote">
+                            "Profissionais competentes que realmente entendem do mercado. Me ajudaram a fazer um excelente investimento imobiliário."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <img src="/placeholder.svg?height=64&width=64" alt="Ana Costa" class="author-image">
+                            <div class="author-info">
+                                <h4 class="author-name">Ana Costa</h4>
+                                <p class="author-role">Arquiteta</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-controls">
+                        <button class="testimonial-btn" onclick="prevTestimonial()">‹</button>
+                        <button class="testimonial-btn" onclick="nextTestimonial()">›</button>
+                    </div>
+
+                    <div class="testimonial-dots">
+                        <button class="dot active" onclick="showTestimonial(0)"></button>
+                        <button class="dot" onclick="showTestimonial(1)"></button>
+                        <button class="dot" onclick="showTestimonial(2)"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer">
+    <!-- Footer -->
+    <footer id="contato" class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">IMOBILIÁRIA PREMIUM</div>
-                <div class="footer-contact">
-                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/55XXYYYYYYYYY" target="_blank">(XX) YYYYY-YYYY</a></p>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:contato@suaimobiliaria.com">contato@suaimobiliaria.com</a></p>
-                    <p><i class="fab fa-instagram"></i> <a href="https://instagram.com/suaimobiliaria" target="_blank">@suaimobiliaria</a></p>
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3 class="footer-title">IMOBILIÁRIA PREMIUM</h3>
+                    <p class="footer-text">
+                        Sua parceira de confiança na busca pelo imóvel perfeito. Excelência e transparência em cada negociação.
+                    </p>
                 </div>
-                <div class="footer-copyright">
-                    &copy; 2023 Imobiliária Premium. Todos os direitos reservados.
+
+                <div class="footer-section">
+                    <h4 class="footer-heading">Contato</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-icon">📞</span>
+                            <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer">
+                                (11) 99999-9999
+                            </a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">✉️</span>
+                            <a href="mailto:contato@imobiliariapremium.com">
+                                contato@imobiliariapremium.com
+                            </a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <span>São Paulo, SP</span>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-heading">Serviços</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Venda de Imóveis</a></li>
+                        <li><a href="#">Locação</a></li>
+                        <li><a href="#">Avaliação</a></li>
+                        <li><a href="#">Consultoria</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-heading">Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="https://instagram.com/imobiliariapremium" target="_blank" rel="noopener noreferrer" class="social-link">
+                            📷
+                        </a>
+                        <a href="https://facebook.com/imobiliariapremium" target="_blank" rel="noopener noreferrer" class="social-link">
+                            📘
+                        </a>
+                        <a href="https://linkedin.com/company/imobiliariapremium" target="_blank" rel="noopener noreferrer" class="social-link">
+                            💼
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Imobiliária Premium. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Firebase SDKs removidos -->
-    <script src="app.js"></script>
+    <!-- Property Modal -->
+    <div class="modal" id="propertyModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-image">
+                <img id="modalImage" src="/placeholder.svg" alt="">
+            </div>
+            <div class="modal-body">
+                <h3 id="modalTitle" class="modal-title"></h3>
+                <p id="modalPrice" class="modal-price"></p>
+                <p id="modalDetails" class="modal-details"></p>
+                <div class="modal-actions">
+                    <button class="btn btn-primary">
+                        📞 Ligar Agora
+                    </button>
+                    <button class="btn btn-outline">
+                        ✉️ Enviar Email
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+        }
+
+        // Property data
+        const properties = [
+            {
+                id: 1,
+                title: "Casa Moderna em Condomínio",
+                price: "R$ 1.200.000",
+                image: "/placeholder.svg?height=400&width=600",
+                details: "Casa térrea com 280m² de área construída, 4 suítes, sala de estar integrada, cozinha gourmet, área de lazer completa com piscina, churrasqueira e jardim paisagístico."
+            },
+            {
+                id: 2,
+                title: "Apartamento de Luxo",
+                price: "R$ 850.000",
+                image: "/placeholder.svg?height=400&width=600",
+                details: "Cobertura de 180m² no 15º andar, 3 suítes, living amplo, varanda gourmet, 2 vagas de garagem e vista deslumbrante para a cidade."
+            },
+            {
+                id: 3,
+                title: "Sobrado Contemporâneo",
+                price: "R$ 950.000",
+                image: "/placeholder.svg?height=400&width=600",
+                details: "Sobrado de 220m² com design contemporâneo, 3 suítes, escritório, sala de cinema, área gourmet e quintal com jardim vertical."
+            },
+            {
+                id: 4,
+                title: "Casa de Campo Premium",
+                price: "R$ 1.500.000",
+                image: "/placeholder.svg?height=400&width=600",
+                details: "Casa de campo com 350m², 5 suítes, sala com pé-direito duplo, lareira, varanda panorâmica, piscina infinity e vista espetacular das montanhas."
+            },
+            {
+                id: 5,
+                title: "Loft Industrial Moderno",
+                price: "R$ 680.000",
+                image: "/placeholder.svg?height=400&width=600",
+                details: "Loft de 120m² com conceito aberto, pé-direito de 4m, mezanino, cozinha integrada, 1 suíte e localização no centro da cidade."
+            },
+            {
+                id: 6,
+                title: "Mansão Clássica",
+                price: "R$ 2.800.000",
+                image: "/placeholder.svg?height=400&width=600",
+                details: "Mansão de 500m² em terreno de 2000m², 6 suítes, biblioteca, sala de jogos, adega, piscina olímpica, quadra de tênis e jardim com paisagismo."
+            }
+        ];
+
+        // Modal functions
+        function openModal(propertyId) {
+            const property = properties.find(p => p.id === propertyId);
+            if (property) {
+                document.getElementById('modalTitle').textContent = property.title;
+                document.getElementById('modalPrice').textContent = property.price;
+                document.getElementById('modalDetails').textContent = property.details;
+                document.getElementById('modalImage').src = property.image;
+                document.getElementById('modalImage').alt = property.title;
+                document.getElementById('propertyModal').classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('propertyModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Testimonials carousel
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial-card');
+        const dots = document.querySelectorAll('.dot');
+
+        function showTestimonial(index) {
+            testimonials[currentTestimonial].classList.remove('active');
+            dots[currentTestimonial].classList.remove('active');
+            
+            currentTestimonial = index;
+            
+            testimonials[currentTestimonial].classList.add('active');
+            dots[currentTestimonial].classList.add('active');
+        }
+
+        function nextTestimonial() {
+            const next = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(next);
+        }
+
+        function prevTestimonial() {
+            const prev = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+            showTestimonial(prev);
+        }
+
+        // Auto-advance testimonials
+        setInterval(nextTestimonial, 5000);
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                document.getElementById('mobileNav').classList.remove('active');
+            });
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('propertyModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
