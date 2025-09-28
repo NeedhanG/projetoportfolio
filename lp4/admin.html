@@ -15,13 +15,9 @@
             background-color: var(--background-dark);
         }
 
+        /* Removendo a seção de autenticação, o dashboard será visível diretamente */
         .auth-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, var(--primary-color), #2D4059);
-            color: var(--text-light);
+            display: none; /* Não será mais usado */
         }
 
         .auth-card, .admin-dashboard {
@@ -58,7 +54,7 @@
         }
 
         .admin-dashboard {
-            display: none; /* Escondido por padrão, mostrado após login */
+            display: block; /* Visível por padrão, sem login */
             max-width: 1200px;
             text-align: left;
             padding: 60px;
@@ -85,6 +81,8 @@
             padding: 10px 20px;
             border-radius: 5px;
             transition: background-color var(--transition-speed);
+            /* O botão de logout pode ser removido ou adaptado se não houver autenticação */
+            display: none; 
         }
 
         .dashboard-header .btn-secondary:hover {
@@ -320,8 +318,8 @@
 </head>
 <body class="admin-body">
 
-    <!-- Seção de Login -->
-    <section id="auth-section" class="auth-section">
+    <!-- Seção de Login - Removida, o dashboard é acessível diretamente -->
+    <section id="auth-section" class="auth-section" style="display: none;">
         <div class="auth-card">
             <h2>Login Administrativo</h2>
             <form id="login-form">
@@ -336,8 +334,9 @@
     <!-- Painel Administrativo (Visível após login) -->
     <section id="admin-dashboard" class="admin-dashboard">
         <div class="dashboard-header">
-            <h2 class="welcome-message">Bem-vindo, <span id="user-email-display"></span>!</h2>
-            <button id="logout-button" class="btn btn-secondary"><i class="fas fa-sign-out-alt"></i> Sair</button>
+            <h2 class="welcome-message">Bem-vindo ao Painel Admin!</h2>
+            <!-- Botão de Logout removido, pois não há autenticação Firebase -->
+            <!-- <button id="logout-button" class="btn btn-secondary"><i class="fas fa-sign-out-alt"></i> Sair</button> -->
         </div>
 
         <div class="add-property-form">
@@ -345,10 +344,11 @@
             <form id="property-form">
                 <input type="hidden" id="property-id"> <!-- Para edição -->
 
-                <label for="property-image">Foto de Destaque:</label>
-                <input type="file" id="property-image" accept="image/*">
+                <label for="property-image">Foto de Destaque (URL):</label>
+                <!-- Alterado para input de texto para URL, já que Firebase Storage foi removido -->
+                <input type="text" id="property-image-url" placeholder="Ex: https://link.para.sua/imagem.jpg">
                 <img id="current-image-preview" src="" alt="Pré-visualização da imagem atual" style="max-width: 200px; max-height: 150px; display: none; margin-bottom: 20px; border-radius: 5px;">
-                <p style="font-size: 0.9em; color: #777; margin-bottom: 15px;">*A imagem será automaticamente redimensionada para otimização.</p>
+                <p style="font-size: 0.9em; color: #777; margin-bottom: 15px;">*Cole a URL da imagem (Ex: Google Drive, Imgur, etc.).</p>
 
 
                 <label for="property-title">Título:</label>
@@ -391,27 +391,7 @@
         </div>
     </section>
 
-    <!-- Firebase SDK (coloque seus dados de configuração aqui) -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage-compat.js"></script>
-    <script>
-        // Substitua pelas suas credenciais do Firebase (mesmas do index.html)
-        const firebaseConfig = {
-            apiKey: "SUA_API_KEY",
-            authDomain: "SEU_AUTH_DOMAIN",
-            projectId: "SEU_PROJECT_ID",
-            storageBucket: "SEU_STORAGE_BUCKET",
-            messagingSenderId: "SEU_MESSAGING_SENDER_ID",
-            appId: "SEU_APP_ID"
-        };
-        firebase.initializeApp(firebaseConfig);
-
-        const auth = firebase.auth();
-        const db = firebase.firestore();
-        const storage = firebase.storage();
-    </script>
+    <!-- Firebase SDKs removidos -->
     <script src="admin.js"></script>
 </body>
 </html>

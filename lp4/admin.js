@@ -1,17 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Substitua esta URL pela sua URL do App Web do Google Apps Script
+    const API_URL = 'https://script.google.com/macros/s/AKfycbyrLF5gkNzMIJZww1bwqHTzucXbfldc6jmqFuTctmRiQl4JAbIp7ds4wwcGBCeGhXBL/exec';
+
     // Referências aos elementos do DOM
-    const authSection = document.getElementById('auth-section');
+    const authSection = document.getElementById('auth-section'); // Mantido, mas oculto via CSS e JS
     const adminDashboard = document.getElementById('admin-dashboard');
-    const loginForm = document.getElementById('login-form');
-    const loginEmailInput = document.getElementById('login-email');
-    const loginPasswordInput = document.getElementById('login-password');
-    const loginErrorMessage = document.getElementById('login-error-message');
-    const userEmailDisplay = document.getElementById('user-email-display');
-    const logoutButton = document.getElementById('logout-button');
+    // As referências de login e logout foram removidas, pois a autenticação Firebase foi desativada.
+    // O dashboard agora é acessível diretamente (sem proteção).
 
     const propertyForm = document.getElementById('property-form');
     const propertyIdInput = document.getElementById('property-id');
-    const propertyImageInput = document.getElementById('property-image');
+    const propertyImageUrlInput = document.getElementById('property-image-url'); // Alterado para URL
     const currentImagePreview = document.getElementById('current-image-preview');
     const propertyTitleInput = document.getElementById('property-title');
     const propertyPriceInput = document.getElementById('property-price');
@@ -22,65 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const formMessage = document.getElementById('form-message');
     const adminPropertyList = document.getElementById('admin-property-list');
 
-    // Referências do Firebase (auth, db, storage já inicializados no admin.html)
-    const propertiesRef = db.collection('properties');
-    const storageRef = storage.ref();
-
     let editingPropertyId = null; // Variável para controlar a edição
 
-    // --- Funções de Autenticação ---
-    const showAuthSection = () => {
-        authSection.style.display = 'flex';
-        adminDashboard.style.display = 'none';
-        loginEmailInput.value = '';
-        loginPasswordInput.value = '';
-        loginErrorMessage.style.display = 'none';
-    };
+    // Removendo funções de autenticação. O dashboard será exibido diretamente.
+    // ATENÇÃO: Isso torna seu painel administrativo SEM PROTEÇÃO.
+    // Implemente autenticação no seu Google Apps Script se isso for um sistema real.
+    adminDashboard.style.display = 'block'; // Garante que o dashboard esteja visível
 
-    const showAdminDashboard = (userEmail) => {
-        authSection.style.display = 'none';
-        adminDashboard.style.display = 'block';
-        userEmailDisplay.textContent = userEmail;
-        fetchAndDisplayAdminProperties(); // Carrega a lista de imóveis ao logar
-    };
-
-    // Monitora o estado de autenticação
-    auth.onAuthStateChanged((user) => {
-        if (user) {
-            showAdminDashboard(user.email);
-        } else {
-            showAuthSection();
-        }
-    });
-
-    // Login
-    loginForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const email = loginEmailInput.value;
-        const password = loginPasswordInput.value;
-
-        try {
-            await auth.signInWithEmailAndPassword(email, password);
-            // onAuthStateChanged cuidará de exibir o dashboard
-        } catch (error) {
-            console.error("Erro de login:", error);
-            loginErrorMessage.textContent = "Erro de login: " + (error.message || "Credenciais inválidas.");
-            loginErrorMessage.style.display = 'block';
-        }
-    });
-
-    // Logout
-    logoutButton.addEventListener('click', async () => {
-        try {
-            await auth.signOut();
-            // onAuthStateChanged cuidará de exibir a seção de login
-        } catch (error) {
-            console.error("Erro ao fazer logout:", error);
-            alert("Erro ao fazer logout.");
-        }
-    });
-
-    // --- Funções de Gerenciamento de Imóveis ---
+    // --- Funções de Gerenciamento de Imóveis (usando o Apps Script API) ---
 
     // Função para exibir mensagem no formulário
     const showFormMessage = (message, isError = false) => {
@@ -96,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetPropertyForm = () => {
         propertyForm.reset();
         propertyIdInput.value = '';
-        propertyImageInput.value = ''; // Limpa o input de arquivo
+        propertyImageUrlInput.value = ''; // Limpa o input de URL
         currentImagePreview.style.display = 'none';
         currentImagePreview.src = '';
         formTitle.textContent = 'Cadastrar Novo Imóvel';
@@ -112,73 +60,63 @@ document.addEventListener('DOMContentLoaded', () => {
         const price = parseFloat(propertyPriceInput.value);
         const description = propertyDescriptionInput.value;
         const status = propertyStatusSelect.value;
-        const imageFile = propertyImageInput.files[0];
+        const imageUrl = propertyImageUrlInput.value; // Pega a URL da imagem do input de texto
 
         if (!title || isNaN(price) || !description || !status) {
             showFormMessage('Por favor, preencha todos os campos.', true);
             return;
         }
 
-        let imageUrl = ''; // URL da imagem, se houver
-        let oldImageUrl = ''; // URL da imagem antiga para exclusão (em caso de edição)
-
-        // Se estiver editando e não for uma nova imagem, mantém a URL antiga
-        if (editingPropertyId) {
-            const doc = await propertiesRef.doc(editingPropertyId).get();
-            if (doc.exists && !imageFile) { // Se não enviou nova imagem, mantém a existente
-                imageUrl = doc.data().imageUrl || '';
-            }
-            oldImageUrl = doc.data().imageUrl || ''; // Guarda a URL antiga para possível exclusão
-        }
-
         submitPropertyBtn.disabled = true;
         submitPropertyBtn.textContent = editingPropertyId ? 'Salvando...' : 'Cadastrando...';
 
         try {
-            // Se houver uma nova imagem, faz o upload
-            if (imageFile) {
-                // Remove a imagem antiga do Storage se estiver editando e houver uma nova imagem
-                if (oldImageUrl && oldImageUrl !== imageUrl) {
-                    try {
-                        const oldImageRef = storage.refFromURL(oldImageUrl);
-                        await oldImageRef.delete();
-                        console.log("Imagem antiga removida do Storage.");
-                    } catch (deleteError) {
-                        console.warn("Não foi possível remover imagem antiga do Storage (pode não existir):", deleteError.message);
-                    }
-                }
-
-                const imageFileName = Date.now() + '-' + imageFile.name;
-                const imageUploadTask = storageRef.child('property_images/' + imageFileName).put(imageFile);
-
-                await imageUploadTask;
-                imageUrl = await imageUploadTask.snapshot.ref.getDownloadURL();
-                showFormMessage('Imagem enviada com sucesso!');
-            }
-
             const propertyData = {
                 title,
                 price,
                 description,
                 status,
-                imageUrl, // Pode ser vazio se não houver imagem
-                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                imageUrl // A URL da imagem fornecida pelo usuário
             };
 
+            let response;
             if (editingPropertyId) {
-                await propertiesRef.doc(editingPropertyId).update(propertyData);
-                showFormMessage('Imóvel atualizado com sucesso!');
+                // Atualizar imóvel existente
+                propertyData.id = editingPropertyId; // Envia o ID para a API saber qual atualizar
+                response = await fetch(API_URL, {
+                    method: 'POST',
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ action: 'updateProperty', property: propertyData })
+                });
             } else {
-                propertyData.createdAt = firebase.firestore.FieldValue.serverTimestamp();
-                await propertiesRef.add(propertyData);
-                showFormMessage('Imóvel cadastrado com sucesso!');
+                // Adicionar novo imóvel
+                response = await fetch(API_URL, {
+                    method: 'POST',
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ action: 'addProperty', property: propertyData })
+                });
             }
 
-            resetPropertyForm();
-            fetchAndDisplayAdminProperties(); // Recarrega a lista
+            const result = await response.json();
+
+            if (result.status === 'success') {
+                showFormMessage(editingPropertyId ? 'Imóvel atualizado com sucesso!' : 'Imóvel cadastrado com sucesso!');
+                resetPropertyForm();
+                fetchAndDisplayAdminProperties(); // Recarrega a lista
+            } else {
+                showFormMessage('Erro ao salvar imóvel: ' + (result.message || 'Erro desconhecido.'), true);
+            }
         } catch (error) {
             console.error("Erro ao salvar imóvel:", error);
-            showFormMessage('Erro ao salvar imóvel: ' + error.message, true);
+            showFormMessage('Erro de rede ou API: ' + error.message, true);
         } finally {
             submitPropertyBtn.disabled = false;
             submitPropertyBtn.textContent = editingPropertyId ? 'Atualizar Imóvel' : 'Cadastrar Imóvel';
@@ -189,30 +127,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const fetchAndDisplayAdminProperties = async () => {
         adminPropertyList.innerHTML = '<tr><td colspan="5">Carregando imóveis...</td></tr>';
         try {
-            // Busca todos os imóveis (disponíveis e vendidos)
-            const snapshot = await propertiesRef.orderBy('createdAt', 'desc').get();
-            if (snapshot.empty) {
-                adminPropertyList.innerHTML = '<tr><td colspan="5">Nenhum imóvel cadastrado.</td></tr>';
-                return;
-            }
+            const response = await fetch(`${API_URL}?action=getProperties`);
+            const data = await response.json();
 
-            adminPropertyList.innerHTML = ''; // Limpa a mensagem de carregamento
-            snapshot.forEach(doc => {
-                const property = doc.data();
-                const propertyId = doc.id;
-                const row = createPropertyTableRow(property, propertyId);
-                adminPropertyList.appendChild(row);
-            });
+            if (data.status === 'success') {
+                const properties = data.properties;
+                if (properties.length === 0) {
+                    adminPropertyList.innerHTML = '<tr><td colspan="5">Nenhum imóvel cadastrado.</td></tr>';
+                    return;
+                }
+
+                adminPropertyList.innerHTML = ''; // Limpa a mensagem de carregamento
+                properties.forEach(property => {
+                    const row = createPropertyTableRow(property);
+                    adminPropertyList.appendChild(row);
+                });
+            } else {
+                console.error("Erro na API ao buscar imóveis para admin:", data.message);
+                adminPropertyList.innerHTML = `<tr><td colspan="5" style="color:#f44336;">Erro ao carregar imóveis: ${data.message}.</td></tr>`;
+            }
         } catch (error) {
             console.error("Erro ao buscar imóveis para admin:", error);
-            adminPropertyList.innerHTML = '<tr><td colspan="5" style="color:#f44336;">Erro ao carregar imóveis.</td></tr>';
+            adminPropertyList.innerHTML = '<tr><td colspan="5" style="color:#f44336;">Erro de rede ou API ao carregar imóveis.</td></tr>';
         }
     };
 
     // Função para criar uma linha da tabela de imóvel
-    const createPropertyTableRow = (property, id) => {
+    const createPropertyTableRow = (property) => {
         const row = document.createElement('tr');
-        row.dataset.id = id;
+        row.dataset.id = property.id; // Assume que o ID vem da API
 
         const priceFormatted = parseFloat(property.price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
         const statusClass = property.status === 'disponivel' ? 'disponivel' : 'vendido';
@@ -223,75 +166,99 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>${priceFormatted}</td>
             <td><span class="status-badge ${statusClass}">${property.status.toUpperCase()}</span></td>
             <td class="actions">
-                <button class="edit-btn" data-id="${id}" title="Editar Imóvel"><i class="fas fa-edit"></i></button>
-                <button class="delete-btn" data-id="${id}" title="Excluir Imóvel"><i class="fas fa-trash-alt"></i></button>
+                <button class="edit-btn" data-id="${property.id}" title="Editar Imóvel"><i class="fas fa-edit"></i></button>
+                <button class="delete-btn" data-id="${property.id}" title="Excluir Imóvel"><i class="fas fa-trash-alt"></i></button>
             </td>
         `;
 
         // Adiciona listeners para os botões de ação
-        row.querySelector('.edit-btn').addEventListener('click', () => editProperty(id));
-        row.querySelector('.delete-btn').addEventListener('click', () => deleteProperty(id, property.imageUrl));
-
+        row.querySelector('.edit-btn').addEventListener('click', () => editProperty(property.id));
+        row.querySelector('.delete-btn').addEventListener('click', () => deleteProperty(property.id)); // Não precisa mais da URL da imagem para exclusão separada
         return row;
     };
 
     // Função para editar um imóvel
     const editProperty = async (id) => {
         try {
-            const doc = await propertiesRef.doc(id).get();
-            if (!doc.exists) {
-                alert("Imóvel não encontrado para edição.");
-                return;
-            }
-            const property = doc.data();
+            const response = await fetch(`${API_URL}?action=getProperty&id=${id}`);
+            const data = await response.json();
 
-            editingPropertyId = id;
-            formTitle.textContent = `Editar Imóvel: ${property.title}`;
-            submitPropertyBtn.textContent = 'Atualizar Imóvel';
+            if (data.status === 'success' && data.property) {
+                const property = data.property;
 
-            propertyIdInput.value = id;
-            propertyTitleInput.value = property.title;
-            propertyPriceInput.value = property.price;
-            propertyDescriptionInput.value = property.description;
-            propertyStatusSelect.value = property.status;
+                editingPropertyId = id;
+                formTitle.textContent = `Editar Imóvel: ${property.title}`;
+                submitPropertyBtn.textContent = 'Atualizar Imóvel';
 
-            if (property.imageUrl) {
-                currentImagePreview.src = property.imageUrl;
-                currentImagePreview.style.display = 'block';
+                propertyIdInput.value = id;
+                propertyTitleInput.value = property.title;
+                propertyPriceInput.value = property.price;
+                propertyDescriptionInput.value = property.description;
+                propertyStatusSelect.value = property.status;
+                propertyImageUrlInput.value = property.imageUrl || ''; // Preenche com a URL existente
+
+                if (property.imageUrl) {
+                    currentImagePreview.src = property.imageUrl;
+                    currentImagePreview.style.display = 'block';
+                } else {
+                    currentImagePreview.style.display = 'none';
+                }
+
+                // Rola para o formulário
+                propertyForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
             } else {
-                currentImagePreview.style.display = 'none';
+                console.error("Erro na API ao carregar imóvel para edição:", data.message);
+                alert("Erro ao carregar dados do imóvel para edição: " + (data.message || 'Erro desconhecido.'));
             }
-
-            // Rola para o formulário
-            propertyForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
         } catch (error) {
             console.error("Erro ao carregar imóvel para edição:", error);
-            alert("Erro ao carregar dados do imóvel para edição.");
+            alert("Erro de rede ou API ao carregar dados do imóvel para edição.");
         }
     };
 
     // Função para excluir um imóvel
-    const deleteProperty = async (id, imageUrl) => {
+    const deleteProperty = async (id) => {
         if (!confirm("Tem certeza que deseja excluir este imóvel? Esta ação é irreversível.")) {
             return;
         }
 
         try {
-            // Primeiro, tenta excluir a imagem do Storage (se existir)
-            if (imageUrl) {
-                const imageRef = storage.refFromURL(imageUrl);
-                await imageRef.delete();
-                console.log("Imagem removida do Storage.");
-            }
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ action: 'deleteProperty', id: id })
+            });
 
-            // Depois, exclui o documento do Firestore
-            await propertiesRef.doc(id).delete();
-            showFormMessage('Imóvel excluído com sucesso!');
-            fetchAndDisplayAdminProperties(); // Recarrega a lista
+            const result = await response.json();
+
+            if (result.status === 'success') {
+                showFormMessage('Imóvel excluído com sucesso!');
+                fetchAndDisplayAdminProperties(); // Recarrega a lista
+            } else {
+                showFormMessage('Erro ao excluir imóvel: ' + (result.message || 'Erro desconhecido.'), true);
+            }
         } catch (error) {
             console.error("Erro ao excluir imóvel:", error);
-            alert("Erro ao excluir imóvel: " + error.message);
+            alert("Erro de rede ou API ao excluir imóvel: " + error.message);
         }
     };
+
+    // Carrega a lista de imóveis quando o dashboard é exibido (neste caso, na inicialização)
+    fetchAndDisplayAdminProperties();
+
+    // Event listener para mostrar a pré-visualização da imagem URL
+    propertyImageUrlInput.addEventListener('input', () => {
+        const url = propertyImageUrlInput.value;
+        if (url) {
+            currentImagePreview.src = url;
+            currentImagePreview.style.display = 'block';
+        } else {
+            currentImagePreview.style.display = 'none';
+        }
+    });
 });
