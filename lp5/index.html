@@ -3,80 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equipe de Fotografia - Capturamos momentos que contam histórias</title>
+    <title>Fotografia Profissional - Capturamos momentos que contam histórias</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <a href="#" class="logo">PhotoStudio</a>
-                <ul class="nav-links">
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#about">Sobre</a></li>
-                    <li><a href="#portfolio">Portfólio</a></li>
-                    <li><a href="#services">Serviços</a></li>
-                    <li><a href="#testimonials">Depoimentos</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                </ul>
-                <button class="menu-toggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-    </nav>
+    <!-- Decorative Lines -->
+    <div class="decorative-line decorative-line-left"></div>
+    <div class="decorative-line decorative-line-right"></div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-background">
-            <div class="hero-slider">
-                <div class="hero-slide active" style="background-image: url('/placeholder.svg?height=1080&width=1920')"></div>
-                <div class="hero-slide" style="background-image: url('/placeholder.svg?height=1080&width=1920')"></div>
-                <div class="hero-slide" style="background-image: url('/placeholder.svg?height=1080&width=1920')"></div>
-            </div>
+            <div class="hero-slide active" style="background-image: url('public/luxury-modern-living-room-interior.jpg')"></div>
+            <div class="hero-slide" style="background-image: url('public/luxury-bedroom.png')"></div>
+            <div class="hero-slide" style="background-image: url('public/luxury-kitchen-modern-design.jpg')"></div>
             <div class="hero-overlay"></div>
         </div>
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Capturamos momentos que contam histórias</h1>
-                <p class="hero-subtitle">Transformamos instantes em memórias eternas através da nossa lente</p>
+
+        <div class="hero-content">
+            <div class="hero-label">
+                <div class="line"></div>
+                <span>FOTOGRAFIA PROFISSIONAL</span>
+                <div class="line"></div>
+            </div>
+
+            <h1 class="hero-title">
+                Capturamos<br>
+                <span class="italic">momentos</span> que<br>
+                contam <span class="bold">histórias</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                Transformamos instantes em memórias eternas através da arte da fotografia
+            </p>
+
+            <div class="hero-buttons">
                 <a href="#portfolio" class="btn btn-primary">Ver Portfólio</a>
+                <a href="#contact" class="btn btn-secondary">Fale Conosco</a>
             </div>
         </div>
+
         <div class="scroll-indicator">
-            <span></span>
+            <span class="scroll-text">SCROLL</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
+            <div class="section-header">
+                <span class="section-label">SOBRE NÓS</span>
+                <h2 class="section-title">
+                    Vamos criar algo<br>
+                    <span class="italic">incrível juntos</span>
+                </h2>
+            </div>
+
             <div class="about-content">
-                <div class="about-image">
-                    <img src="/placeholder.svg?height=600&width=800" alt="Nossa Equipe">
-                </div>
                 <div class="about-text">
-                    <h2 class="section-title">Sobre Nós</h2>
-                    <p class="section-description">
+                    <p class="large-text">
                         Somos uma equipe apaixonada por capturar a essência de cada momento. Com anos de experiência 
-                        em fotografia profissional, nos especializamos em transformar suas histórias em imagens 
-                        inesquecíveis.
+                        em fotografia profissional, nos especializamos em transformar suas histórias em imagens inesquecíveis.
                     </p>
-                    <p class="section-description">
+                    <p>
                         Nossa missão é criar memórias visuais que transcendem o tempo, combinando técnica, 
                         criatividade e um olhar único para cada projeto.
                     </p>
                     <div class="about-stats">
                         <div class="stat">
                             <span class="stat-number">500+</span>
-                            <span class="stat-label">Projetos</span>
+                            <span class="stat-label">Projetos Realizados</span>
                         </div>
                         <div class="stat">
                             <span class="stat-number">10+</span>
-                            <span class="stat-label">Anos</span>
+                            <span class="stat-label">Anos de Experiência</span>
                         </div>
                         <div class="stat">
                             <span class="stat-number">100%</span>
@@ -91,9 +97,13 @@
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio">
         <div class="container">
-            <h2 class="section-title">Nosso Portfólio</h2>
-            <p class="section-subtitle">Explore nosso trabalho através de diferentes categorias</p>
-            
+            <div class="section-header">
+                <span class="section-label">PORTFÓLIO</span>
+                <h2 class="section-title">
+                    Nossos <span class="italic">Trabalhos</span>
+                </h2>
+            </div>
+
             <div class="portfolio-filters">
                 <button class="filter-btn active" data-filter="all">Todos</button>
                 <button class="filter-btn" data-filter="photos">Fotos</button>
@@ -103,83 +113,104 @@
 
             <div class="portfolio-grid">
                 <!-- Photos -->
-                <div class="portfolio-item" data-category="photos" data-type="gallery">
+                <div class="portfolio-item" data-category="photos">
                     <div class="portfolio-image">
-                        <img src="/placeholder.svg?height=400&width=600" alt="Fotografia Imobiliária">
+                        <img src="public/luxury-modern-living-room-interior.jpg" alt="Interiores Modernos">
                         <div class="portfolio-overlay">
-                            <h3>Fotografia Imobiliária</h3>
-                            <p>Imóveis de Luxo</p>
-                            <button class="view-btn">Ver Galeria</button>
+                            <h3>Interiores Modernos</h3>
+                            <div class="portfolio-line"></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="portfolio-item" data-category="photos" data-type="gallery">
+                <div class="portfolio-item" data-category="photos">
                     <div class="portfolio-image">
-                        <img src="/placeholder.svg?height=400&width=600" alt="Casamentos">
+                        <img src="public/luxury-bedroom.png" alt="Ambientes Elegantes">
                         <div class="portfolio-overlay">
-                            <h3>Casamentos</h3>
-                            <p>Momentos Especiais</p>
-                            <button class="view-btn">Ver Galeria</button>
+                            <h3>Ambientes Elegantes</h3>
+                            <div class="portfolio-line"></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="portfolio-item" data-category="photos" data-type="gallery">
+                <div class="portfolio-item" data-category="photos">
                     <div class="portfolio-image">
-                        <img src="/placeholder.svg?height=400&width=600" alt="Corporativo">
+                        <img src="public/luxury-kitchen-modern-design.jpg" alt="Design Contemporâneo">
                         <div class="portfolio-overlay">
-                            <h3>Corporativo</h3>
-                            <p>Fotografia Profissional</p>
-                            <button class="view-btn">Ver Galeria</button>
+                            <h3>Design Contemporâneo</h3>
+                            <div class="portfolio-line"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="photos">
+                    <div class="portfolio-image">
+                        <img src="public/luxury-bathroom-spa-design.jpg" alt="Espaços Sofisticados">
+                        <div class="portfolio-overlay">
+                            <h3>Espaços Sofisticados</h3>
+                            <div class="portfolio-line"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="photos">
+                    <div class="portfolio-image">
+                        <img src="public/luxury-dining-room-elegant.jpg" alt="Arquitetura Premium">
+                        <div class="portfolio-overlay">
+                            <h3>Arquitetura Premium</h3>
+                            <div class="portfolio-line"></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Videos -->
-                <div class="portfolio-item" data-category="videos" data-type="video">
+                <div class="portfolio-item" data-category="videos">
                     <div class="portfolio-image">
-                        <img src="/placeholder.svg?height=400&width=600" alt="Vídeo Corporativo">
+                        <img src="public/luxury-modern-living-room-interior.jpg" alt="Making Of 2024">
                         <div class="portfolio-overlay">
-                            <div class="play-icon">▶</div>
-                            <h3>Vídeo Corporativo</h3>
-                            <p>Institucional</p>
-                            <button class="view-btn">Assistir</button>
+                            <div class="play-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                            <h3>Making Of - Sessão 2024</h3>
+                            <div class="portfolio-line"></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="portfolio-item" data-category="videos" data-type="video">
+                <div class="portfolio-item" data-category="videos">
                     <div class="portfolio-image">
-                        <img src="/placeholder.svg?height=400&width=600" alt="Vídeo de Casamento">
+                        <img src="public/luxury-bedroom.png" alt="Behind the Scenes">
                         <div class="portfolio-overlay">
-                            <div class="play-icon">▶</div>
-                            <h3>Vídeo de Casamento</h3>
-                            <p>Filme Completo</p>
-                            <button class="view-btn">Assistir</button>
+                            <div class="play-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                            <h3>Behind the Scenes</h3>
+                            <div class="portfolio-line"></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Stories -->
-                <div class="portfolio-item" data-category="stories" data-type="stories">
+                <div class="portfolio-item" data-category="stories">
                     <div class="portfolio-image">
-                        <img src="/placeholder.svg?height=400&width=600" alt="Stories Comerciais">
+                        <img src="public/instagram-story-photography-behind-the-scenes.jpg" alt="Bastidores">
                         <div class="portfolio-overlay">
-                            <h3>Stories Comerciais</h3>
-                            <p>Conteúdo para Redes</p>
-                            <button class="view-btn">Ver Stories</button>
+                            <h3>Bastidores</h3>
+                            <div class="portfolio-line"></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="portfolio-item" data-category="stories" data-type="stories">
+                <div class="portfolio-item" data-category="stories">
                     <div class="portfolio-image">
-                        <img src="/placeholder.svg?height=400&width=600" alt="Bastidores">
+                        <img src="public/instagram-story-wedding-photography-vertical.jpg" alt="Momentos">
                         <div class="portfolio-overlay">
-                            <h3>Bastidores</h3>
-                            <p>Behind the Scenes</p>
-                            <button class="view-btn">Ver Stories</button>
+                            <h3>Momentos</h3>
+                            <div class="portfolio-line"></div>
                         </div>
                     </div>
                 </div>
@@ -190,42 +221,46 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">Nossos Serviços</h2>
-            <p class="section-subtitle">Soluções completas para todas as suas necessidades</p>
-            
+            <div class="section-header">
+                <span class="section-label">SERVIÇOS</span>
+                <h2 class="section-title">
+                    O que <span class="italic">fazemos</span>
+                </h2>
+            </div>
+
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">📸</div>
+                    <div class="service-number">01</div>
                     <h3>Fotografia</h3>
-                    <p>Sessões fotográficas profissionais para eventos, produtos, retratos e muito mais.</p>
+                    <p>Sessões fotográficas profissionais para eventos, produtos, retratos e arquitetura.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🎥</div>
+                    <div class="service-number">02</div>
                     <h3>Filmagem</h3>
                     <p>Produção de vídeos cinematográficos e institucionais com qualidade excepcional.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">✂️</div>
+                    <div class="service-number">03</div>
                     <h3>Edição</h3>
                     <p>Pós-produção profissional para fotos e vídeos com acabamento impecável.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🏢</div>
+                    <div class="service-number">04</div>
                     <h3>Imobiliária</h3>
                     <p>Fotografia especializada em imóveis para destacar cada detalhe.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">💍</div>
+                    <div class="service-number">05</div>
                     <h3>Casamentos</h3>
                     <p>Cobertura completa do seu dia especial com sensibilidade e arte.</p>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">📱</div>
+                    <div class="service-number">06</div>
                     <h3>Conteúdo Digital</h3>
                     <p>Criação de conteúdo para redes sociais e marketing digital.</p>
                 </div>
@@ -236,68 +271,64 @@
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
         <div class="container">
-            <h2 class="section-title">O Que Dizem Nossos Clientes</h2>
-            
-            <div class="testimonials-slider">
-                <div class="testimonial-track">
-                    <div class="testimonial-card active">
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">
-                                "Trabalho excepcional! A equipe capturou perfeitamente a essência do nosso casamento. 
-                                As fotos são simplesmente deslumbrantes e vamos guardá-las para sempre."
-                            </p>
-                            <div class="testimonial-author">
-                                <img src="/placeholder.svg?height=60&width=60" alt="Maria e João">
-                                <div>
-                                    <h4>Maria e João Silva</h4>
-                                    <p>Casamento</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="section-header">
+                <span class="section-label">DEPOIMENTOS</span>
+                <h2 class="section-title">
+                    O que dizem <span class="italic">nossos clientes</span>
+                </h2>
+            </div>
 
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">
-                                "Profissionalismo impecável! As fotos dos nossos imóveis ficaram incríveis e 
-                                aumentaram significativamente o interesse dos compradores. Recomendo muito!"
-                            </p>
-                            <div class="testimonial-author">
-                                <img src="/placeholder.svg?height=60&width=60" alt="Carlos Mendes">
-                                <div>
-                                    <h4>Carlos Mendes</h4>
-                                    <p>Imobiliária Premium</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="testimonial-content">
-                            <p class="testimonial-text">
-                                "A criatividade e atenção aos detalhes são impressionantes. O vídeo institucional 
-                                superou todas as nossas expectativas. Parceria de longo prazo garantida!"
-                            </p>
-                            <div class="testimonial-author">
-                                <img src="/placeholder.svg?height=60&width=60" alt="Ana Costa">
-                                <div>
-                                    <h4>Ana Costa</h4>
-                                    <p>Diretora de Marketing</p>
-                                </div>
-                            </div>
-                        </div>
+            <div class="testimonials-container">
+                <div class="testimonial-card active">
+                    <p class="testimonial-text">
+                        "Trabalho excepcional! A equipe capturou perfeitamente a essência do nosso casamento. 
+                        As fotos são simplesmente deslumbrantes e vamos guardá-las para sempre."
+                    </p>
+                    <div class="testimonial-author">
+                        <h4>Maria e João Silva</h4>
+                        <p>Casamento</p>
                     </div>
                 </div>
 
-                <div class="testimonial-controls">
-                    <button class="testimonial-prev">‹</button>
-                    <div class="testimonial-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Profissionalismo impecável! As fotos dos nossos imóveis ficaram incríveis e 
+                        aumentaram significativamente o interesse dos compradores. Recomendo muito!"
+                    </p>
+                    <div class="testimonial-author">
+                        <h4>Carlos Mendes</h4>
+                        <p>Imobiliária Premium</p>
                     </div>
-                    <button class="testimonial-next">›</button>
                 </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "A criatividade e atenção aos detalhes são impressionantes. O vídeo institucional 
+                        superou todas as nossas expectativas. Parceria de longo prazo garantida!"
+                    </p>
+                    <div class="testimonial-author">
+                        <h4>Ana Costa</h4>
+                        <p>Diretora de Marketing</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-controls">
+                <button class="testimonial-prev" aria-label="Anterior">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <div class="testimonial-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <button class="testimonial-next" aria-label="Próximo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
             </div>
         </div>
     </section>
@@ -305,44 +336,32 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Entre em Contato</h2>
-            <p class="section-subtitle">Vamos criar algo incrível juntos</p>
-            
-            <div class="contact-content">
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" id="name" required>
-                        <label for="name">Nome</label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="email" id="email" required>
-                        <label for="email">Email</label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <textarea id="message" rows="5" required></textarea>
-                        <label for="message">Mensagem</label>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-                </form>
-
+            <div class="contact-grid">
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <h3>Redes Sociais</h3>
+                    <span class="section-label">CONTATO</span>
+                    <h2 class="section-title">
+                        Vamos criar algo<br>
+                        <span class="italic">incrível juntos</span>
+                    </h2>
+                    <p class="contact-description">
+                        Entre em contato conosco e vamos transformar suas ideias em realidade. 
+                        Estamos prontos para capturar seus momentos mais especiais.
+                    </p>
+
+                    <div class="social-section">
+                        <div class="social-label">REDES SOCIAIS</div>
                         <div class="social-links">
-                            <a href="#" aria-label="Instagram">
+                            <a href="#" aria-label="Instagram" class="social-link">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                                 </svg>
                             </a>
-                            <a href="#" aria-label="Facebook">
+                            <a href="#" aria-label="Facebook" class="social-link">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                                 </svg>
                             </a>
-                            <a href="#" aria-label="YouTube">
+                            <a href="#" aria-label="YouTube" class="social-link">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                                 </svg>
@@ -350,13 +369,38 @@
                         </div>
                     </div>
 
-                    <a href="https://wa.me/5511999999999" class="whatsapp-btn" target="_blank">
+                    <a href="https://wa.me/5511999999999" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                         </svg>
                         Fale no WhatsApp
                     </a>
                 </div>
+
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">NOME</label>
+                        <input type="text" id="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">EMAIL</label>
+                        <input type="email" id="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">MENSAGEM</label>
+                        <textarea id="message" rows="6" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span>Enviar Mensagem</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </form>
             </div>
         </div>
     </section>
@@ -366,10 +410,10 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <h3 class="logo">PhotoStudio</h3>
+                    <h3>PHOTO<span>STUDIO</span></h3>
                     <p>Capturando momentos, criando memórias.</p>
                 </div>
-                
+
                 <div class="footer-links">
                     <h4>Links Rápidos</h4>
                     <ul>
@@ -377,62 +421,38 @@
                         <li><a href="#about">Sobre</a></li>
                         <li><a href="#portfolio">Portfólio</a></li>
                         <li><a href="#services">Serviços</a></li>
+                        <li><a href="#contact">Contato</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-contact">
                     <h4>Contato</h4>
                     <p>contato@photostudio.com</p>
                     <p>(11) 99999-9999</p>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 PhotoStudio. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Modals -->
     <!-- Gallery Modal -->
     <div id="galleryModal" class="modal">
-        <div class="modal-content gallery-modal">
-            <button class="modal-close">&times;</button>
-            <div class="gallery-container">
-                <button class="gallery-prev">‹</button>
-                <img src="/placeholder.svg" alt="Gallery Image" class="gallery-image">
-                <button class="gallery-next">›</button>
-            </div>
-            <div class="gallery-thumbnails"></div>
-        </div>
-    </div>
-
-    <!-- Video Modal -->
-    <div id="videoModal" class="modal">
-        <div class="modal-content video-modal">
-            <button class="modal-close">&times;</button>
-            <div class="video-container">
-                <iframe src="/placeholder.svg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-
-    <!-- Stories Modal -->
-    <div id="storiesModal" class="modal">
-        <div class="modal-content stories-modal">
-            <button class="modal-close">&times;</button>
-            <div class="stories-container">
-                <div class="story active">
-                    <img src="/placeholder.svg?height=800&width=450" alt="Story 1">
-                    <div class="story-progress">
-                        <div class="progress-bar active"></div>
-                        <div class="progress-bar"></div>
-                        <div class="progress-bar"></div>
-                    </div>
-                </div>
-            </div>
-            <button class="stories-prev">‹</button>
-            <button class="stories-next">›</button>
+        <button class="modal-close" aria-label="Fechar">&times;</button>
+        <div class="modal-content">
+            <button class="gallery-nav gallery-prev" aria-label="Anterior">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <img src="/placeholder.svg" alt="Gallery Image" class="gallery-image">
+            <button class="gallery-nav gallery-next" aria-label="Próximo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
         </div>
     </div>
 
