@@ -249,7 +249,7 @@ body {
 
 .checklist {
   margin-top: 2rem;
-  space: 1rem;
+  scale: 1rem;
 }
 
 .check-item {
